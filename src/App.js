@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2 , MessageSquare, Calculator, ChevronRight, Check, X, Star, Quote, MapPin, Globe } from 'lucide-react';
+import { Building2, MessageSquare, Calculator, ChevronRight, Check, X, Star, Quote, MapPin, Globe } from 'lucide-react';
 
 export default function CostaCapitalLanding() {
   const [language, setLanguage] = useState('nl');
