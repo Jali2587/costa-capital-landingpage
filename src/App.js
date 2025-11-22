@@ -141,7 +141,7 @@ export default function CostaCapitalLanding() {
       hero: {
         badge: 'Specialized in Spanish Real Estate Market',
         title: 'Real Estate Financing\nSpain & Europe',
-        subtitle: 'Expert in Costa Blanca and Valencia region. Financing for international investors and local developers. From €300K to €25M+.',
+        subtitle: 'Expert in Costa Blanca and Valencia region. Financing for international investors and local developers. From €500K to €50M+.',
         cta1: 'Start AI Chat',
         cta2: 'Calculate Financing',
         location: 'Based in Valencia, Spain'
@@ -665,7 +665,8 @@ export default function CostaCapitalLanding() {
           <div>
             <h4 className="font-semibold mb-4">{text.footer.contact}</h4>
             <p className="text-slate-400">info@costacapital.pro</p>
-            <p className="text-slate-400">+34 96 123 4567</p>
+            <p className="text-slate-400">+31 6 8175 2045</p>
+            <p className="text-xs text-slate-500 mt-2">(WhatsApp beschikbaar)</p>
           </div>
           <div>
             <h4 className="font-semibold mb-4">{text.footer.location}</h4>
@@ -786,8 +787,8 @@ export default function CostaCapitalLanding() {
                 </label>
                 <input
                   type="range"
-                  min="100000"
-                  max="10000000"
+                  min="500000"
+                  max="50000000"
                   step="100000"
                   value={loanAmount}
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
@@ -801,9 +802,9 @@ export default function CostaCapitalLanding() {
                 </label>
                 <input
                   type="range"
-                  min="200000"
-                  max="15000000"
-                  step="100000"
+                  min="750000"
+                  max="75000000"
+                  step="250000"
                   value={projectValue}
                   onChange={(e) => setProjectValue(Number(e.target.value))}
                   className="w-full"
