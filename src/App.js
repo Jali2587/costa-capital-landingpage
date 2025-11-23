@@ -97,9 +97,9 @@ export default function CostaCapitalLanding() {
       },
       cta: {
         title: 'Klaar voor uw Spaanse vastgoedproject?',
-        subtitle: 'Bespreek uw plannen met onze Valencia-based AI-adviseur of plan een persoonlijk gesprek in Valencia',
+        subtitle: 'Bespreek uw plannen met onze Valencia-based AI-adviseur of plan een persoonlijk gesprek in',
         btn1: 'Start Gesprek',
-        btn2: 'Plan Meeting Valencia'
+        btn2: 'Plan Meeting'
       },
       footer: {
         desc: 'Specialist in vastgoedfinanciering voor internationale investeerders en lokale ontwikkelaars in Spanje.',
@@ -217,9 +217,9 @@ export default function CostaCapitalLanding() {
       },
       cta: {
         title: 'Ready for Your Spanish Real Estate Project?',
-        subtitle: 'Discuss your plans with our Valencia-based AI advisor or schedule a personal meeting in Valencia',
+        subtitle: 'Discuss your plans with our Valencia-based AI advisor or schedule a personal meeting in',
         btn1: 'Start Conversation',
-        btn2: 'Schedule Valencia Meeting'
+        btn2: 'Schedule Meeting'
       },
       footer: {
         desc: 'Specialist in real estate financing for international investors and local developers in Spain.',
@@ -394,6 +394,68 @@ export default function CostaCapitalLanding() {
   const ltv = ((loanAmount / projectValue) * 100).toFixed(1);
   const monthlyRate = 0.008;
   const monthlyPayment = (loanAmount * monthlyRate).toFixed(0);
+
+  // Email template functie
+  const openMeetingEmail = () => {
+    const subject = language === 'nl' 
+      ? 'Aanvraag Meeting - Costa Capital'
+      : 'Meeting Request - Costa Capital';
+    
+    const body = language === 'nl'
+      ? `Beste Costa Capital team,
+
+Ik ben geïnteresseerd in het plannen van een persoonlijk gesprek om mijn vastgoedproject in Spanje te bespreken.
+
+MIJN GEGEVENS:
+Naam: [Uw volledige naam]
+Telefoon: [Uw telefoonnummer]
+Email: [Uw email adres]
+
+PROJECTINFORMATIE:
+Locatie: [bijv. Valencia, Alicante, Dénia, Jávea]
+Type project: [bijv. Villa ontwikkeling, Hotel renovatie, Commercieel vastgoed]
+Geschatte projectwaarde: € [bedrag]
+Gewenste financiering: € [bedrag]
+Gewenste startdatum: [datum]
+
+VOORKEUR MEETING:
+Gewenste datum/tijd: [uw voorkeur]
+Locatie voorkeur: [Online videocall / Persoonlijk in Valencia / Op locatie project]
+
+AANVULLENDE INFORMATIE:
+[Vertel ons meer over uw project of specifieke vragen]
+
+Met vriendelijke groet,
+[Uw naam]`
+      : `Dear Costa Capital team,
+
+I am interested in scheduling a personal meeting to discuss my real estate project in Spain.
+
+MY DETAILS:
+Name: [Your full name]
+Phone: [Your phone number]
+Email: [Your email address]
+
+PROJECT INFORMATION:
+Location: [e.g. Valencia, Alicante, Dénia, Jávea]
+Project type: [e.g. Villa development, Hotel renovation, Commercial real estate]
+Estimated project value: € [amount]
+Desired financing: € [amount]
+Desired start date: [date]
+
+MEETING PREFERENCE:
+Preferred date/time: [your preference]
+Location preference: [Online video call / In person in Valencia / At project location]
+
+ADDITIONAL INFORMATION:
+[Tell us more about your project or specific questions]
+
+Best regards,
+[Your name]`;
+
+    const mailtoLink = `mailto:info@costacapital.pro?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -647,7 +709,10 @@ export default function CostaCapitalLanding() {
             >
               {text.cta.btn1}
             </button>
-            <button className="bg-orange-700 hover:bg-orange-800 px-8 py-4 rounded-lg font-semibold text-lg transition">
+            <button 
+              onClick={openMeetingEmail}
+              className="bg-orange-700 hover:bg-orange-800 px-8 py-4 rounded-lg font-semibold text-lg transition"
+            >
               {text.cta.btn2}
             </button>
           </div>
