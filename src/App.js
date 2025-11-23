@@ -5,6 +5,7 @@ export default function CostaCapitalLanding() {
   const [language, setLanguage] = useState('nl');
   const [chatOpen, setChatOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -118,7 +119,7 @@ export default function CostaCapitalLanding() {
           'Hoe werkt het NIE proces voor buitenlandse investeerders?',
           'Welke LTV hanteert Costa Capital voor Costa Blanca projecten?'
         ],
-        systemPrompt: 'Je bent een financieel adviseur voor Costa Capital, gespecialiseerd in vastgoedfinanciering voor de Spaanse markt, met name Valencia en Costa Blanca. Je helpt internationale investeerders en lokale ontwikkelaars met vragen over financiering, Spaanse regelgeving (NIE, escritura, nota simple), en het investeren in Spanje. Wees professioneel en focus op Costa Capital\'s unieke positie: lokaal kantoor in Valencia, begrip van Spaanse markt, ervaring met cross-border deals. Antwoord in het Nederlands.'
+        systemPrompt: 'Je bent een financieel adviseur voor Costa Capital, gespecialiseerd in vastgoedfinanciering voor de Spaanse markt, met name Valencia en Costa Blanca. Je helpt internationale investeerders en lokale ontwikkelaars met vragen over financiering, Spaanse regelgeving (NIE, escritura, nota simple), en het investeren in Spanje. \n\nWees professioneel, commercieel en to-the-point. Je doel is om leads te genereren door waarde te bieden en interesse te wekken.\n\nBelangrijk gedrag:\n- Beantwoord vragen nuttig en compleet\n- Na 2-3 berichten uitwisseling, moedig subtiel aan om contact op te nemen voor een persoonlijk gesprek\n- Vermeld: "Voor een gedetailleerde analyse van uw specifieke project, neem gerust contact met ons op via info@costacapital.pro of bel +31 6 8175 2045 (WhatsApp mogelijk)"\n- Benadruk unieke voordelen: lokaal kantoor Valencia, ervaring met internationale investeerders, snelle beslissingen\n- Wees enthousiast maar niet pusherig\n- Minimale financiering €500K, maximaal €50M+\n\nAntwoord in het Nederlands.'
       },
       calc: {
         title: 'Financiering Calculator',
@@ -238,7 +239,7 @@ export default function CostaCapitalLanding() {
           'How does the NIE process work for foreign investors?',
           'What LTV does Costa Capital use for Costa Blanca projects?'
         ],
-        systemPrompt: 'You are a financial advisor for Costa Capital, specialized in real estate financing for the Spanish market, particularly Valencia and Costa Blanca. You help international investors and local developers with questions about financing, Spanish regulations (NIE, escritura, nota simple), and investing in Spain. Be professional and focus on Costa Capital\'s unique position: local office in Valencia, understanding of Spanish market, experience with cross-border deals. Answer in English.'
+        systemPrompt: 'You are a financial advisor for Costa Capital, specialized in real estate financing for the Spanish market, particularly Valencia and Costa Blanca. You help international investors and local developers with questions about financing, Spanish regulations (NIE, escritura, nota simple), and investing in Spain.\n\nBe professional, commercial and to-the-point. Your goal is to generate leads by providing value and creating interest.\n\nImportant behavior:\n- Answer questions helpfully and completely\n- After 2-3 message exchanges, subtly encourage contact for a personal conversation\n- Mention: "For a detailed analysis of your specific project, feel free to contact us at info@costacapital.pro or call +31 6 8175 2045 (WhatsApp available)"\n- Emphasize unique advantages: local Valencia office, experience with international investors, fast decisions\n- Be enthusiastic but not pushy\n- Minimum financing €500K, maximum €50M+\n\nAnswer in English.'
       },
       calc: {
         title: 'Financing Calculator',
@@ -382,8 +383,8 @@ export default function CostaCapitalLanding() {
       setChatMessages(prev => [...prev, { 
         role: 'assistant', 
         content: language === 'nl' 
-          ? 'Excuses, er ging iets mis. Neem direct contact op via info@costacapital.pro of bel ons Valencia kantoor.' 
-          : 'Sorry, something went wrong. Please contact us directly at info@costacapital.pro or call our Valencia office.'
+          ? 'Excuses, er ging iets mis. Neem direct contact op via info@costacapital.pro of bel/WhatsApp +31 6 8175 2045.' 
+          : 'Sorry, something went wrong. Please contact us directly at info@costacapital.pro or call/WhatsApp +31 6 8175 2045.'
       }]);
     } finally {
       setIsLoading(false);
@@ -422,7 +423,10 @@ export default function CostaCapitalLanding() {
               EN
             </button>
           </div>
-          <button className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-lg font-semibold transition">
+          <button 
+            onClick={() => setContactOpen(true)}
+            className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-lg font-semibold transition"
+          >
             {text.nav.contact}
           </button>
         </div>
@@ -855,6 +859,113 @@ export default function CostaCapitalLanding() {
                 className="w-full bg-orange-500 hover:bg-orange-600 py-3 rounded-lg font-semibold transition"
               >
                 {text.calc.discuss}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Contact Modal */}
+      {contactOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-slate-800 rounded-xl w-full max-w-md border border-slate-700">
+            <div className="flex justify-between items-center p-6 border-b border-slate-700">
+              <div>
+                <h3 className="text-xl font-bold">
+                  {language === 'nl' ? 'Neem Contact Op' : 'Get in Touch'}
+                </h3>
+                <p className="text-sm text-slate-400">
+                  {language === 'nl' ? 'Bespreek uw project met ons' : 'Discuss your project with us'}
+                </p>
+              </div>
+              <button onClick={() => setContactOpen(false)} className="text-slate-400 hover:text-white">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            
+            <div className="p-6 space-y-6">
+              <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 border border-orange-500/20 rounded-xl p-6">
+                <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                  <MessageSquare className="w-5 h-5 text-orange-400" />
+                  {language === 'nl' ? 'Direct Contact' : 'Direct Contact'}
+                </h4>
+                
+                <div className="space-y-4">
+                  <a 
+                    href="tel:+31681752045"
+                    className="flex items-center gap-3 bg-slate-700 hover:bg-slate-600 p-4 rounded-lg transition group"
+                  >
+                    <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition">
+                      📞
+                    </div>
+                    <div>
+                      <div className="font-semibold">+31 6 8175 2045</div>
+                      <div className="text-sm text-slate-400">
+                        {language === 'nl' ? 'Bel of WhatsApp ons' : 'Call or WhatsApp us'}
+                      </div>
+                    </div>
+                  </a>
+                  
+                  <a 
+                    href="mailto:info@costacapital.pro"
+                    className="flex items-center gap-3 bg-slate-700 hover:bg-slate-600 p-4 rounded-lg transition group"
+                  >
+                    <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition">
+                      ✉️
+                    </div>
+                    <div>
+                      <div className="font-semibold">info@costacapital.pro</div>
+                      <div className="text-sm text-slate-400">
+                        {language === 'nl' ? 'Stuur ons een email' : 'Send us an email'}
+                      </div>
+                    </div>
+                  </a>
+                  
+                  <a 
+                    href="https://wa.me/31681752045"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 bg-green-600 hover:bg-green-700 p-4 rounded-lg transition group"
+                  >
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition">
+                      💬
+                    </div>
+                    <div>
+                      <div className="font-semibold">WhatsApp</div>
+                      <div className="text-sm text-green-200">
+                        {language === 'nl' ? 'Chat direct met ons' : 'Chat with us directly'}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              
+              <div className="bg-slate-700/50 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                  <div className="text-sm text-slate-300">
+                    <div className="font-semibold mb-1">
+                      {language === 'nl' ? 'Ons Kantoor' : 'Our Office'}
+                    </div>
+                    <div>Valencia, Spanje</div>
+                    <div className="text-slate-400 mt-1">
+                      {language === 'nl' 
+                        ? 'Lokaal team met internationale ervaring'
+                        : 'Local team with international experience'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => {
+                  setContactOpen(false);
+                  setChatOpen(true);
+                }}
+                className="w-full bg-orange-500 hover:bg-orange-600 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2"
+              >
+                <MessageSquare className="w-5 h-5" />
+                {language === 'nl' ? 'Of chat met onze AI Adviseur' : 'Or chat with our AI Advisor'}
               </button>
             </div>
           </div>
