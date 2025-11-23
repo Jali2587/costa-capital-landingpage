@@ -374,6 +374,126 @@ export default function CostaCapitalLanding() {
         note: '✓ Этот расчет основан на стандартных условиях для испанских проектов. Для точного предложения мы с радостью свяжемся с вами.',
         discuss: 'Обсудить с AI консультантом'
       }
+    },
+    de: {
+      nav: {
+        contact: 'Kontakt'
+      },
+      hero: {
+        badge: 'Spezialisiert auf den spanischen Immobilienmarkt',
+        title: 'Immobilienfinanzierung\nSpanien & Europa',
+        subtitle: 'Experte in der Region Costa Blanca und Valencia. Finanzierung für internationale Investoren und lokale Entwickler. Von €500K bis €50M+.',
+        cta1: 'KI-Chat starten',
+        cta2: 'Finanzierung berechnen',
+        location: 'Ansässig in Valencia, Spanien'
+      },
+      stats: {
+        financed: 'Finanziert in Spanien',
+        response: 'Erste Antwort',
+        projects: 'Spanische Projekte',
+        satisfaction: 'Kundenzufriedenheit'
+      },
+      features: {
+        title: 'Warum Costa Capital für Spanien?',
+        speed: {
+          title: 'Lokale Expertise',
+          desc: 'Büro in Valencia mit fundiertem Wissen über den spanischen Markt, Gesetzgebung und lokales Bankensystem. Wir sprechen die Sprache - buchstäblich und im übertragenen Sinne.'
+        },
+        flex: {
+          title: 'Internationale Strukturen',
+          desc: 'Erfahrung mit grenzüberschreitenden Geschäften, Offshore-Strukturen und Steueroptimierung für ausländische Investoren in Spanien.'
+        },
+        complex: {
+          title: 'Costa Blanca Spezialist',
+          desc: 'Valencia, Alicante, Benidorm, Dénia, Jávea. Wir kennen die Costa Blanca wie unsere Westentasche und haben Netzwerke mit lokalen Notaren, Anwälten und Entwicklern.'
+        }
+      },
+      markets: {
+        title: 'Unsere Spezialisierungen in Spanien',
+        subtitle: 'Von Küstenimmobilien bis zur Stadtentwicklung',
+        coastal: {
+          title: 'Costa Blanca Wohnimmobilien',
+          desc: 'Luxusvillen, Apartments und Resort-Entwicklungen entlang der Costa Blanca. LTV bis zu 70% für starke Standorte.'
+        },
+        commercial: {
+          title: 'Gewerbeimmobilien',
+          desc: 'Einzelhandel, Gastronomie und Büroflächen in Valencia Stadt und Umgebung. Ideal für internationale Einzelhändler.'
+        },
+        tourism: {
+          title: 'Tourismusprojekte',
+          desc: 'Hotels, Ferienhäuser und Kurzzeitvermietungskomplexe. Verständnis für spanische Tourismuslizenzen und Vorschriften.'
+        }
+      },
+      reviews: {
+        title: 'Erfolgreiche Finanzierungen in Spanien',
+        subtitle: 'Was unsere Kunden über ihre Projekte an der Costa Blanca sagen'
+      },
+      spanish: {
+        title: 'Der spanische Immobilienmarkt',
+        intro: 'Warum in die Region Valencia investieren?',
+        points: [
+          '300+ Sonnentage im Jahr - ideales Klima',
+          'Wachsende internationale Nachfrage nach Küstenimmobilien',
+          'Valencia: drittgrößte Stadt Spaniens, starkes Wachstum',
+          'Relativ niedrige Immobilienpreise im Vergleich zu anderen EU-Küstenregionen',
+          'Stabiler Mietmarkt dank Tourismus',
+          'Neue Infrastruktur: AVE-Hochgeschwindigkeitszug, Flughafenerweiterung'
+        ]
+      },
+      process: {
+        title: 'Der Finanzierungsprozess',
+        subtitle: 'Von der Anfrage bis zum Abschluss in Spanien'
+      },
+      social: {
+        title: 'Warum internationale Investoren uns wählen',
+        benefits: [
+          'Unterstützung bei NIE-Antrag und spanischem Bankkonto',
+          'Netzwerk zuverlässiger lokaler Anwälte und Notare',
+          'Erfahrung mit Residencia- und Golden-Visa-Verfahren',
+          'Kenntnisse über Ley de Costas und andere spanische Vorschriften',
+          'Steuerliche Strukturierung über niederländische und spanische Partner',
+          'Projektmanagement-Unterstützung während der Bauphase'
+        ]
+      },
+      cta: {
+        title: 'Bereit für Ihr spanisches Immobilienprojekt?',
+        subtitle: 'Besprechen Sie Ihre Pläne mit unserem KI-Berater aus Valencia oder vereinbaren Sie ein persönliches Gespräch',
+        btn1: 'Gespräch beginnen',
+        btn2: 'Meeting planen'
+      },
+      footer: {
+        desc: 'Spezialist für Immobilienfinanzierung für internationale Investoren und lokale Entwickler in Spanien.',
+        contact: 'Kontakt',
+        location: 'Standort',
+        valencia: 'Valencia, Spanien (Hauptsitz)',
+        denia: 'Dénia, Costa Blanca',
+        rights: '© 2024 Costa Capital. Alle Rechte vorbehalten. Registriert in Spanien'
+      },
+      chat: {
+        title: 'KI-Finanzberater',
+        subtitle: 'Stellen Sie Ihre Fragen zur Finanzierung in Spanien',
+        placeholder: 'Stellen Sie Ihre Frage...',
+        empty: 'Beginnen Sie ein Gespräch über Ihr spanisches Immobilienprojekt',
+        suggestions: [
+          'Was sind die Konditionen für eine Finanzierung in Valencia?',
+          'Wie funktioniert der NIE-Prozess für ausländische Investoren?',
+          'Welchen LTV wendet Costa Capital für Costa Blanca-Projekte an?'
+        ],
+        systemPrompt: 'Sie sind ein Finanzberater für Costa Capital, spezialisiert auf Immobilienfinanzierung für den spanischen Markt, insbesondere Valencia und Costa Blanca. Sie helfen internationalen Investoren und lokalen Entwicklern bei Fragen zur Finanzierung, spanischen Vorschriften (NIE, escritura, nota simple) und Investitionen in Spanien.\n\nSeien Sie professionell, geschäftsorientiert und auf den Punkt. Ihr Ziel ist es, Leads zu generieren, indem Sie Mehrwert bieten und Interesse wecken.\n\nWichtiges Verhalten:\n- Beantworten Sie Fragen hilfreich und vollständig\n- Nach 2-3 Nachrichtenaustauschen ermutigen Sie subtil zur Kontaktaufnahme für ein persönliches Gespräch\n- Erwähnen Sie: "Für eine detaillierte Analyse Ihres spezifischen Projekts kontaktieren Sie uns gerne unter info@costacapital.pro oder rufen Sie +31 6 8175 2045 an (WhatsApp verfügbar)"\n- Betonen Sie einzigartige Vorteile: lokales Büro in Valencia, Erfahrung mit internationalen Investoren, schnelle Entscheidungen\n- Seien Sie enthusiastisch, aber nicht aufdringlich\n- Mindestfinanzierung €500K, maximal €50M+\n\nAntworten Sie auf Deutsch.'
+      },
+      calc: {
+        title: 'Finanzierungsrechner',
+        subtitle: 'Erhalten Sie eine Indikation für Ihr spanisches Projekt',
+        loanAmount: 'Gewünschter Darlehensbetrag',
+        projectValue: 'Projektwert',
+        term: 'Laufzeit',
+        months: 'Monate',
+        ltv: 'Beleihungswert (LTV)',
+        monthly: 'Indikative monatliche Rate',
+        total: 'Gesamtzinsen (indikativ)',
+        note: '✓ Diese Indikation basiert auf Standardkonditionen für spanische Projekte. Für ein genaues Angebot kontaktieren wir Sie gerne persönlich.',
+        discuss: 'Mit KI-Berater besprechen'
+      }
     }
   };
 
@@ -503,6 +623,48 @@ export default function CostaCapitalLanding() {
         quote: 'Я хотела купить портфель из 8 апартаментов для краткосрочной аренды. Costa Capital профинансировала с перекрестным залогом и помогла с туристическими лицензиями. Их знание регулирования Airbnb в Валенсии было решающим.',
         result: '8 апартаментов, средняя загрузка 75%, €180K годового дохода от аренды'
       }
+    ],
+    de: [
+      {
+        name: 'Henrik Janssen',
+        role: 'CEO, Nordic Investments',
+        project: 'Luxusvilla-Entwicklung Jávea',
+        amount: '€4.2M',
+        image: 'HJ',
+        rating: 5,
+        quote: 'Als Niederländer, der in Spanien investieren wollte, brauchte ich einen Partner, der beide Märkte versteht. Costa Capital hat die Finanzierung arrangiert UND bei NIE, Notar und lokalen Bauunternehmer-Verbindungen geholfen. Ihr Büro in Valencia war von unschätzbarem Wert.',
+        result: '6 Villen gebaut, alle an nordeuropäische Käufer verkauft, 38% ROI'
+      },
+      {
+        name: 'Sarah & Michael Thompson',
+        role: 'Privatinvestoren, UK',
+        project: 'Boutique-Hotel Renovierung Dénia',
+        amount: '€2.8M',
+        image: 'ST',
+        rating: 5,
+        quote: 'Wir träumten von einem Boutique-Hotel an der Costa Blanca, aber spanische Banken finanzierten keine Ausländer. Costa Capital strukturierte einen Überbrückungskredit mit 65% LTV und führte uns durch die gesamte spanische Verwaltung.',
+        result: '18 Zimmer renoviert, volle Auslastung Juli-September, 5-jährige Amortisation'
+      },
+      {
+        name: 'Carlos Martínez',
+        role: 'Lokaler Entwickler, Valencia',
+        project: 'Mischnutzungskomplex Valencia',
+        amount: '€8.5M',
+        image: 'CM',
+        rating: 5,
+        quote: 'Als spanischer Entwickler brauchte ich schnelle Finanzierung. Costa Capital verstand den valencianischen Markt perfekt und schloss das Geschäft in 2 Wochen ab. Ihre Erfahrung mit internationalen Investoren zog niederländische Käufer an.',
+        result: '42 Wohnungen + 8 Gewerbeeinheiten, 85% vor Fertigstellung verkauft'
+      },
+      {
+        name: 'Laura van den Berg',
+        role: 'Immobilieninvestorin, Rotterdam',
+        project: 'Ferienvermietungs-Portfolio Calpe',
+        amount: '€3.6M',
+        image: 'LB',
+        rating: 5,
+        quote: 'Ich wollte ein Portfolio von 8 Apartments für Kurzzeitvermietung kaufen. Costa Capital finanzierte cross-collateralisiert und half bei Tourismuslizenzen. Ihr Wissen über Airbnb-Vorschriften in Valencia war entscheidend.',
+        result: '8 Apartments, durchschnittlich 75% Auslastung, €180K jährliche Mieteinnahmen'
+      }
     ]
   };
 
@@ -563,7 +725,9 @@ export default function CostaCapitalLanding() {
       ? 'Aanvraag Meeting - Costa Capital'
       : language === 'en'
       ? 'Meeting Request - Costa Capital'
-      : 'Запрос на встречу - Costa Capital';
+      : language === 'ru'
+      ? 'Запрос на встречу - Costa Capital'
+      : 'Meeting-Anfrage - Costa Capital';
     
     const body = language === 'nl'
       ? `Beste Costa Capital team,
@@ -617,7 +781,8 @@ ADDITIONAL INFORMATION:
 
 Best regards,
 [Your name]`
-      : `Уважаемая команда Costa Capital,
+      : language === 'ru'
+      ? `Уважаемая команда Costa Capital,
 
 Я заинтересован в планировании личной встречи для обсуждения моего проекта недвижимости в Испании.
 
@@ -641,7 +806,32 @@ Email: [Ваш email адрес]
 [Расскажите нам больше о вашем проекте или конкретных вопросах]
 
 С уважением,
-[Ваше имя]`;
+[Ваше имя]`
+      : `Sehr geehrtes Costa Capital Team,
+
+Ich bin daran interessiert, ein persönliches Gespräch zu vereinbaren, um mein Immobilienprojekt in Spanien zu besprechen.
+
+MEINE DATEN:
+Name: [Ihr vollständiger Name]
+Telefon: [Ihre Telefonnummer]
+Email: [Ihre E-Mail-Adresse]
+
+PROJEKTINFORMATIONEN:
+Standort: [z.B. Valencia, Alicante, Dénia, Jávea]
+Projekttyp: [z.B. Villenentwicklung, Hotelrenovierung, Gewerbeimmobilien]
+Geschätzter Projektwert: € [Betrag]
+Gewünschte Finanzierung: € [Betrag]
+Gewünschtes Startdatum: [Datum]
+
+MEETING-PRÄFERENZ:
+Bevorzugtes Datum/Uhrzeit: [Ihre Präferenz]
+Standortpräferenz: [Online-Videoanruf / Persönlich in Valencia / Am Projektstandort]
+
+ZUSÄTZLICHE INFORMATIONEN:
+[Erzählen Sie uns mehr über Ihr Projekt oder spezifische Fragen]
+
+Mit freundlichen Grüßen,
+[Ihr Name]`;
 
     const mailtoLink = `mailto:info@costacapital.pro?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
@@ -673,6 +863,14 @@ Email: [Ваш email адрес]
               }`}
             >
               EN
+            </button>
+            <button
+              onClick={() => setLanguage('de')}
+              className={`px-3 py-2 rounded-md font-semibold transition text-sm ${
+                language === 'de' ? 'bg-orange-500 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              DE
             </button>
             <button
               onClick={() => setLanguage('ru')}
@@ -1135,10 +1333,10 @@ Email: [Ваш email адрес]
             <div className="flex justify-between items-center p-6 border-b border-slate-700">
               <div>
                 <h3 className="text-xl font-bold">
-                  {language === 'nl' ? 'Neem Contact Op' : language === 'en' ? 'Get in Touch' : 'Связаться с нами'}
+                  {language === 'nl' ? 'Neem Contact Op' : language === 'en' ? 'Get in Touch' : language === 'de' ? 'Kontakt aufnehmen' : 'Связаться с нами'}
                 </h3>
                 <p className="text-sm text-slate-400">
-                  {language === 'nl' ? 'Bespreek uw project met ons' : language === 'en' ? 'Discuss your project with us' : 'Обсудите ваш проект с нами'}
+                  {language === 'nl' ? 'Bespreek uw project met ons' : language === 'en' ? 'Discuss your project with us' : language === 'de' ? 'Besprechen Sie Ihr Projekt mit uns' : 'Обсудите ваш проект с нами'}
                 </p>
               </div>
               <button onClick={() => setContactOpen(false)} className="text-slate-400 hover:text-white">
@@ -1150,7 +1348,7 @@ Email: [Ваш email адрес]
               <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 border border-orange-500/20 rounded-xl p-6">
                 <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
                   <MessageSquare className="w-5 h-5 text-orange-400" />
-                  {language === 'nl' ? 'Direct Contact' : language === 'en' ? 'Direct Contact' : 'Прямой контакт'}
+                  {language === 'nl' ? 'Direct Contact' : language === 'en' ? 'Direct Contact' : language === 'de' ? 'Direkter Kontakt' : 'Прямой контакт'}
                 </h4>
                 
                 <div className="space-y-4">
@@ -1164,7 +1362,7 @@ Email: [Ваш email адрес]
                     <div>
                       <div className="font-semibold">+31 6 8175 2045</div>
                       <div className="text-sm text-slate-400">
-                        {language === 'nl' ? 'Bel of WhatsApp ons' : language === 'en' ? 'Call or WhatsApp us' : 'Позвоните или WhatsApp'}
+                        {language === 'nl' ? 'Bel of WhatsApp ons' : language === 'en' ? 'Call or WhatsApp us' : language === 'de' ? 'Anrufen oder WhatsApp' : 'Позвоните или WhatsApp'}
                       </div>
                     </div>
                   </a>
@@ -1179,7 +1377,7 @@ Email: [Ваш email адрес]
                     <div>
                       <div className="font-semibold">info@costacapital.pro</div>
                       <div className="text-sm text-slate-400">
-                        {language === 'nl' ? 'Stuur ons een email' : language === 'en' ? 'Send us an email' : 'Отправьте нам email'}
+                        {language === 'nl' ? 'Stuur ons een email' : language === 'en' ? 'Send us an email' : language === 'de' ? 'Senden Sie uns eine E-Mail' : 'Отправьте нам email'}
                       </div>
                     </div>
                   </a>
@@ -1196,7 +1394,7 @@ Email: [Ваш email адрес]
                     <div>
                       <div className="font-semibold">WhatsApp</div>
                       <div className="text-sm text-green-200">
-                        {language === 'nl' ? 'Chat direct met ons' : language === 'en' ? 'Chat with us directly' : 'Общайтесь с нами напрямую'}
+                        {language === 'nl' ? 'Chat direct met ons' : language === 'en' ? 'Chat with us directly' : language === 'de' ? 'Chatten Sie direkt mit uns' : 'Общайтесь с нами напрямую'}
                       </div>
                     </div>
                   </a>
@@ -1208,14 +1406,16 @@ Email: [Ваш email адрес]
                   <MapPin className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-slate-300">
                     <div className="font-semibold mb-1">
-                      {language === 'nl' ? 'Ons Kantoor' : language === 'en' ? 'Our Office' : 'Наш офис'}
+                      {language === 'nl' ? 'Ons Kantoor' : language === 'en' ? 'Our Office' : language === 'de' ? 'Unser Büro' : 'Наш офис'}
                     </div>
-                    <div>Valencia, Spanje</div>
+                    <div>Valencia, Spanien</div>
                     <div className="text-slate-400 mt-1">
                       {language === 'nl' 
                         ? 'Lokaal team met internationale ervaring'
                         : language === 'en'
                         ? 'Local team with international experience'
+                        : language === 'de'
+                        ? 'Lokales Team mit internationaler Erfahrung'
                         : 'Местная команда с международным опытом'}
                     </div>
                   </div>
@@ -1230,7 +1430,7 @@ Email: [Ваш email адрес]
                 className="w-full bg-orange-500 hover:bg-orange-600 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-5 h-5" />
-                {language === 'nl' ? 'Of chat met onze AI Adviseur' : language === 'en' ? 'Or chat with our AI Advisor' : 'Или пообщайтесь с нашим AI консультантом'}
+                {language === 'nl' ? 'Of chat met onze AI Adviseur' : language === 'en' ? 'Or chat with our AI Advisor' : language === 'de' ? 'Oder chatten Sie mit unserem KI-Berater' : 'Или пообщайтесь с нашим AI консультантом'}
               </button>
             </div>
           </div>
