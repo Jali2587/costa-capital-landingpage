@@ -254,6 +254,126 @@ export default function CostaCapitalLanding() {
         note: '✓ This indication is based on standard terms for Spanish projects. For an exact quote, we would be happy to contact you.',
         discuss: 'Discuss with AI Advisor'
       }
+    },
+    ru: {
+      nav: {
+        contact: 'Контакты'
+      },
+      hero: {
+        badge: 'Специализация на испанском рынке недвижимости',
+        title: 'Финансирование\nнедвижимости\nИспания и Европа',
+        subtitle: 'Эксперт в регионе Коста Бланка и Валенсии. Финансирование для международных инвесторов и местных застройщиков. От €500K до €50M+.',
+        cta1: 'Начать AI чат',
+        cta2: 'Рассчитать финансирование',
+        location: 'Офис в Валенсии, Испания'
+      },
+      stats: {
+        financed: 'Профинансировано в Испании',
+        response: 'Первый ответ',
+        projects: 'Испанских проектов',
+        satisfaction: 'Удовлетворенность клиентов'
+      },
+      features: {
+        title: 'Почему Costa Capital для Испании?',
+        speed: {
+          title: 'Местная экспертиза',
+          desc: 'Офис в Валенсии с глубоким знанием испанского рынка, законодательства и местной банковской системы. Мы говорим на языке - буквально и фигурально.'
+        },
+        flex: {
+          title: 'Международные структуры',
+          desc: 'Опыт трансграничных сделок, оффшорных структур и налоговой оптимизации для иностранных инвесторов в Испании.'
+        },
+        complex: {
+          title: 'Специалист по Коста Бланка',
+          desc: 'Валенсия, Аликанте, Бенидорм, Дения, Хавеа. Мы знаем Коста Бланка как свои пять пальцев и имеем сеть местных нотариусов, юристов и застройщиков.'
+        }
+      },
+      markets: {
+        title: 'Наши специализации в Испании',
+        subtitle: 'От прибрежной недвижимости до городского развития',
+        coastal: {
+          title: 'Жилая недвижимость Коста Бланка',
+          desc: 'Роскошные виллы, апартаменты и курортные комплексы вдоль Коста Бланка. LTV до 70% для сильных локаций.'
+        },
+        commercial: {
+          title: 'Коммерческая недвижимость',
+          desc: 'Розничная торговля, гостиничный бизнес и офисные помещения в Валенсии и окрестностях. Идеально для международных ритейлеров.'
+        },
+        tourism: {
+          title: 'Туристические проекты',
+          desc: 'Отели, дома для отдыха и краткосрочные комплексы. Понимание испанских туристических лицензий и регулирования.'
+        }
+      },
+      reviews: {
+        title: 'Успешное финансирование в Испании',
+        subtitle: 'Что говорят наши клиенты о своих проектах на Коста Бланка'
+      },
+      spanish: {
+        title: 'Рынок недвижимости Испании',
+        intro: 'Почему инвестировать в регион Валенсии?',
+        points: [
+          '300+ солнечных дней в году - идеальный климат',
+          'Растущий международный спрос на прибрежную недвижимость',
+          'Валенсия: третий город Испании, сильный рост',
+          'Относительно низкие цены на недвижимость по сравнению с другими прибрежными районами ЕС',
+          'Стабильный рынок аренды благодаря туризму',
+          'Новая инфраструктура: высокоскоростной поезд AVE, расширение аэропорта'
+        ]
+      },
+      process: {
+        title: 'Процесс финансирования',
+        subtitle: 'От заявки до закрытия сделки в Испании'
+      },
+      social: {
+        title: 'Почему международные инвесторы выбирают нас',
+        benefits: [
+          'Помощь с получением NIE и открытием испанского банковского счета',
+          'Сеть надежных местных юристов и нотариусов',
+          'Опыт работы с процессами residencia и golden visa',
+          'Знание Ley de Costas и других испанских норм',
+          'Налоговое структурирование через голландских и испанских партнеров',
+          'Поддержка управления проектами во время строительства'
+        ]
+      },
+      cta: {
+        title: 'Готовы к своему испанскому проекту?',
+        subtitle: 'Обсудите ваши планы с нашим AI-консультантом из Валенсии или запланируйте личную встречу',
+        btn1: 'Начать разговор',
+        btn2: 'Запланировать встречу'
+      },
+      footer: {
+        desc: 'Специалист по финансированию недвижимости для международных инвесторов и местных застройщиков в Испании.',
+        contact: 'Контакты',
+        location: 'Местоположение',
+        valencia: 'Валенсия, Испания (Главный офис)',
+        denia: 'Дения, Коста Бланка',
+        rights: '© 2024 Costa Capital. Все права защищены. Зарегистрировано в Испании'
+      },
+      chat: {
+        title: 'AI Финансовый консультант',
+        subtitle: 'Задайте вопросы о финансировании в Испании',
+        placeholder: 'Задайте ваш вопрос...',
+        empty: 'Начните разговор о вашем испанском проекте недвижимости',
+        suggestions: [
+          'Каковы условия финансирования в Валенсии?',
+          'Как работает процесс NIE для иностранных инвесторов?',
+          'Какой LTV использует Costa Capital для проектов на Коста Бланка?'
+        ],
+        systemPrompt: 'Вы финансовый консультант Costa Capital, специализирующийся на финансировании недвижимости на испанском рынке, особенно в Валенсии и на Коста Бланка. Вы помогаете международным инвесторам и местным застройщикам с вопросами о финансировании, испанских нормах (NIE, escritura, nota simple) и инвестициях в Испанию.\n\nБудьте профессиональны, коммерчески настроены и конкретны. Ваша цель - генерировать лиды, предоставляя ценность и создавая интерес.\n\nВажное поведение:\n- Отвечайте на вопросы полезно и полно\n- После 2-3 обменов сообщениями тактично поощряйте контакт для личной беседы\n- Укажите: "Для детального анализа вашего конкретного проекта, свяжитесь с нами по адресу info@costacapital.pro или позвоните +31 6 8175 2045 (доступен WhatsApp)"\n- Подчеркивайте уникальные преимущества: местный офис в Валенсии, опыт работы с международными инвесторами, быстрые решения\n- Будьте энтузиастичны, но не навязчивы\n- Минимальное финансирование €500K, максимальное €50M+\n\nОтвечайте на русском языке.'
+      },
+      calc: {
+        title: 'Калькулятор финансирования',
+        subtitle: 'Получите расчет для вашего испанского проекта',
+        loanAmount: 'Желаемая сумма кредита',
+        projectValue: 'Стоимость проекта',
+        term: 'Срок',
+        months: 'месяцев',
+        ltv: 'Кредит к стоимости (LTV)',
+        monthly: 'Ориентировочный ежемесячный платеж',
+        total: 'Общие проценты (ориентировочно)',
+        note: '✓ Этот расчет основан на стандартных условиях для испанских проектов. Для точного предложения мы с радостью свяжемся с вами.',
+        discuss: 'Обсудить с AI консультантом'
+      }
     }
   };
 
@@ -341,6 +461,48 @@ export default function CostaCapitalLanding() {
         quote: 'I wanted to buy a portfolio of 8 apartments for short-stay rental. Costa Capital financed cross-collateralized and helped with tourism licenses. Their knowledge of Airbnb regulations in Valencia was crucial.',
         result: '8 apartments, average 75% occupancy, €180K annual rental income'
       }
+    ],
+    ru: [
+      {
+        name: 'Хенрик Янсен',
+        role: 'CEO, Nordic Investments',
+        project: 'Роскошные виллы в Хавее',
+        amount: '€4.2M',
+        image: 'HJ',
+        rating: 5,
+        quote: 'Как голландец, желающий инвестировать в Испанию, мне нужен был партнер, понимающий обе рынки. Costa Capital организовала финансирование И помогла с NIE, нотариусом и связями с местными подрядчиками. Их офис в Валенсии был бесценен.',
+        result: '6 вилл построено, все проданы северо-европейским покупателям, 38% ROI'
+      },
+      {
+        name: 'Сара и Майкл Томпсон',
+        role: 'Частные инвесторы, Великобритания',
+        project: 'Реновация бутик-отеля в Дении',
+        amount: '€2.8M',
+        image: 'ST',
+        rating: 5,
+        quote: 'Мы мечтали о бутик-отеле на Коста Бланка, но испанские банки не финансировали иностранцев. Costa Capital структурировала bridge loan с 65% LTV и провела нас через всю испанскую администрацию.',
+        result: '18 номеров отремонтировано, полная загрузка июль-сентябрь, окупаемость за 5 лет'
+      },
+      {
+        name: 'Карлос Мартинес',
+        role: 'Местный застройщик, Валенсия',
+        project: 'Многофункциональный комплекс Валенсия',
+        amount: '€8.5M',
+        image: 'CM',
+        rating: 5,
+        quote: 'Как испанскому застройщику мне было нужно быстрое финансирование. Costa Capital отлично понял валенсийский рынок и закрыл сделку за 2 недели. Их опыт работы с международными инвесторами привлек голландских покупателей.',
+        result: '42 квартиры + 8 коммерческих помещений, 85% продано на стадии строительства'
+      },
+      {
+        name: 'Лаура ван ден Берг',
+        role: 'Инвестор в недвижимость, Роттердам',
+        project: 'Портфель краткосрочной аренды в Кальпе',
+        amount: '€3.6M',
+        image: 'LB',
+        rating: 5,
+        quote: 'Я хотела купить портфель из 8 апартаментов для краткосрочной аренды. Costa Capital профинансировала с перекрестным залогом и помогла с туристическими лицензиями. Их знание регулирования Airbnb в Валенсии было решающим.',
+        result: '8 апартаментов, средняя загрузка 75%, €180K годового дохода от аренды'
+      }
     ]
   };
 
@@ -399,7 +561,9 @@ export default function CostaCapitalLanding() {
   const openMeetingEmail = () => {
     const subject = language === 'nl' 
       ? 'Aanvraag Meeting - Costa Capital'
-      : 'Meeting Request - Costa Capital';
+      : language === 'en'
+      ? 'Meeting Request - Costa Capital'
+      : 'Запрос на встречу - Costa Capital';
     
     const body = language === 'nl'
       ? `Beste Costa Capital team,
@@ -427,7 +591,8 @@ AANVULLENDE INFORMATIE:
 
 Met vriendelijke groet,
 [Uw naam]`
-      : `Dear Costa Capital team,
+      : language === 'en'
+      ? `Dear Costa Capital team,
 
 I am interested in scheduling a personal meeting to discuss my real estate project in Spain.
 
@@ -451,7 +616,32 @@ ADDITIONAL INFORMATION:
 [Tell us more about your project or specific questions]
 
 Best regards,
-[Your name]`;
+[Your name]`
+      : `Уважаемая команда Costa Capital,
+
+Я заинтересован в планировании личной встречи для обсуждения моего проекта недвижимости в Испании.
+
+МОИ ДАННЫЕ:
+Имя: [Ваше полное имя]
+Телефон: [Ваш номер телефона]
+Email: [Ваш email адрес]
+
+ИНФОРМАЦИЯ О ПРОЕКТЕ:
+Местоположение: [напр. Валенсия, Аликанте, Дения, Хавеа]
+Тип проекта: [напр. Строительство вилл, Реновация отеля, Коммерческая недвижимость]
+Примерная стоимость проекта: € [сумма]
+Желаемое финансирование: € [сумма]
+Желаемая дата начала: [дата]
+
+ПРЕДПОЧТЕНИЕ ПО ВСТРЕЧЕ:
+Предпочтительная дата/время: [ваше предпочтение]
+Предпочтение по местоположению: [Онлайн видеозвонок / Лично в Валенсии / На месте проекта]
+
+ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ:
+[Расскажите нам больше о вашем проекте или конкретных вопросах]
+
+С уважением,
+[Ваше имя]`;
 
     const mailtoLink = `mailto:info@costacapital.pro?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
@@ -470,7 +660,7 @@ Best regards,
           <div className="flex bg-slate-800 rounded-lg p-1">
             <button
               onClick={() => setLanguage('nl')}
-              className={`px-4 py-2 rounded-md font-semibold transition ${
+              className={`px-3 py-2 rounded-md font-semibold transition text-sm ${
                 language === 'nl' ? 'bg-orange-500 text-white' : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -478,11 +668,19 @@ Best regards,
             </button>
             <button
               onClick={() => setLanguage('en')}
-              className={`px-4 py-2 rounded-md font-semibold transition ${
+              className={`px-3 py-2 rounded-md font-semibold transition text-sm ${
                 language === 'en' ? 'bg-orange-500 text-white' : 'text-slate-400 hover:text-white'
               }`}
             >
               EN
+            </button>
+            <button
+              onClick={() => setLanguage('ru')}
+              className={`px-3 py-2 rounded-md font-semibold transition text-sm ${
+                language === 'ru' ? 'bg-orange-500 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              РУ
             </button>
           </div>
           <button 
@@ -937,10 +1135,10 @@ Best regards,
             <div className="flex justify-between items-center p-6 border-b border-slate-700">
               <div>
                 <h3 className="text-xl font-bold">
-                  {language === 'nl' ? 'Neem Contact Op' : 'Get in Touch'}
+                  {language === 'nl' ? 'Neem Contact Op' : language === 'en' ? 'Get in Touch' : 'Связаться с нами'}
                 </h3>
                 <p className="text-sm text-slate-400">
-                  {language === 'nl' ? 'Bespreek uw project met ons' : 'Discuss your project with us'}
+                  {language === 'nl' ? 'Bespreek uw project met ons' : language === 'en' ? 'Discuss your project with us' : 'Обсудите ваш проект с нами'}
                 </p>
               </div>
               <button onClick={() => setContactOpen(false)} className="text-slate-400 hover:text-white">
@@ -952,7 +1150,7 @@ Best regards,
               <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 border border-orange-500/20 rounded-xl p-6">
                 <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
                   <MessageSquare className="w-5 h-5 text-orange-400" />
-                  {language === 'nl' ? 'Direct Contact' : 'Direct Contact'}
+                  {language === 'nl' ? 'Direct Contact' : language === 'en' ? 'Direct Contact' : 'Прямой контакт'}
                 </h4>
                 
                 <div className="space-y-4">
@@ -966,7 +1164,7 @@ Best regards,
                     <div>
                       <div className="font-semibold">+31 6 8175 2045</div>
                       <div className="text-sm text-slate-400">
-                        {language === 'nl' ? 'Bel of WhatsApp ons' : 'Call or WhatsApp us'}
+                        {language === 'nl' ? 'Bel of WhatsApp ons' : language === 'en' ? 'Call or WhatsApp us' : 'Позвоните или WhatsApp'}
                       </div>
                     </div>
                   </a>
@@ -981,7 +1179,7 @@ Best regards,
                     <div>
                       <div className="font-semibold">info@costacapital.pro</div>
                       <div className="text-sm text-slate-400">
-                        {language === 'nl' ? 'Stuur ons een email' : 'Send us an email'}
+                        {language === 'nl' ? 'Stuur ons een email' : language === 'en' ? 'Send us an email' : 'Отправьте нам email'}
                       </div>
                     </div>
                   </a>
@@ -998,7 +1196,7 @@ Best regards,
                     <div>
                       <div className="font-semibold">WhatsApp</div>
                       <div className="text-sm text-green-200">
-                        {language === 'nl' ? 'Chat direct met ons' : 'Chat with us directly'}
+                        {language === 'nl' ? 'Chat direct met ons' : language === 'en' ? 'Chat with us directly' : 'Общайтесь с нами напрямую'}
                       </div>
                     </div>
                   </a>
@@ -1010,13 +1208,15 @@ Best regards,
                   <MapPin className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-slate-300">
                     <div className="font-semibold mb-1">
-                      {language === 'nl' ? 'Ons Kantoor' : 'Our Office'}
+                      {language === 'nl' ? 'Ons Kantoor' : language === 'en' ? 'Our Office' : 'Наш офис'}
                     </div>
                     <div>Valencia, Spanje</div>
                     <div className="text-slate-400 mt-1">
                       {language === 'nl' 
                         ? 'Lokaal team met internationale ervaring'
-                        : 'Local team with international experience'}
+                        : language === 'en'
+                        ? 'Local team with international experience'
+                        : 'Местная команда с международным опытом'}
                     </div>
                   </div>
                 </div>
@@ -1030,7 +1230,7 @@ Best regards,
                 className="w-full bg-orange-500 hover:bg-orange-600 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-5 h-5" />
-                {language === 'nl' ? 'Of chat met onze AI Adviseur' : 'Or chat with our AI Advisor'}
+                {language === 'nl' ? 'Of chat met onze AI Adviseur' : language === 'en' ? 'Or chat with our AI Advisor' : 'Или пообщайтесь с нашим AI консультантом'}
               </button>
             </div>
           </div>
