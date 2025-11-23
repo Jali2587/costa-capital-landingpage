@@ -20,12 +20,12 @@ export default function CostaCapitalLanding() {
         contact: 'Contact'
       },
       hero: {
-        badge: 'Gespecialiseerd in Spaanse Vastgoedmarkt',
-        title: 'Vastgoedfinanciering\nSpaanse Kust',
+        badge: 'Gespecialiseerd op Spaanse Kustgebieden',
+        title: 'Vastgoedfinanciering\nSpaanse Costas',
         subtitle: 'Expert in Costa del Sol, Costa Blanca en Valencia regio. Financiering voor internationale investeerders en lokale ontwikkelaars. Van €500K tot €50M+.',
         cta1: 'Start AI Gesprek',
         cta2: 'Bereken Financiering',
-        location: 'Kantoren in Valencia & Marbella'
+        location: 'Gevestigd in Valencia, Spanje'
       },
       stats: {
         financed: 'Gefinancierd in Spanje',
@@ -34,50 +34,50 @@ export default function CostaCapitalLanding() {
         satisfaction: 'Klanttevredenheid'
       },
       features: {
-        title: 'Waarom Costa Capital voor Spanje?',
+        title: 'Waarom Costa Capital voor Spaanse Costas?',
         speed: {
-          title: 'Nationale Dekking',
-          desc: 'Kantoren in Valencia en Marbella met uitgebreide kennis van alle kustgebieden: Costa del Sol, Costa Blanca, Costa Brava. Van Málaga tot Alicante.'
+          title: 'Lokale Expertise',
+          desc: 'Kantoor in Valencia met diepgaande kennis van de gehele Spaanse kust: Costa del Sol (Marbella, Málaga), Costa Blanca (Alicante, Dénia), en Valencia. Wij spreken de taal - letterlijk en figuurlijk.'
         },
         flex: {
           title: 'Internationale Structuren',
           desc: 'Ervaring met cross-border deals, offshore structuren en fiscale optimalisatie voor buitenlandse investeerders in Spanje.'
         },
         complex: {
-          title: 'Luxe Segment Specialist',
-          desc: 'Marbella, Puerto Banús, Benidorm, Valencia. Wij begrijpen de high-end markt en hebben netwerken met lokale notarissen, advocaten en ontwikkelaars aan alle Costa\'s.'
+          title: 'Specialist Spaanse Kustgebieden',
+          desc: 'Van Marbella tot Valencia: Málaga, Marbella, Estepona, Benidorm, Alicante, Dénia, Jávea, Valencia. Wij kennen de Spaanse costas als onze broekzak en hebben netwerken met lokale notarissen, advocaten en ontwikkelaars.'
         }
       },
       markets: {
-        title: 'Onze Specialisaties aan de Spaanse Kust',
+        title: 'Onze Specialisaties in Spanje',
         subtitle: 'Van Costa del Sol tot Costa Blanca',
         coastal: {
           title: 'Luxe Kustwoningen',
-          desc: 'Exclusieve villa\'s en penthouses in Marbella, Puerto Banús, Estepona, Altea, Jávea. LTV tot 70% voor prime locaties.'
+          desc: 'Villa\'s, appartementen en resort ontwikkelingen langs Costa del Sol en Costa Blanca. Van Marbella tot Valencia. LTV tot 70% voor sterke locaties.'
         },
         commercial: {
           title: 'Commercieel Vastgoed',
-          desc: 'Retail, horeca en kantoorruimtes in Valencia, Málaga en Alicante. Ideaal voor internationale retailers en hospitality groups.'
+          desc: 'Retail, horeca en kantoorruimtes in Málaga, Marbella, Valencia en andere kustgebieden. Ideaal voor internationale retailers.'
         },
         tourism: {
           title: 'Toeristische Projecten',
-          desc: 'Hotels, resorts en short-stay complexen aan alle Costa\'s. Expertise in toerismelicenties en exploitatie financiering.'
+          desc: 'Hotels, vakantiewoningen en short-stay complexen. Begrip van Spaanse toerismelicenties en regelgeving. Recent project: €10M hotel Marbella.'
         }
       },
       reviews: {
-        title: 'Succesvolle Financieringen aan de Spaanse Kust',
-        subtitle: 'Wat onze klanten zeggen over hun projecten van Marbella tot Valencia'
+        title: 'Succesvolle Financieringen in Spanje',
+        subtitle: 'Wat onze klanten zeggen over hun projecten aan de Spaanse kust'
       },
       spanish: {
-        title: 'De Spaanse Kustmarkt',
-        intro: 'Waarom investeren aan de Spaanse Costa\'s?',
+        title: 'De Spaanse Vastgoedmarkt',
+        intro: 'Waarom investeren in de Spaanse kustgebieden?',
         points: [
-          '300+ dagen zon per jaar - het beste klimaat van Europa',
-          'Costa del Sol: #1 luxe vastgoedmarkt met Marbella & Puerto Banús',
-          'Costa Blanca: Sterke groei met Valencia als economisch centrum',
-          'Stabiele vraag van Noord-Europese kopers en investeerders',
-          'Excellente connectiviteit: 5 internationale luchthavens',
-          'Golden Visa mogelijkheden vanaf €500K investering'
+          '300+ dagen zon per jaar - ideaal klimaat op alle costas',
+          'Groeiende internationale vraag van Costa del Sol tot Costa Blanca',
+          'Málaga, Marbella, Valencia: sterke groei en infrastructuur',
+          'Relatief lage vastgoedprijzen vs andere EU kustgebieden',
+          'Stabiele huurmarkt dankzij toerisme en expats',
+          'Nieuwe infrastructuur: AVE netwerk, luchthaven uitbreidingen'
         ]
       },
       process: {
@@ -88,7 +88,7 @@ export default function CostaCapitalLanding() {
         title: 'Waarom internationale investeerders ons kiezen',
         benefits: [
           'Begeleiding bij NIE aanvraag en Spaanse bankrekening',
-          'Netwerk van betrouwbare lokale advocaten en notarissen',
+          'Netwerk van betrouwbare lokale advocaten en notarissen (Costa del Sol tot Costa Blanca)',
           'Ervaring met residencia en golden visa trajecten',
           'Kennis van Ley de Costas en andere Spaanse regelgeving',
           'Fiscale structurering via Nederlandse en Spaanse partners',
@@ -102,11 +102,11 @@ export default function CostaCapitalLanding() {
         btn2: 'Plan Meeting'
       },
       footer: {
-        desc: 'Specialist in vastgoedfinanciering voor internationale investeerders en lokale ontwikkelaars aan de Spaanse kust.',
+        desc: 'Specialist in vastgoedfinanciering voor internationale investeerders en lokale ontwikkelaars in Spanje.',
         contact: 'Contact',
         location: 'Locatie',
-        valencia: 'Valencia (Hoofdkantoor)',
-        denia: 'Marbella, Costa del Sol',
+        valencia: 'Valencia, Spanje (Hoofdkantoor)',
+        denia: 'Dénia, Costa Blanca',
         rights: '© 2024 Costa Capital. Alle rechten voorbehouden. Geregistreerd in Spanje'
       },
       chat: {
@@ -115,11 +115,11 @@ export default function CostaCapitalLanding() {
         placeholder: 'Stel uw vraag...',
         empty: 'Start een gesprek over uw Spaanse vastgoedproject',
         suggestions: [
-          'Wat zijn de voorwaarden voor een €10M project in Marbella?',
-          'Hoe werkt financiering voor luxe villa\'s Costa del Sol?',
-          'Welke LTV hanteert Costa Capital voor prime locaties?'
+          'Wat zijn de voorwaarden voor financiering in Marbella?',
+          'Hoe werkt het NIE proces voor buitenlandse investeerders?',
+          'Welke LTV hanteert Costa Capital voor Costa del Sol projecten?'
         ],
-        systemPrompt: 'Je bent een financieel adviseur voor Costa Capital, gespecialiseerd in vastgoedfinanciering voor de gehele Spaanse kust, van Costa del Sol (Marbella, Estepona, Mijas) tot Costa Blanca (Valencia, Alicante, Benidorm) en alles ertussen. Je helpt internationale investeerders en lokale ontwikkelaars met vragen over financiering van €500K tot €50M+.\n\nJe hebt expertise in:\n- Luxe vastgoed (Marbella, Puerto Banús premium segment)\n- Grote projecten (recentelijk €10M Marbella project)\n- Spaanse regelgeving (NIE, escritura, nota simple)\n- Golden Visa trajecten\n- Cross-border structuren\n\nWees professioneel, commercieel en to-the-point. Je doel is om leads te genereren door waarde te bieden en interesse te wekken.\n\nBelangrijk gedrag:\n- Beantwoord vragen nuttig en compleet\n- Na 2-3 berichten uitwisseling, moedig subtiel aan om contact op te nemen voor een persoonlijk gesprek\n- Vermeld: "Voor een gedetailleerde analyse van uw specifieke project, neem gerust contact met ons op via info@costacapital.pro of bel +31 6 8175 2045 (WhatsApp mogelijk)"\n- Benadruk unieke voordelen: kantoren in Valencia EN Marbella, ervaring met grote deals (€10M+), kennis van alle Costa\'s\n- Wees enthousiast maar niet pusherig\n- Minimale financiering €500K, we doen projecten tot €50M+\n- Recente referentie: €10M project in Marbella\n\nAntwoord in het Nederlands.'
+        systemPrompt: 'Je bent een financieel adviseur voor Costa Capital, gespecialiseerd in vastgoedfinanciering voor de Spaanse kustgebieden: Costa del Sol (Marbella, Málaga, Estepona), Costa Blanca (Alicante, Benidorm, Dénia, Jávea) en Valencia. Je helpt internationale investeerders en lokale ontwikkelaars met vragen over financiering, Spaanse regelgeving (NIE, escritura, nota simple), en het investeren in Spanje.\n\nWees professioneel, commercieel en to-the-point. Je doel is om leads te genereren door waarde te bieden en interesse te wekken.\n\nBelangrijk gedrag:\n- Beantwoord vragen nuttig en compleet\n- Na 2-3 berichten uitwisseling, moedig subtiel aan om contact op te nemen voor een persoonlijk gesprek\n- Vermeld: "Voor een gedetailleerde analyse van uw specifieke project, neem gerust contact met ons op via info@costacapital.pro of bel +31 6 8175 2045 (WhatsApp mogelijk)"\n- Benadruk unieke voordelen: lokaal kantoor Valencia, ervaring met gehele Spaanse kust (Costa del Sol tot Costa Blanca), ervaring met internationale investeerders, snelle beslissingen\n- Recent project voorbeeld: €10M financiering hotel Marbella\n- Wees enthousiast maar niet pusherig\n- Minimale financiering €500K, maximaal €50M+\n\nAntwoord in het Nederlands.'
       },
       calc: {
         title: 'Financiering Calculator',
@@ -140,12 +140,12 @@ export default function CostaCapitalLanding() {
         contact: 'Contact'
       },
       hero: {
-        badge: 'Specialized in Spanish Real Estate Market',
-        title: 'Real Estate Financing\nSpanish Coast',
+        badge: 'Specialized in Spanish Coastal Areas',
+        title: 'Real Estate Financing\nSpanish Costas',
         subtitle: 'Expert in Costa del Sol, Costa Blanca and Valencia region. Financing for international investors and local developers. From €500K to €50M+.',
         cta1: 'Start AI Chat',
         cta2: 'Calculate Financing',
-        location: 'Offices in Valencia & Marbella'
+        location: 'Based in Valencia, Spain'
       },
       stats: {
         financed: 'Financed in Spain',
@@ -154,50 +154,50 @@ export default function CostaCapitalLanding() {
         satisfaction: 'Client Satisfaction'
       },
       features: {
-        title: 'Why Costa Capital for Spain?',
+        title: 'Why Costa Capital for Spanish Costas?',
         speed: {
-          title: 'National Coverage',
-          desc: 'Offices in Valencia and Marbella with extensive knowledge of all coastal areas: Costa del Sol, Costa Blanca, Costa Brava. From Málaga to Alicante.'
+          title: 'Local Expertise',
+          desc: 'Valencia office with deep knowledge of entire Spanish coast: Costa del Sol (Marbella, Málaga), Costa Blanca (Alicante, Dénia), and Valencia. We speak the language - literally and figuratively.'
         },
         flex: {
           title: 'International Structures',
           desc: 'Experience with cross-border deals, offshore structures and tax optimization for foreign investors in Spain.'
         },
         complex: {
-          title: 'Luxury Segment Specialist',
-          desc: 'Marbella, Puerto Banús, Benidorm, Valencia. We understand the high-end market and have networks with local notaries, lawyers and developers across all Costas.'
+          title: 'Spanish Coast Specialist',
+          desc: 'From Marbella to Valencia: Málaga, Marbella, Estepona, Benidorm, Alicante, Dénia, Jávea, Valencia. We know the Spanish costas inside out and have networks with local notaries, lawyers and developers.'
         }
       },
       markets: {
         title: 'Our Specializations in Spain',
-        subtitle: 'From coastal properties to urban development',
+        subtitle: 'From Costa del Sol to Costa Blanca',
         coastal: {
-          title: 'Costa Blanca Residential',
-          desc: 'Luxury villas, apartments and resort developments along Costa Blanca. LTV up to 70% for strong locations.'
+          title: 'Luxury Coastal Properties',
+          desc: 'Villas, apartments and resort developments along Costa del Sol and Costa Blanca. From Marbella to Valencia. LTV up to 70% for strong locations.'
         },
         commercial: {
           title: 'Commercial Real Estate',
-          desc: 'Retail, hospitality and office spaces in Valencia city and surroundings. Ideal for international retailers.'
+          desc: 'Retail, hospitality and office spaces in Málaga, Marbella, Valencia and other coastal areas. Ideal for international retailers.'
         },
         tourism: {
           title: 'Tourism Projects',
-          desc: 'Hotels, holiday homes and short-stay complexes. Understanding of Spanish tourism licenses and regulations.'
+          desc: 'Hotels, holiday homes and short-stay complexes. Understanding of Spanish tourism licenses and regulations. Recent project: €10M hotel Marbella.'
         }
       },
       reviews: {
         title: 'Successful Financings in Spain',
-        subtitle: 'What our clients say about their Costa Blanca projects'
+        subtitle: 'What our clients say about their Spanish coastal projects'
       },
       spanish: {
         title: 'The Spanish Real Estate Market',
-        intro: 'Why invest in the Valencia region?',
+        intro: 'Why invest in Spanish coastal areas?',
         points: [
-          '300+ days of sunshine per year - ideal climate',
-          'Growing international demand for coastal properties',
-          'Valencia: third city of Spain, strong growth',
+          '300+ days of sunshine per year - ideal climate on all costas',
+          'Growing international demand from Costa del Sol to Costa Blanca',
+          'Málaga, Marbella, Valencia: strong growth and infrastructure',
           'Relatively low property prices vs other EU coastal areas',
-          'Stable rental market thanks to tourism',
-          'New infrastructure: AVE high-speed rail, airport expansion'
+          'Stable rental market thanks to tourism and expats',
+          'New infrastructure: AVE network, airport expansions'
         ]
       },
       process: {
@@ -208,7 +208,7 @@ export default function CostaCapitalLanding() {
         title: 'Why international investors choose us',
         benefits: [
           'Assistance with NIE application and Spanish bank account',
-          'Network of reliable local lawyers and notaries',
+          'Network of reliable local lawyers and notaries (Costa del Sol to Costa Blanca)',
           'Experience with residencia and golden visa processes',
           'Knowledge of Ley de Costas and other Spanish regulations',
           'Tax structuring via Dutch and Spanish partners',
@@ -235,11 +235,11 @@ export default function CostaCapitalLanding() {
         placeholder: 'Ask your question...',
         empty: 'Start a conversation about your Spanish real estate project',
         suggestions: [
-          'What are the terms for financing in Valencia?',
+          'What are the terms for financing in Marbella?',
           'How does the NIE process work for foreign investors?',
-          'What LTV does Costa Capital use for Costa Blanca projects?'
+          'What LTV does Costa Capital use for Costa del Sol projects?'
         ],
-        systemPrompt: 'You are a financial advisor for Costa Capital, specialized in real estate financing for the Spanish market, particularly Valencia and Costa Blanca. You help international investors and local developers with questions about financing, Spanish regulations (NIE, escritura, nota simple), and investing in Spain.\n\nBe professional, commercial and to-the-point. Your goal is to generate leads by providing value and creating interest.\n\nImportant behavior:\n- Answer questions helpfully and completely\n- After 2-3 message exchanges, subtly encourage contact for a personal conversation\n- Mention: "For a detailed analysis of your specific project, feel free to contact us at info@costacapital.pro or call +31 6 8175 2045 (WhatsApp available)"\n- Emphasize unique advantages: local Valencia office, experience with international investors, fast decisions\n- Be enthusiastic but not pushy\n- Minimum financing €500K, maximum €50M+\n\nAnswer in English.'
+        systemPrompt: 'You are a financial advisor for Costa Capital, specialized in real estate financing for Spanish coastal areas: Costa del Sol (Marbella, Málaga, Estepona), Costa Blanca (Alicante, Benidorm, Dénia, Jávea) and Valencia. You help international investors and local developers with questions about financing, Spanish regulations (NIE, escritura, nota simple), and investing in Spain.\n\nBe professional, commercial and to-the-point. Your goal is to generate leads by providing value and creating interest.\n\nImportant behavior:\n- Answer questions helpfully and completely\n- After 2-3 message exchanges, subtly encourage contact for a personal conversation\n- Mention: "For a detailed analysis of your specific project, feel free to contact us at info@costacapital.pro or call +31 6 8175 2045 (WhatsApp available)"\n- Emphasize unique advantages: local Valencia office, experience with entire Spanish coast (Costa del Sol to Costa Blanca), experience with international investors, fast decisions\n- Recent project example: €10M hotel financing Marbella\n- Be enthusiastic but not pushy\n- Minimum financing €500K, maximum €50M+\n\nAnswer in English.'
       },
       calc: {
         title: 'Financing Calculator',
@@ -260,9 +260,9 @@ export default function CostaCapitalLanding() {
         contact: 'Контакты'
       },
       hero: {
-        badge: 'Специализация на испанском рынке недвижимости',
-        title: 'Финансирование\nнедвижимости\nИспания и Европа',
-        subtitle: 'Эксперт в регионе Коста Бланка и Валенсии. Финансирование для международных инвесторов и местных застройщиков. От €500K до €50M+.',
+        badge: 'Специализация на испанских прибрежных районах',
+        title: 'Финансирование\nнедвижимости\nИспанские побережья',
+        subtitle: 'Эксперт в Costa del Sol, Costa Blanca и регионе Валенсии. Финансирование для международных инвесторов и местных застройщиков. От €500K до €50M+.',
         cta1: 'Начать AI чат',
         cta2: 'Рассчитать финансирование',
         location: 'Офис в Валенсии, Испания'
@@ -274,18 +274,18 @@ export default function CostaCapitalLanding() {
         satisfaction: 'Удовлетворенность клиентов'
       },
       features: {
-        title: 'Почему Costa Capital для Испании?',
+        title: 'Почему Costa Capital для испанских побережий?',
         speed: {
           title: 'Местная экспертиза',
-          desc: 'Офис в Валенсии с глубоким знанием испанского рынка, законодательства и местной банковской системы. Мы говорим на языке - буквально и фигурально.'
+          desc: 'Офис в Валенсии с глубоким знанием всего испанского побережья: Costa del Sol (Марбелья, Малага), Costa Blanca (Аликанте, Дения), и Валенсия. Мы говорим на языке - буквально и фигурально.'
         },
         flex: {
           title: 'Международные структуры',
           desc: 'Опыт трансграничных сделок, оффшорных структур и налоговой оптимизации для иностранных инвесторов в Испании.'
         },
         complex: {
-          title: 'Специалист по Коста Бланка',
-          desc: 'Валенсия, Аликанте, Бенидорм, Дения, Хавеа. Мы знаем Коста Бланка как свои пять пальцев и имеем сеть местных нотариусов, юристов и застройщиков.'
+          title: 'Специалист испанских побережий',
+          desc: 'От Марбельи до Валенсии: Малага, Марбелья, Эстепона, Бенидорм, Аликанте, Дения, Хавеа, Валенсия. Мы знаем испанские побережья как свои пять пальцев и имеем сеть местных нотариусов, юристов и застройщиков.'
         }
       },
       markets: {
@@ -380,9 +380,9 @@ export default function CostaCapitalLanding() {
         contact: 'Kontakt'
       },
       hero: {
-        badge: 'Spezialisiert auf den spanischen Immobilienmarkt',
-        title: 'Immobilienfinanzierung\nSpanien & Europa',
-        subtitle: 'Experte in der Region Costa Blanca und Valencia. Finanzierung für internationale Investoren und lokale Entwickler. Von €500K bis €50M+.',
+        badge: 'Spezialisiert auf spanische Küstengebiete',
+        title: 'Immobilienfinanzierung\nSpanische Costas',
+        subtitle: 'Experte in Costa del Sol, Costa Blanca und Valencia Region. Finanzierung für internationale Investoren und lokale Entwickler. Von €500K bis €50M+.',
         cta1: 'KI-Chat starten',
         cta2: 'Finanzierung berechnen',
         location: 'Ansässig in Valencia, Spanien'
@@ -500,6 +500,16 @@ export default function CostaCapitalLanding() {
   const reviews = {
     nl: [
       {
+        name: 'Alexander Petrov',
+        role: 'CEO, Mediterranean Investments',
+        project: 'Boutique Hotel Marbella',
+        amount: '€10M',
+        image: 'AP',
+        rating: 5,
+        quote: 'Voor ons 5-sterren boutique hotel in Marbella hadden we een substantiële financiering nodig. Costa Capital begreep de luxe markt aan de Costa del Sol perfect en structureerde een pakket dat paste bij ons ambitieuze project. Hun connecties met lokale autoriteiten in Málaga waren cruciaal.',
+        result: '45 kamers + spa faciliteit, opening Q2 2025, pre-bookings vanaf €450/nacht'
+      },
+      {
         name: 'Henrik Janssen',
         role: 'CEO, Nordic Investments',
         project: 'Luxury Villa Development Jávea',
@@ -510,14 +520,14 @@ export default function CostaCapitalLanding() {
         result: '6 villas gebouwd, allemaal verkocht aan Noord-Europese kopers, 38% ROI'
       },
       {
-        name: 'David & Emma Richardson',
+        name: 'Sarah & Michael Thompson',
         role: 'Private Investors, UK',
-        project: 'Luxury Penthouse Marbella',
-        amount: '€10M',
-        image: 'DR',
+        project: 'Boutique Hotel Renovatie Dénia',
+        amount: '€2.8M',
+        image: 'ST',
         rating: 5,
-        quote: 'Voor ons €10M penthouse project in Marbella Golden Mile hadden we complexe financiering nodig. Costa Capital structureerde een oplossing met 65% LTV en bridge financing tijdens de verbouwing. Hun Marbella kantoor kende alle lokale spelers.',
-        result: 'Penthouse opgeleverd, €15M marktwaarde, 50% ROI binnen 18 maanden'
+        quote: 'We droomden van een boutique hotel aan de Costa Blanca maar Spaanse banken wilden niet financieren voor buitenlanders. Costa Capital structureerde een bridge loan met 65% LTV en begeleidde ons door alle Spaanse administratie.',
+        result: '18 kamers gerenoveerd, volledige bezetting juli-september, 5-jaar terugverdientijd'
       },
       {
         name: 'Carlos Martínez',
@@ -532,12 +542,12 @@ export default function CostaCapitalLanding() {
       {
         name: 'Laura van den Berg',
         role: 'Vastgoedinvesteerder, Rotterdam',
-        project: 'Boutique Hotel Estepona',
-        amount: '€5.8M',
+        project: 'Holiday Rental Portfolio Calpe',
+        amount: '€3.6M',
         image: 'LB',
         rating: 5,
-        quote: 'Ik wilde een boutique hotel aan Costa del Sol kopen en renoveren. Costa Capital financierde het hele project inclusief renovatie met een construction loan. Hun kennis van toerisme licenties was cruciaal.',
-        result: '24 kamers, 85% gemiddelde bezetting, €420K jaarlijkse omzet'
+        quote: 'Ik wilde een portfolio van 8 appartementen kopen voor short-stay verhuur. Costa Capital financierde cross-collateralized en help met toerismelicenties. Hun kennis van Airbnb regelgeving in Valencia was cruciaal.',
+        result: '8 appartementen, gemiddeld 75% bezetting, €180K jaarlijkse huurinkomsten'
       }
     ],
     en: [
