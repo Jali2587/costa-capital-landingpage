@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import LeadMagnet from "./components/LeadMagnet";
 import {
   Building2, MessageSquare, Calculator, ChevronRight,
   Check, X, Star, Quote, MapPin, Globe, ArrowLeft,
@@ -544,6 +545,7 @@ export default function CostaCapitalApp() {
         </div>
       </section>
 
+<LeadMagnet lang={language} />
       {/* FOOTER */}
       <footer className="cc-footer">
         <div className="cc-footer-grid">
