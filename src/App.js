@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import LeadMagnet from "./components/LeadMagnet";
 import {
   Building2, MessageSquare, Calculator, ChevronRight,
   Check, X, Star, Quote, MapPin, Globe, ArrowLeft,
@@ -7,7 +6,13 @@ import {
 } from 'lucide-react';
 
 export default function CostaCapitalApp() {
-  const [language, setLanguage] = useState('nl');
+  const [language, setLanguage] = useState(() => {
+    // Read lang parameter from URL: ?lang=en / ?lang=nl / ?lang=es
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    if (['nl', 'en', 'es'].includes(lang)) return lang;
+    return 'nl'; // default fallback
+  });
   const [chatOpen, setChatOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
@@ -545,7 +550,6 @@ export default function CostaCapitalApp() {
         </div>
       </section>
 
-<LeadMagnet lang={language} />
       {/* FOOTER */}
       <footer className="cc-footer">
         <div className="cc-footer-grid">
