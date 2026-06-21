@@ -99,6 +99,19 @@ GEDRAG:
 - Zodra je genoeg weet (minimaal: type, locatie, projectwaarde, gewenste LTV of leenbedrag), geef een GESTRUCTUREERDE ANALYSE.
 - Na 2–3 berichten, moedig aan om een persoonlijk gesprek in te plannen via info@costacapital.pro.
 
+GEBRUIK VAN WEB ZOEKEN:
+Je hebt toegang tot een zoektool. Gebruik deze ALLEEN wanneer:
+- Gebruiker vraagt naar actuele rentetarieven of marktomstandigheden in Spanje
+- Gebruiker vraagt naar recente regelgevingswijzigingen (toeristenvergunningen, ITP-tarieven, bouwvergunningen)
+- Gebruiker vraagt naar een specifieke lender, bank of fonds waarover je niet zeker bent
+- Gebruiker vraagt naar actuele vastgoedprijzen of marktnieuws in een specifiek gebied
+
+Zoek NIET naar:
+- Algemene vragen over LTV, LTC, brugfinanciering, NIE, escritura
+- Vragen die je kunt beantwoorden vanuit de kennisbasis hierboven
+
+Wanneer je zoekt, citeer de bron kort en integreer dit natuurlijk in je antwoord.
+
 GESTRUCTUREERDE ANALYSE FORMAT:
 Wanneer je genoeg projectinformatie hebt, sluit je antwoord af met een JSON-blok in dit exacte formaat:
 
@@ -142,6 +155,20 @@ BEHAVIOR:
 - Once you have enough information (minimum: type, location, project value, desired LTV or loan amount), provide a STRUCTURED ANALYSIS.
 - After 2–3 messages, encourage scheduling a personal conversation via info@costacapital.pro.
 
+WEB SEARCH USAGE:
+You have access to a web search tool. Use it ONLY when:
+- User asks about current interest rates or market conditions in Spain
+- User asks about recent regulatory changes (tourist licences, ITP rates, building permits)
+- User asks about a specific lender, bank or fund you are not certain about
+- User asks about current property prices or market news in a specific area
+
+Do NOT search for:
+- General questions about LTV, LTC, bridge loans, NIE, escritura
+- Questions you can answer from the knowledge base above
+- Structural or procedural questions about Spanish real estate finance
+
+When you do search, cite the source briefly and integrate it naturally into your answer.
+
 STRUCTURED ANALYSIS FORMAT:
 When you have sufficient project information, close your answer with a JSON block in this exact format:
 
@@ -184,6 +211,19 @@ COMPORTAMIENTO:
 - Haz preguntas específicas para entender el proyecto: tipo, ubicación, valor, financiación deseada, capital disponible, plazos.
 - Cuando tengas suficiente información (mínimo: tipo, ubicación, valor del proyecto, LTV deseado o importe del préstamo), proporciona un ANÁLISIS ESTRUCTURADO.
 - Después de 2–3 mensajes, anima a concertar una conversación personal vía info@costacapital.pro.
+
+USO DE BÚSQUEDA WEB:
+Tienes acceso a una herramienta de búsqueda. Úsala SOLO cuando:
+- El usuario pregunta sobre tipos de interés actuales o condiciones de mercado en España
+- El usuario pregunta sobre cambios regulatorios recientes (licencias turísticas, tipos ITP, permisos de obra)
+- El usuario pregunta sobre un prestamista, banco o fondo específico del que no estás seguro
+- El usuario pregunta sobre precios inmobiliarios actuales o noticias de mercado en una zona específica
+
+NO busques para:
+- Preguntas generales sobre LTV, LTC, préstamos puente, NIE, escritura
+- Preguntas que puedes responder desde la base de conocimiento anterior
+
+Cuando busques, cita la fuente brevemente e intégrala de forma natural en tu respuesta.
 
 FORMATO DE ANÁLISIS ESTRUCTURADO:
 Cuando tengas suficiente información del proyecto, cierra tu respuesta con un bloque JSON en este formato exacto:
@@ -239,17 +279,30 @@ exports.handler = async (event) => {
 
     const systemPrompt = SYSTEM_PROMPTS[language] || SYSTEM_PROMPTS.en;
 
+    // ── API CALL WITH WEB SEARCH ─────────────────────────────────
+    // Web search is used selectively — only when the AI determines
+    // it needs current info (rates, regulations, market news).
+    // For standard questions about LTV, bridge loans etc. it uses
+    // the knowledge base directly with no extra delay.
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01'
+        'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'interleaved-thinking-2025-05-14'
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 2048,
+        max_tokens: 4096,
         system: systemPrompt,
+        tools: [
+          {
+            type: 'web_search_20250305',
+            name: 'web_search',
+            max_uses: 2  // max 2 searches per response to limit delay
+          }
+        ],
         messages: messages
       })
     });
@@ -257,14 +310,49 @@ exports.handler = async (event) => {
     if (!response.ok) {
       const err = await response.text();
       console.error('Anthropic error:', err);
-      return { statusCode: response.status, headers: CORS, body: JSON.stringify({ error: 'AI service error' }) };
+      // Fallback: retry without web search if tool fails
+      const fallbackResponse = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 2048,
+          system: systemPrompt,
+          messages: messages
+        })
+      });
+      if (!fallbackResponse.ok) {
+        return { statusCode: response.status, headers: CORS, body: JSON.stringify({ error: 'AI service error' }) };
+      }
+      const fallbackData = await fallbackResponse.json();
+      const fallbackText = fallbackData.content
+        .filter(i => i.type === 'text')
+        .map(i => i.text)
+        .join('\n');
+      return {
+        statusCode: 200,
+        headers: CORS,
+        body: JSON.stringify({ message: fallbackText, structured: null, usage: fallbackData.usage })
+      };
     }
 
     const data = await response.json();
+
+    // ── Extract text from all content blocks (including tool results) ──
     const fullText = data.content
       .filter(i => i.type === 'text')
       .map(i => i.text)
       .join('\n');
+
+    // ── Log if web search was used (for monitoring) ──
+    const searchUsed = data.content.some(i => i.type === 'tool_use' && i.name === 'web_search');
+    if (searchUsed) {
+      console.log('Web search used for query');
+    }
 
     // ── Extract structured JSON if present ──
     let structured = null;
