@@ -242,7 +242,7 @@ STAP 9 — HUIDIGE SITUATIE VS. GEOPTIMALISEERD SCENARIO
 Waar nuttig, toon illustratief geoptimaliseerd voorbeeld.
 
 Bv:
-Huiditige situatie: €4,6M schuld, LTC 76%
+Huidige situatie: €4,6M schuld, LTC 76%
 Geoptimaliseerd: €4,0M schuld, LTC 67%
 Effect: Breder lender pool.
 
