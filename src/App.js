@@ -16,6 +16,9 @@ export default function CostaCapitalLanding() {
   const [sessionMemory, setSessionMemory] = useState(null);
   const [memoryDate, setMemoryDate] = useState(null);
   const [webSearchUsed, setWebSearchUsed] = useState(false);
+  const [showEligibilityGate, setShowEligibilityGate] = useState(false);
+  const [eligibilityStep, setEligibilityStep] = useState(1);
+  const [eligibilityResponses, setEligibilityResponses] = useState({});
   const chatBottomRef = useRef(null);
 
   const [loanAmount, setLoanAmount] = useState(1000000);
@@ -93,6 +96,41 @@ export default function CostaCapitalLanding() {
     setChatMessages([]);
   };
 
+  const openChatWithGate = () => {
+    setShowEligibilityGate(true);
+    setEligibilityStep(1);
+    setEligibilityResponses({});
+    setChatOpen(true);
+  };
+
+  const handleEligibilityAnswer = (stepKey, answer) => {
+    const newResponses = { ...eligibilityResponses, [stepKey]: answer };
+    setEligibilityResponses(newResponses);
+
+    // Check if disqualified
+    if (stepKey === 'isLegalEntity' && answer === 'No') {
+      setEligibilityStep('rejected_consumer');
+      return;
+    }
+    if (stepKey === 'financingPurpose' && answer === 'Owner-occupied or private residence') {
+      setEligibilityStep('rejected_residential');
+      return;
+    }
+    if (stepKey === 'businessPurpose' && answer === 'No') {
+      setEligibilityStep('rejected_personal');
+      return;
+    }
+
+    // Move to next step
+    if (stepKey === 'isLegalEntity' && answer === 'Yes') {
+      setEligibilityStep(2);
+    } else if (stepKey === 'financingPurpose' && answer !== 'Owner-occupied or private residence') {
+      setEligibilityStep(3);
+    } else if (stepKey === 'businessPurpose' && answer === 'Yes') {
+      setShowEligibilityGate(false);
+    }
+  };
+
   const t = {
     nl: {
       nav: { contact: 'Contact', backLabel: 'Terug naar hoofdsite' },
@@ -131,6 +169,25 @@ export default function CostaCapitalLanding() {
       },
       cta: { title: 'Klaar voor uw Spaanse vastgoedproject?', subtitle: 'Bespreek uw plannen met onze Valencia-based AI-adviseur of plan een persoonlijk gesprek in', btn1: 'Start Gesprek', btn2: 'Plan Meeting' },
       footer: { desc: 'Specialist in vastgoedfinanciering voor internationale investeerders en lokale ontwikkelaars in Spanje.', contact: 'Contact', location: 'Locatie', valencia: 'Valencia, Spanje (Hoofdkantoor)', denia: 'Dénia, Costa Blanca', rights: '© 2024 Costa Capital. Alle rechten voorbehouden. Geregistreerd in Spanje' },
+      eligibility: {
+        q1: 'Is de borrower een juridische entiteit? (bedrijf, partnership, beleggingsfonds, etc.)',
+        q1yes: 'Ja, een juridische entiteit',
+        q1no: 'Nee, een privéperson',
+        q1reject: 'Costa Capital specialiseert zich in zakelijke vastgoedfinanciering voor professionele en corporate entiteiten. Wij arrangeren geen financiering voor privépersonen of eigenwoningen.',
+        q2: 'Wat is het doel van de financiering?',
+        q2opt1: 'Beleggingsvastgoed',
+        q2opt2: 'Ontwikkelingsproject',
+        q2opt3: 'Acquisitie',
+        q2opt4: 'Herfinanciering',
+        q2opt5: 'Zakelijke overbruggingsfinanciering',
+        q2opt6: 'Eigen bewoning of privé woning',
+        q2reject: 'Costa Capital arrangeert geen consumentenkrediet of eigenwoningfinancieringen.',
+        q3: 'Is de transactie voor zakelijke of beleggingsdoeleinden?',
+        q3yes: 'Ja',
+        q3no: 'Nee',
+        q3reject: 'Costa Capital arrangeert geen consumentenkrediet of eigenwoningfinancieringen.',
+        proceed: 'Prima! Laat me je verbinden met onze financieringsadviseur.'
+      },
       chat: {
         title: 'AI Financierings Adviseur',
         subtitle: 'Stel uw vragen over financiering in Spanje',
@@ -190,6 +247,25 @@ export default function CostaCapitalLanding() {
       },
       cta: { title: 'Ready for Your Spanish Real Estate Project?', subtitle: 'Discuss your plans with our Valencia-based AI advisor or schedule a personal meeting', btn1: 'Start Conversation', btn2: 'Schedule Meeting' },
       footer: { desc: 'Specialist in real estate financing for international investors and local developers in Spain.', contact: 'Contact', location: 'Location', valencia: 'Valencia, Spain (Head Office)', denia: 'Dénia, Costa Blanca', rights: '© 2024 Costa Capital. All rights reserved. Registered in Spain' },
+      eligibility: {
+        q1: 'Is the borrower a legal entity? (corporation, partnership, investment vehicle, etc.)',
+        q1yes: 'Yes, a legal entity',
+        q1no: 'No, a private individual',
+        q1reject: 'Costa Capital specializes in business-purpose financing for corporate and professional legal entities. We do not arrange financing for private individuals or owner-occupied residential property.',
+        q2: 'What is the purpose of the financing?',
+        q2opt1: 'Investment property',
+        q2opt2: 'Development project',
+        q2opt3: 'Acquisition',
+        q2opt4: 'Refinancing',
+        q2opt5: 'Business-purpose bridge finance',
+        q2opt6: 'Owner-occupied or private residence',
+        q2reject: 'Costa Capital does not arrange consumer or owner-occupied residential mortgage finance.',
+        q3: 'Is the transaction for business or investment purposes?',
+        q3yes: 'Yes',
+        q3no: 'No',
+        q3reject: 'Costa Capital does not arrange consumer or owner-occupied residential mortgage finance.',
+        proceed: 'Great! Let me connect you with our financing advisor.'
+      },
       chat: {
         title: 'AI Financing Advisor',
         subtitle: 'Ask your questions about financing in Spain',
@@ -249,6 +325,25 @@ export default function CostaCapitalLanding() {
       },
       cta: { title: '¿Listo para su proyecto inmobiliario en España?', subtitle: 'Hable con nuestro asesor IA con sede en Valencia o programe una reunión personal', btn1: 'Iniciar Conversación', btn2: 'Programar Reunión' },
       footer: { desc: 'Especialistas en financiación inmobiliaria para inversores internacionales y promotores locales en España.', contact: 'Contacto', location: 'Ubicación', valencia: 'Valencia, España (Sede Central)', denia: 'Dénia, Costa Blanca', rights: '© 2024 Costa Capital. Todos los derechos reservados. Registrado en España' },
+      eligibility: {
+        q1: '¿Es el solicitante una entidad legal? (sociedad, partnership, fondo de inversión, etc.)',
+        q1yes: 'Sí, una entidad legal',
+        q1no: 'No, una persona física',
+        q1reject: 'Costa Capital se especializa en financiación empresarial para entidades legales profesionales y corporativas. No financiamos a personas físicas ni propiedades de uso propio.',
+        q2: '¿Cuál es el propósito de la financiación?',
+        q2opt1: 'Propiedad de inversión',
+        q2opt2: 'Proyecto de desarrollo',
+        q2opt3: 'Adquisición',
+        q2opt4: 'Refinanciación',
+        q2opt5: 'Financiación puente comercial',
+        q2opt6: 'Vivienda propia o de uso privado',
+        q2reject: 'Costa Capital no ofrece crédito al consumo ni financiación de viviendas de uso propio.',
+        q3: '¿Es la transacción con propósito comercial o de inversión?',
+        q3yes: 'Sí',
+        q3no: 'No',
+        q3reject: 'Costa Capital no ofrece crédito al consumo ni financiación de viviendas de uso propio.',
+        proceed: '¡Excelente! Permíteme conectarte con nuestro asesor de financiación.'
+      },
       chat: {
         title: 'Asesor IA de Financiación',
         subtitle: 'Haga sus preguntas sobre financiación en España',
@@ -426,7 +521,7 @@ export default function CostaCapitalLanding() {
             {text.hero.location}
           </p>
           <div className="cc-hero-actions">
-            <button onClick={() => setChatOpen(true)} className="cc-btn-primary cc-btn-lg">
+            <button onClick={openChatWithGate} className="cc-btn-primary cc-btn-lg">
               <MessageSquare size={18} />
               {text.hero.cta1}
             </button>
@@ -564,7 +659,7 @@ export default function CostaCapitalLanding() {
           <h2 className="cc-cta-title">{text.cta.title}</h2>
           <p className="cc-cta-sub">{text.cta.subtitle}</p>
           <div className="cc-hero-actions">
-            <button onClick={() => setChatOpen(true)} className="cc-btn-dark cc-btn-lg">
+            <button onClick={openChatWithGate} className="cc-btn-dark cc-btn-lg">
               {text.cta.btn1}
             </button>
             <button onClick={openMeetingEmail} className="cc-btn-outline-dark cc-btn-lg">
@@ -608,6 +703,58 @@ export default function CostaCapitalLanding() {
               <button onClick={handleCloseChat} className="cc-modal-close"><X size={20} /></button>
             </div>
             <div className="cc-chat-body">
+              {/* ELIGIBILITY GATE */}
+              {showEligibilityGate && (
+                <div style={{padding:'1.5rem',textAlign:'center',background:'rgba(200,169,110,0.03)',border:'1px solid rgba(200,169,110,0.15)',margin:'1rem',borderRadius:'0.5rem'}}>
+                  {eligibilityStep === 'rejected_consumer' && (
+                    <>
+                      <p style={{fontSize:'0.95rem',color:'var(--cc-white)',marginBottom:'1rem'}}>{text.eligibility.q1reject}</p>
+                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
+                    </>
+                  )}
+                  {eligibilityStep === 'rejected_residential' && (
+                    <>
+                      <p style={{fontSize:'0.95rem',color:'var(--cc-white)',marginBottom:'1rem'}}>{text.eligibility.q2reject}</p>
+                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
+                    </>
+                  )}
+                  {eligibilityStep === 'rejected_personal' && (
+                    <>
+                      <p style={{fontSize:'0.95rem',color:'var(--cc-white)',marginBottom:'1rem'}}>{text.eligibility.q3reject}</p>
+                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
+                    </>
+                  )}
+                  {eligibilityStep === 1 && (
+                    <>
+                      <p style={{fontSize:'0.85rem',color:'var(--cc-muted)',marginBottom:'1.5rem'}}>{text.eligibility.q1}</p>
+                      <div style={{display:'flex',gap:'0.8rem',flexDirection:'column'}}>
+                        <button onClick={() => handleEligibilityAnswer('isLegalEntity', 'Yes')} style={{background:'var(--cc-gold)',color:'var(--cc-black)',border:'none',padding:'0.7rem 1.2rem',fontSize:'0.82rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.1em',textTransform:'uppercase'}}>{text.eligibility.q1yes}</button>
+                        <button onClick={() => handleEligibilityAnswer('isLegalEntity', 'No')} style={{background:'var(--cc-surface)',color:'var(--cc-white)',border:'1px solid var(--cc-border)',padding:'0.7rem 1.2rem',fontSize:'0.82rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.1em',textTransform:'uppercase'}}>{text.eligibility.q1no}</button>
+                      </div>
+                    </>
+                  )}
+                  {eligibilityStep === 2 && (
+                    <>
+                      <p style={{fontSize:'0.85rem',color:'var(--cc-muted)',marginBottom:'1.5rem'}}>{text.eligibility.q2}</p>
+                      <div style={{display:'flex',gap:'0.6rem',flexDirection:'column'}}>
+                        {[text.eligibility.q2opt1, text.eligibility.q2opt2, text.eligibility.q2opt3, text.eligibility.q2opt4, text.eligibility.q2opt5, text.eligibility.q2opt6].map((opt, i) => (
+                          <button key={i} onClick={() => handleEligibilityAnswer('financingPurpose', opt)} style={{background:opt === text.eligibility.q2opt6 ? 'rgba(255,80,80,0.1)' : 'var(--cc-surface)',color:'var(--cc-white)',border: opt === text.eligibility.q2opt6 ? '1px solid rgba(255,80,80,0.3)' : '1px solid var(--cc-border)',padding:'0.65rem 1rem',fontSize:'0.78rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.05em',textAlign:'left'}}>{opt}</button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  {eligibilityStep === 3 && (
+                    <>
+                      <p style={{fontSize:'0.85rem',color:'var(--cc-muted)',marginBottom:'1.5rem'}}>{text.eligibility.q3}</p>
+                      <div style={{display:'flex',gap:'0.8rem',flexDirection:'column'}}>
+                        <button onClick={() => handleEligibilityAnswer('businessPurpose', 'Yes')} style={{background:'var(--cc-gold)',color:'var(--cc-black)',border:'none',padding:'0.7rem 1.2rem',fontSize:'0.82rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.1em',textTransform:'uppercase'}}>{text.eligibility.q3yes}</button>
+                        <button onClick={() => handleEligibilityAnswer('businessPurpose', 'No')} style={{background:'var(--cc-surface)',color:'var(--cc-white)',border:'1px solid var(--cc-border)',padding:'0.7rem 1.2rem',fontSize:'0.82rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.1em',textTransform:'uppercase'}}>{text.eligibility.q3no}</button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
               {/* Memory banner */}
               {sessionMemory && chatMessages.length === 0 && (
                 <div style={{background:'rgba(200,169,110,0.08)',border:'1px solid rgba(200,169,110,0.2)',padding:'0.8rem 1rem',marginBottom:'0.5rem',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'0.8rem'}}>
