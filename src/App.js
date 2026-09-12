@@ -364,6 +364,86 @@ export default function CostaCapitalLanding() {
         total: 'Intereses Totales (indicativo)',
         note: '✓ Esta indicación se basa en condiciones estándar para proyectos en España. Para una oferta exacta, nos pondremos en contacto con usted.',
         discuss: 'Consultar con Asesor IA'
+,
+    pl: {
+      nav: { contact: 'Kontakt', backLabel: 'Powrót do strony głównej' },
+      hero: {
+        badge: 'Specjalizacja na Wybrzeżach Hiszpańskich',
+        title: 'Finansowanie\nNieruchomości w Hiszpanii',
+        subtitle: 'Ekspert w Costa del Sol, Costa Blanca i Valencia. Finansowanie dla inwestorów międzynarodowych i lokalnych deweloperów. Od €500K do €50M+.',
+        cta1: 'Rozmowa z AI',
+        cta2: 'Oblicz Finansowanie',
+        location: 'Biuro w Walencji, Hiszpania'
+      },
+      stats: { financed: 'Sfinansowano w Hiszpanii', response: 'Pierwsza Odpowiedź', projects: 'Projekty Hiszpańskie', satisfaction: 'Zadowolenie Klientów' },
+      features: {
+        title: 'Dlaczego Costa Capital dla Wybrzeży Hiszpańskich?',
+        speed: { title: 'Lokalna Ekspertyza', desc: 'Biuro w Walencji z głęboką wiedzą o całym wybrzeżu: Costa del Sol (Marbella, Málaga), Costa Blanca (Alicante, Dénia) i Valencia. Mówimy językiem rynku.' },
+        flex: { title: 'Struktury Międzynarodowe', desc: 'Doświadczenie w transakcjach transgranicznych, strukturach offshore i optymalizacji podatkowej dla inwestorów zagranicznych w Hiszpanii.' },
+        complex: { title: 'Specjalista Wybrzeży Hiszpańskich', desc: 'Od Marbelii do Walencji: Málaga, Marbella, Estepona, Benidorm, Alicante, Dénia, Jávea, Valencia. Znamy wybrzeża Hiszpanii i mamy sieci z notariuszami, prawnikami i deweloperami.' }
+      },
+      markets: {
+        title: 'Nasze Specjalizacje w Hiszpanii',
+        subtitle: 'Od Costa del Sol do Costa Blanca',
+        coastal: { title: 'Luksusowe Nieruchomości Przybrzeżne', desc: 'Wille, apartamenty i kompleksy wypoczynkowe na Costa del Sol i Costa Blanca. Od Marbelii do Walencji. LTV do 70%.' },
+        commercial: { title: 'Nieruchomości Komercyjne', desc: 'Retail, gastronomia i biura w Málaga, Marbella, Walencji i innych obszarach przybrzeżnych. Idealne dla międzynarodowych detalistów.' },
+        tourism: { title: 'Projekty Turystyczne', desc: 'Hotele, domy wakacyjne i kompleksy krótkoterminowe. Zrozumienie licencji turystycznych i regulacji. Ostatni projekt: €10M hotel Marbella.' }
+      },
+      reviews: { title: 'Udane Finansowania w Hiszpanii', subtitle: 'Co mówią nasi klienci o swoich projektach' },
+      spanish: {
+        title: 'Rynek Nieruchomości w Hiszpanii',
+        intro: 'Dlaczego inwestować na wybrzeżach Hiszpańskich?',
+        points: ['300+ dni słonecznych w roku - idealny klimat', 'Rosnący popyt międzynarodowy', 'Málaga, Marbella, Valencia: silny wzrost i infrastruktura', 'Relatywnie niskie ceny vs inne europejskie obszary przybrzeżne', 'Stabilny rynek wynajmu dzięki turystyce i expatów', 'Nowa infrastruktura: sieć AVE, rozszerzenia lotnisk']
+      },
+      process: { title: 'Proces Finansowania', subtitle: 'Od aplikacji do zamknięcia w Hiszpanii' },
+      social: {
+        title: 'Dlaczego inwestorzy międzynarodowi nas wybierają',
+        benefits: ['Pomoc w aplikacji NIE i koncie bankowym', 'Sieć niezawodnych lokalnych prawników i notariuszy', 'Doświadczenie z procesami residencia i golden visa', 'Wiedza o Ley de Costas i innych regulacjach', 'Strukturyzacja podatkowa', 'Wsparcie zarządzania projektami']
+      },
+      cta: { title: 'Gotowy na Swój Projekt Nieruchomości?', subtitle: 'Omów swoje plany z naszym doradcą AI lub zaplanuj spotkanie', btn1: 'Rozmowa', btn2: 'Spotkanie' },
+      footer: { desc: 'Specjalista w finansowaniu nieruchomości dla inwestorów międzynarodowych i lokalnych deweloperów w Hiszpanii.', contact: 'Kontakt', location: 'Lokalizacja', valencia: 'Walencja, Hiszpania (Siedziba)', denia: 'Dénia, Costa Blanca', rights: '© 2024 Costa Capital. Wszystkie prawa zastrzeżone.' },
+      eligibility: {
+        q1: 'Czy pożyczkobiorca jest osobą prawną? (spółka, partnerstwo, fundusz inwestycyjny itd.)',
+        q1yes: 'Tak, osoba prawna',
+        q1no: 'Nie, osoba prywatna',
+        q1reject: 'Costa Capital specjalizuje się w finansowaniu celów biznesowych dla podmiotów korporacyjnych i zawodowych. Nie oferujemy finansowania dla osób prywatnych.',
+        q2: 'Jaki jest cel finansowania?',
+        q2opt1: 'Nieruchomość inwestycyjna',
+        q2opt2: 'Projekt deweloperski',
+        q2opt3: 'Akwizycja',
+        q2opt4: 'Refinansowanie',
+        q2opt5: 'Finansowanie biznesu',
+        q2opt6: 'Własny dom lub nieruchomość prywatna',
+        q2reject: 'Costa Capital nie oferuje kredytów konsumenckich ani hipotecznych.',
+        q3: 'Czy transakcja dotyczy celów biznesowych lub inwestycyjnych?',
+        q3yes: 'Tak',
+        q3no: 'Nie',
+        q3reject: 'Costa Capital nie oferuje kredytów konsumenckich ani hipotecznych.',
+        proceed: 'Świetnie! Połączę Cię z naszym doradcą finansowym.'
+      },
+      chat: {
+        title: 'Doradca AI do Finansowania',
+        subtitle: 'Zadaj pytania o finansowanie w Hiszpanii',
+        placeholder: 'Zadaj pytanie...',
+        empty: 'Rozpocznij rozmowę o swoim projekcie',
+        suggestions: ['Jakie są warunki finansowania w Marbelli?', 'Jak działa proces NIE dla inwestorów zagranicznych?', 'Jakie LTV stosuje Costa Capital?'],
+        systemPrompt: 'Jesteś doradcą finansowym dla Costa Capital, specjalizującym się w finansowaniu nieruchomości na wybrzeżach Hiszpańskich. Pomagasz inwestorom międzynarodowym i lokalnym deweloperom z pytaniami o finansowanie, regulacje Hiszpańskie i inwestowanie w Hiszpanii. Bądź zawodowy, handlowy i zwięzły. Twoim celem jest generowanie leadów poprzez dostarczanie wartości. Odpowiadaj po polsku.'
+      },
+      calc: {
+        title: 'Kalkulator Finansowania',
+        subtitle: 'Uzyskaj wskazanie dla swojego projektu',
+        loanAmount: 'Pożądana Kwota Kredytu',
+        projectValue: 'Wartość Projektu',
+        term: 'Okres',
+        months: 'miesięcy',
+        ltv: 'Loan-to-Value (LTV)',
+        monthly: 'Wskazówka Rata Miesięczna',
+        total: 'Całkowite Odsetki (wskazówka)',
+        note: '✓ Ta wskazówka opiera się na standardowych warunkach dla projektów w Hiszpanii. Skontaktuj się z nami.',
+        discuss: 'Omów z Doradcą AI'
+      }
+    }
+
       }
     }
   };
@@ -386,6 +466,12 @@ export default function CostaCapitalLanding() {
       { name: 'Henrik Janssen', role: 'CEO, Nordic Investments', project: 'Desarrollo Villas de Lujo Jávea', amount: '€4.2M', image: 'HJ', rating: 5, quote: 'Como holandés queriendo invertir en España, necesitaba un socio que entendiera ambos mercados. Costa Capital gestionó la financiación Y ayudó con el NIE, notaría y contactos con constructores locales.', result: '6 villas construidas, todas vendidas a compradores del norte de Europa, 38% ROI' },
       { name: 'Carlos Martínez', role: 'Promotor Local, Valencia', project: 'Complejo Mixto Valencia', amount: '€8.5M', image: 'CM', rating: 5, quote: 'Como promotor español necesitaba financiación rápida. Costa Capital entendió perfectamente el mercado valenciano y cerró la operación en 2 semanas.', result: '42 apartamentos + 8 locales comerciales, 85% vendido sobre plano' },
       { name: 'Laura van den Berg', role: 'Inversora Inmobiliaria, Rotterdam', project: 'Portfolio Alquiler Vacacional Calpe', amount: '€3.6M', image: 'LB', rating: 5, quote: 'Quería comprar un portfolio de 8 apartamentos para alquiler de corta estancia. Costa Capital financió con garantía cruzada y ayudó con las licencias turísticas.', result: '8 apartamentos, ocupación media 75%, €180K de ingresos anuales por alquiler' }
+    ],
+    pl: [
+      { name: 'Alexander Petrov', role: 'CEO, Mediterranean Investments', project: 'Hotel Boutique Marbella', amount: '€10M', image: 'AP', rating: 5, quote: 'Na nasz 5-gwiazdkowy hotel boutique w Marbelli potrzebowaliśmy znacznego finansowania. Costa Capital doskonale zrozumiał rynek luksusowy Costa del Sol i stworzył pakiet na miarę naszych potrzeb.', result: '45 pokoi + spa, otwarcie Q2 2025, rezerwacje od €450/noc' },
+      { name: 'Henrik Janssen', role: 'CEO, Nordic Investments', project: 'Projekt Luksusowych Willi Jávea', amount: '€4.2M', image: 'HJ', rating: 5, quote: 'Jako Holender chcący inwestować w Hiszpanii potrzebowałem partnera rozumiejącego oba rynki. Costa Capital urządził finansowanie I pomógł z NIE, notariuszem i kontaktami z lokalnymi konstruktorami.', result: '6 willi zbudowanych, wszystkie sprzedane kupującym z Północy Europy, 38% ROI' },
+      { name: 'Carlos Martínez', role: 'Deweloper Lokalny, Walencja', project: 'Kompleks Mieszany Walencja', amount: '€8.5M', image: 'CM', rating: 5, quote: 'Jako lokalny deweloper potrzebowałem szybkiego finansowania. Costa Capital doskonale zrozumiał rynek walencyjski i zamknął transakcję w 2 tygodnie.', result: '42 apartamenty + 8 lokali komercyjnych, 85% sprzedanych przed budową' },
+      { name: 'Laura van den Berg', role: 'Inwestorka Nieruchomości, Rotterdam', project: 'Portfolio Wynajmu Wakacyjnego Calpe', amount: '€3.6M', image: 'LB', rating: 5, quote: 'Chciałem kupić portfolio 8 apartamentów na wynajem krótkoterminowy. Costa Capital sfinansował z gwarancją krzyżową i pomógł z licencjami turystycznymi.', result: '8 apartamentów, średnia zajętość 75%, €180K rocznych przychodów z wynajmu' }
     ]
   };
 
@@ -453,11 +539,13 @@ export default function CostaCapitalLanding() {
   const monthlyPayment = (loanAmount * monthlyRate).toFixed(0);
 
   const openMeetingEmail = () => {
-    const subject = language === 'nl' ? 'Aanvraag Meeting - Costa Capital' : language === 'es' ? 'Solicitud de Reunión - Costa Capital' : 'Meeting Request - Costa Capital';
+    const subject = language === 'nl' ? 'Aanvraag Meeting - Costa Capital' : language === 'es' ? 'Solicitud de Reunión - Costa Capital' : language === 'pl' ? 'Prośba o Spotkanie - Costa Capital' : 'Meeting Request - Costa Capital';
     const body = language === 'nl'
       ? `Beste Costa Capital team,\n\nIk ben geïnteresseerd in het plannen van een persoonlijk gesprek om mijn vastgoedproject in Spanje te bespreken.\n\nNaam: [Uw volledige naam]\nTelefoon: [Uw telefoonnummer]\nLocatie project: [bijv. Valencia, Dénia, Marbella]\nType project: [bijv. Villa ontwikkeling, Hotel renovatie]\nGewenste financiering: € [bedrag]\n\nMet vriendelijke groet,\n[Uw naam]`
       : language === 'es'
       ? `Estimado equipo de Costa Capital,\n\nEstoy interesado en programar una reunión personal para hablar sobre mi proyecto inmobiliario en España.\n\nNombre: [Su nombre completo]\nTeléfono: [Su número de teléfono]\nUbicación del proyecto: [p.ej. Valencia, Dénia, Marbella]\nTipo de proyecto: [p.ej. Desarrollo de villas, Renovación de hotel]\nFinanciación deseada: € [importe]\n\nAtentamente,\n[Su nombre]`
+      : language === 'pl'
+      ? `Szanowny Zespół Costa Capital,\n\nJestem zainteresowany zaplanowaniem osobistego spotkania, aby omówić mój projekt nieruchomości w Hiszpanii.\n\nNazwisko: [Twoje pełne imię i nazwisko]\nTelefon: [Twój numer telefonu]\nLokalizacja projektu: [np. Valencia, Dénia, Marbella]\nTyp projektu: [np. Budowa willi, Renowacja hotelu]\nPożądane finansowanie: € [kwota]\n\nZ poważaniem,\n[Twoje imię i nazwisko]`
       : `Dear Costa Capital team,\n\nI am interested in scheduling a personal meeting to discuss my real estate project in Spain.\n\nName: [Your full name]\nPhone: [Your phone number]\nProject location: [e.g. Valencia, Dénia, Marbella]\nProject type: [e.g. Villa development, Hotel renovation]\nDesired financing: € [amount]\n\nBest regards,\n[Your name]`;
     window.location.href = `mailto:info@costacapital.pro?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
@@ -487,7 +575,7 @@ export default function CostaCapitalLanding() {
         </a>
         <div className="cc-nav-right">
           <div className="cc-lang-toggle">
-            {['nl', 'en', 'es'].map(lang => (
+            {['nl', 'en', 'es', 'pl'].map(lang => (
               <button
                 key={lang}
                 onClick={() => setLanguage(lang)}
@@ -709,19 +797,19 @@ export default function CostaCapitalLanding() {
                   {eligibilityStep === 'rejected_consumer' && (
                     <>
                       <p style={{fontSize:'0.95rem',color:'var(--cc-white)',marginBottom:'1rem'}}>{text.eligibility.q1reject}</p>
-                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
+                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : language === 'pl' ? 'Więcej informacji:' : 'More info:'} info@costacapital.pro</p>
                     </>
                   )}
                   {eligibilityStep === 'rejected_residential' && (
                     <>
                       <p style={{fontSize:'0.95rem',color:'var(--cc-white)',marginBottom:'1rem'}}>{text.eligibility.q2reject}</p>
-                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
+                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : language === 'pl' ? 'Więcej informacji:' : 'More info:'} info@costacapital.pro</p>
                     </>
                   )}
                   {eligibilityStep === 'rejected_personal' && (
                     <>
                       <p style={{fontSize:'0.95rem',color:'var(--cc-white)',marginBottom:'1rem'}}>{text.eligibility.q3reject}</p>
-                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
+                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : language === 'pl' ? 'Więcej informacji:' : 'More info:'} info@costacapital.pro</p>
                     </>
                   )}
                   {eligibilityStep === 1 && (
@@ -763,11 +851,12 @@ export default function CostaCapitalLanding() {
                     <span>
                       {language === 'nl' ? `Welkom terug — gesprek van ${memoryDate?.toLocaleDateString('nl-NL') || 'eerder'}` :
                        language === 'es' ? `Bienvenido de nuevo — conversación del ${memoryDate?.toLocaleDateString('es-ES') || 'antes'}` :
+                       language === 'pl' ? `Witaj z powrotem — rozmowa z ${memoryDate?.toLocaleDateString('pl-PL') || 'wcześniej'}` :
                        `Welcome back — conversation from ${memoryDate?.toLocaleDateString('en-GB') || 'before'}`}
                     </span>
                   </div>
                   <button onClick={clearMemory} style={{background:'none',border:'none',cursor:'pointer',fontSize:'0.68rem',color:'var(--cc-muted)',letterSpacing:'0.1em',textTransform:'uppercase',padding:'0.2rem 0.4rem',transition:'color 0.2s'}} onMouseOver={e=>e.target.style.color='white'} onMouseOut={e=>e.target.style.color='var(--cc-muted)'}>
-                    {language === 'nl' ? 'Wissen' : language === 'es' ? 'Borrar' : 'Clear'}
+                    {language === 'nl' ? 'Wissen' : language === 'es' ? 'Borrar' : language === 'pl' ? 'Wyczyść' : 'Clear'}
                   </button>
                 </div>
               )}
@@ -828,7 +917,7 @@ export default function CostaCapitalLanding() {
               {webSearchUsed && (
                 <div style={{fontSize:'0.7rem',color:'var(--cc-gold)',display:'flex',alignItems:'center',gap:'0.4rem',padding:'0.4rem 0',opacity:0.7}}>
                   <span>🌐</span>
-                  <span>{language === 'nl' ? 'Actuele marktinformatie opgezocht' : language === 'es' ? 'Información de mercado actualizada' : 'Live market data retrieved'}</span>
+                  <span>{language === 'nl' ? 'Actuele marktinformatie opgezocht' : language === 'es' ? 'Información de mercado actualizada' : language === 'pl' ? 'Pobrano aktualne dane rynkowe' : 'Live market data retrieved'}</span>
                 </div>
               )}
 
@@ -901,34 +990,34 @@ export default function CostaCapitalLanding() {
           <div className="cc-modal cc-modal-sm">
             <div className="cc-modal-header">
               <div>
-                <h3 className="cc-modal-title">{language === 'nl' ? 'Neem Contact Op' : language === 'es' ? 'Ponerse en Contacto' : 'Get in Touch'}</h3>
-                <p className="cc-modal-sub">{language === 'nl' ? 'Bespreek uw project met ons' : language === 'es' ? 'Hable con nosotros sobre su proyecto' : 'Discuss your project with us'}</p>
+                <h3 className="cc-modal-title">{language === 'nl' ? 'Neem Contact Op' : language === 'es' ? 'Ponerse en Contacto' : language === 'pl' ? 'Skontaktuj się' : 'Get in Touch'}</h3>
+                <p className="cc-modal-sub">{language === 'nl' ? 'Bespreek uw project met ons' : language === 'es' ? 'Hable con nosotros sobre su proyecto' : language === 'pl' ? 'Porozmawiaj z nami o swoim projekcie' : 'Discuss your project with us'}</p>
               </div>
               <button onClick={() => setContactOpen(false)} className="cc-modal-close"><X size={20} /></button>
             </div>
             <div className="cc-contact-body">
               <a href="tel:+31681752045" className="cc-contact-item">
                 <div className="cc-contact-icon">📞</div>
-                <div><div className="cc-contact-main">+31 6 8175 2045</div><div className="cc-muted-sm">{language === 'nl' ? 'Bel of WhatsApp ons' : language === 'es' ? 'Llámenos o WhatsApp' : 'Call or WhatsApp us'}</div></div>
+                <div><div className="cc-contact-main">+31 6 8175 2045</div><div className="cc-muted-sm">{language === 'nl' ? 'Bel of WhatsApp ons' : language === 'es' ? 'Llámenos o WhatsApp' : language === 'pl' ? 'Zadzwoń lub napisz na WhatsApp' : 'Call or WhatsApp us'}</div></div>
               </a>
               <a href="mailto:info@costacapital.pro" className="cc-contact-item">
                 <div className="cc-contact-icon">✉️</div>
-                <div><div className="cc-contact-main">info@costacapital.pro</div><div className="cc-muted-sm">{language === 'nl' ? 'Stuur ons een email' : language === 'es' ? 'Envíenos un email' : 'Send us an email'}</div></div>
+                <div><div className="cc-contact-main">info@costacapital.pro</div><div className="cc-muted-sm">{language === 'nl' ? 'Stuur ons een email' : language === 'es' ? 'Envíenos un email' : language === 'pl' ? 'Wyślij nam e-mail' : 'Send us an email'}</div></div>
               </a>
               <a href="https://wa.me/31681752045" target="_blank" rel="noopener noreferrer" className="cc-contact-item cc-whatsapp">
                 <div className="cc-contact-icon cc-contact-icon-white">💬</div>
-                <div><div className="cc-contact-main">WhatsApp</div><div style={{fontSize:'0.8rem',color:'#bbf7d0'}}>{language === 'nl' ? 'Chat direct met ons' : language === 'es' ? 'Chatee con nosotros' : 'Chat with us directly'}</div></div>
+                <div><div className="cc-contact-main">WhatsApp</div><div style={{fontSize:'0.8rem',color:'#bbf7d0'}}>{language === 'nl' ? 'Chat direct met ons' : language === 'es' ? 'Chatee con nosotros' : language === 'pl' ? 'Porozmawiaj z nami' : 'Chat with us directly'}</div></div>
               </a>
               <div className="cc-contact-location">
                 <MapPin size={15} className="cc-check-icon" />
                 <div>
-                  <div style={{fontWeight:500,marginBottom:'0.2rem'}}>{language === 'nl' ? 'Ons Kantoor' : language === 'es' ? 'Nuestra Oficina' : 'Our Office'}</div>
+                  <div style={{fontWeight:500,marginBottom:'0.2rem'}}>{language === 'nl' ? 'Ons Kantoor' : language === 'es' ? 'Nuestra Oficina' : language === 'pl' ? 'Nasze Biuro' : 'Our Office'}</div>
                   <div className="cc-muted-sm">Valencia, España · Dénia, Costa Blanca</div>
                 </div>
               </div>
               <button onClick={() => { setContactOpen(false); setChatOpen(true); }} className="cc-btn-primary cc-btn-full">
                 <MessageSquare size={16} />
-                {language === 'nl' ? 'Of chat met onze AI Adviseur' : language === 'es' ? 'O chatee con nuestro Asesor IA' : 'Or chat with our AI Advisor'}
+                {language === 'nl' ? 'Of chat met onze AI Adviseur' : language === 'es' ? 'O chatee con nuestro Asesor IA' : language === 'pl' ? 'Lub porozmawiaj z naszym Doradcą AI' : 'Or chat with our AI Advisor'}
               </button>
             </div>
           </div>
