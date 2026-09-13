@@ -401,6 +401,7 @@ export default function CostaCapitalLanding() {
     setIsLoading(true);
     setWebSearchUsed(false);
     try {
+      const requestStart = Date.now();
       const response = await fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -410,6 +411,9 @@ export default function CostaCapitalLanding() {
           sessionMemory: chatMessages.length === 0 ? sessionMemory : null
         }),
       });
+      const requestEnd = Date.now();
+      console.log(`[CLIENT] Roundtrip time: ${requestEnd - requestStart}ms`);
+      
       if (!response.ok) throw new Error('API call failed');
       const data = await response.json();
 

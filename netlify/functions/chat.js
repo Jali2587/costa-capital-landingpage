@@ -1204,6 +1204,8 @@ function parseAssessmentResponse(text) {
 
 // ── MAIN HANDLER ─────────────────────────────────────────────────
 exports.handler = async (event) => {
+  const functionStart = Date.now();
+  
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers: CORS, body: '' };
   }
@@ -1224,6 +1226,8 @@ exports.handler = async (event) => {
     // If only generating a summary (called when user leaves/closes)
     if (generateSummary) {
       const summary = generateMemorySummary(messages, language);
+      const elapsed = Date.now() - functionStart;
+      console.log(`[TIMING] Early return (summary): ${elapsed}ms`);
       return {
         statusCode: 200,
         headers: CORS,
@@ -1244,6 +1248,7 @@ exports.handler = async (event) => {
     }
 
     // Primary request with web search
+    const apiStart = Date.now();
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -1258,12 +1263,19 @@ exports.handler = async (event) => {
         messages: finalMessages
       })
     });
+    const apiEnd = Date.now();
+    const funcElapsed1 = apiEnd - functionStart;
+    console.log(`[TIMING] Anthropic API resolved: status=${response.status}, apiTime=${apiEnd - apiStart}ms, funcTime=${funcElapsed1}ms`);
 
     // Fallback without web search if main request fails
     if (!response.ok) {
+      const fallbackStartElapsed = Date.now() - functionStart;
+      console.log(`[TIMING] FALLBACK START: funcTime=${fallbackStartElapsed}ms`);
+      
       const err = await response.text();
       console.error('Anthropic error:', err);
 
+      const fallbackApiStart = Date.now();
       const fallbackResponse = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
@@ -1278,19 +1290,33 @@ exports.handler = async (event) => {
           messages: finalMessages
         })
       });
+      const fallbackApiEnd = Date.now();
+      const fallbackFuncElapsed = fallbackApiEnd - functionStart;
+      console.log(`[TIMING] Fallback API resolved: status=${fallbackResponse.status}, apiTime=${fallbackApiEnd - fallbackApiStart}ms, funcTime=${fallbackFuncElapsed}ms`);
 
       if (!fallbackResponse.ok) {
+        const retElapsed = Date.now() - functionStart;
+        console.log(`[TIMING] Return error: funcTime=${retElapsed}ms`);
         return { statusCode: response.status, headers: CORS, body: JSON.stringify({ error: 'AI service error' }) };
       }
 
+      const fallbackDataStart = Date.now();
       const fallbackData = await fallbackResponse.json();
+      const fallbackDataElapsed = Date.now() - functionStart;
+      console.log(`[TIMING] Fallback JSON parsed: funcTime=${fallbackDataElapsed}ms`);
+      
       const fallbackText = fallbackData.content
         .filter(i => i.type === 'text')
         .map(i => i.text)
         .join('\n');
 
+      const fallbackParseStart = Date.now();
       const { cleanText, structured } = parseAssessmentResponse(fallbackText);
+      const fallbackParseElapsed = Date.now() - functionStart;
+      console.log(`[TIMING] Fallback response parsed: structured=${!!structured}, funcTime=${fallbackParseElapsed}ms`);
 
+      const fallbackRetElapsed = Date.now() - functionStart;
+      console.log(`[TIMING] Fallback return: funcTime=${fallbackRetElapsed}ms`);
       return {
         statusCode: 200,
         headers: CORS,
@@ -1303,7 +1329,10 @@ exports.handler = async (event) => {
       };
     }
 
+    const jsonStart = Date.now();
     const data = await response.json();
+    const jsonElapsed = Date.now() - functionStart;
+    console.log(`[TIMING] Primary JSON parsed: funcTime=${jsonElapsed}ms`);
 
     const fullText = data.content
       .filter(i => i.type === 'text')
@@ -1313,7 +1342,10 @@ exports.handler = async (event) => {
     const webSearchUsed = data.content.some(i => i.type === 'tool_use' && i.name === 'web_search');
 
     // Parse assessment response
+    const parseStart = Date.now();
     const { cleanText, structured } = parseAssessmentResponse(fullText);
+    const parseElapsed = Date.now() - functionStart;
+    console.log(`[TIMING] Primary response parsed: structured=${!!structured}, funcTime=${parseElapsed}ms`);
 
     // Auto-generate summary after 6+ messages for memory storage
     let autoSummary = null;
@@ -1321,6 +1353,9 @@ exports.handler = async (event) => {
       autoSummary = generateMemorySummary(finalMessages, language);
     }
 
+    const totalElapsed = Date.now() - functionStart;
+    console.log(`[TIMING] Primary return: funcTime=${totalElapsed}ms`);
+    
     return {
       statusCode: 200,
       headers: CORS,
@@ -1335,6 +1370,8 @@ exports.handler = async (event) => {
 
   } catch (err) {
     console.error('Function error:', err);
+    const errElapsed = Date.now() - functionStart;
+    console.log(`[TIMING] Error return: funcTime=${errElapsed}ms`);
     return { statusCode: 500, headers: CORS, body: JSON.stringify({ error: 'Internal server error' }) };
   }
 };
