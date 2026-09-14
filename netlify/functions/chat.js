@@ -1262,7 +1262,7 @@ const response = await fetch('https://api.anthropic.com/v1/messages', {      met
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 1500,
+        max_tokens: 2048,
         system: systemPrompt,
         messages: finalMessages
       })
