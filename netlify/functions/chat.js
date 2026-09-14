@@ -1342,7 +1342,7 @@ const response = await fetch('https://api.anthropic.com/v1/messages', {      met
       .filter(i => i.type === 'text')
       .map(i => i.text)
       .join('\n');
-
+    console.log(`[TIMING] Anthropic output | stop_reason=${data.stop_reason} | output_tokens=${data.usage?.output_tokens || 'N/A'} | textChars=${fullText.length}`);
     const webSearchUsed = data.content.some(i => i.type === 'tool_use' && i.name === 'web_search');
 
     // Parse assessment response
