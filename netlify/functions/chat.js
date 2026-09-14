@@ -1249,8 +1249,12 @@ exports.handler = async (event) => {
 
     // Primary request with web search
     const apiStart = Date.now();
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
+
+// Pre-Anthropic timing measurement
+const preFetchElapsed = Date.now() - functionStart;
+console.log(`[TIMING] Before Anthropic fetch | elapsed=${preFetchElapsed}ms | systemChars=${systemPrompt.length} | messagesChars=${JSON.stringify(finalMessages).length} | messageCount=${finalMessages.length}`);
+
+const response = await fetch('https://api.anthropic.com/v1/messages', {      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': ANTHROPIC_API_KEY,
@@ -1258,7 +1262,7 @@ exports.handler = async (event) => {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 4096,
+        max_tokens: 1500,
         system: systemPrompt,
         messages: finalMessages
       })
