@@ -308,92 +308,73 @@ GESTRUCTUREERDE ASSESSMENT JSON (gebruik dit format wanneer je voldoende informa
   "showAssessment": true,
   "eligibility": {
     "eligible": true,
-    "reason": "Professional corporate borrower, commercial real estate project in Spain, within mandate range"
+    "reason": "Professionele bedrijfsleningnemer, commercieel vastgoedproject in Spanje, binnen mandaatbereik."
   },
-  "projectSummary": "Brief 1-2 sentence summary of the project type, location, and financing need",
-  "financingFit": "STRONG FIT or POTENTIAL FIT or FURTHER REVIEW REQUIRED or OUTSIDE CURRENT MANDATE",
+  "projectSummary": "Commercieel vastgoedontwikkelingsproject in Spanje met financieringsbehoefte voor landaankoop en bouw.",
+  "financingFit": "STRONG FIT of POTENTIAL FIT of FURTHER REVIEW REQUIRED of OUTSIDE CURRENT MANDATE",
   "lenderReadiness": {
     "score": 7.5,
     "factors": [
-      { "dimension": "Sponsor Equity", "assessment": "30% of total project cost — strong" },
-      { "dimension": "Leverage", "assessment": "LTC 65% — conservative for market" },
-      { "dimension": "Location", "assessment": "Costa del Sol — high lender appetite" }
+      { "dimension": "Sponsor Equity", "assessment": "25–30% — voldoende" },
+      { "dimension": "Leverage", "assessment": "LTC 65–75% — marktstandaard" },
+      { "dimension": "Locatie", "assessment": "Kust Spanje — hoog lenderinteresse" },
+      { "dimension": "Track Record", "assessment": "12+ jaar, meerdere afgeronde projecten" },
+      { "dimension": "Documentatie", "assessment": "KYC/AML en valuatieeisen compliant" }
     ],
-    "summary": "Project shows reasonable readiness. Main strength is conservative leverage; area for improvement is building licence status."
+    "summary": "Sterke fundamenten: beproefd sponsor, prime locatie, duidelijke exit. Aandachtspunten: bouwvergunning status, pre-verkoopniveau."
   },
   "recommendedStructure": {
-    "type": "Senior Development Finance",
-    "loanAmount": "€2.5M–€2.8M",
-    "ltvLtc": "LTC 65–68%",
-    "term": "18–24 months plus extensions",
-    "pricing": "Indicative 9–11% p.a. where supported by current market conditions and transaction specifics; subject to lender underwriting",
-    "drawdowns": "Against architect certificates (certificaciones de obra)",
-    "repayment": "Refinance or sale upon completion and stabilization",
-    "prerequisites": "Potential lender requirements may include a granted building licence and appropriate pre-sales, subject to individual lender criteria"
+    "type": "Senior Development Finance + Mezzanine",
+    "seniorAmount": "€7M–€7.5M",
+    "mezzanineAmount": "€2M–€2.5M",
+    "ltvLtc": "60% senior / 20% mezz (80% gecombineerd)",
+    "term": "24–36 maanden",
+    "pricing": "Senior 9–11% p.a., Mezz 12–15% p.a. (subject to underwriting)",
+    "drawdowns": "Tegen architectencertificaten",
+    "prerequisites": "Bouwvergunning vereist; 30%+ pre-verkoop aanbevolen"
   },
-  "alternativeStructure": {
-    "type": "Senior + Mezzanine (if equity gap)",
-    "seniorAmount": "€2.0M",
-    "mezzanineAmount": "€0.6M",
-    "totalLTC": "80%",
-    "note": "Only if sponsor equity falls short of development finance equity requirement"
-  },
+  "alternativeStructure": null,
   "strengths": [
-    "Strong sponsor track record with 5+ completed projects in Costa del Sol",
-    "Conservative leverage at 65% LTC",
-    "Prime location in established tourist area"
+    "Sterk sponsor track record en marktpositie",
+    "Uitzonderlijke GDV-marge (58%+)",
+    "Prime locatie met hoog lenderinteresse"
   ],
   "concerns": [
-    "Building licence not yet granted — timing depends on the relevant authority and project circumstances",
-    "Pre-sales currently at 20% — lenders prefer 30%+ before construction drawdowns",
-    "Limited financial statements — only 2 years available"
+    "Bouwvergunning in behandeling",
+    "Pre-verkoop onder optimale drempel",
+    "Hoge aangevraagde leverage voor senior-only"
   ],
   "improvementActions": [
     {
       "priority": "HIGH IMPACT",
-      "action": "Obtain building licence (licencia de obras)",
-      "reason": "Removes key lender concern; may accelerate lender assessment",
-      "estimatedEffect": "Would likely strengthen the overall financing position"
+      "action": "Verkrijg bouwvergunning",
+      "reason": "Verwijdert kernlender-hindernis",
+      "estimatedEffect": "Verbreed lenderspool en verbeter voorwaarden"
     },
     {
       "priority": "HIGH IMPACT",
-      "action": "Achieve 30%+ pre-sales (currently 20%)",
-      "reason": "Meets development finance pre-sales requirement; de-risks absorption risk",
-      "estimatedEffect": "Broadens potential lender pool; unlocks larger facility size"
+      "action": "Bereik 30%+ pre-verkoop",
+      "reason": "Voldoet aan lender-drempel voor drawdowns",
+      "estimatedEffect": "Versterkt marktsignaal en toegang"
     },
     {
       "priority": "MEDIUM IMPACT",
-      "action": "Provide 3 years of sponsor financial statements with tax returns",
-      "reason": "Strengthens KYC due diligence; supports income verification",
-      "estimatedEffect": "May strengthen the financing position with lenders"
+      "action": "Documenteer sponsor financiële overzichten",
+      "reason": "Ondersteunt KYC en inkomensverificatie",
+      "estimatedEffect": "Verhoog underwriting-vertrouwen"
     }
   ],
-  "optimizedScenario": {
-    "show": true,
-    "current": {
-      "loanAmount": "€2.5M",
-      "ltc": "65%",
-      "preSales": "20%",
-      "licenceStatus": "pending"
-    },
-    "optimized": {
-      "loanAmount": "€2.5M",
-      "ltc": "65%",
-      "preSales": "35%+",
-      "licenceStatus": "granted"
-    },
-    "potentialEffect": "Stronger lender readiness and potentially improved terms, subject to individual lender underwriting. Addresses key lender concerns without increasing leverage."
-  },
+  "optimizedScenario": { "show": false },
   "missingDocuments": [
-    "Building licence (licencia de obras)",
-    "Pre-sales contracts or schedule",
-    "Professional valuation (tasación, Bank of Spain registered)",
-    "Construction budget with contractor quotes",
-    "3 years of sponsor tax returns"
+    "Bouwvergunning",
+    "Pre-verkoopevidentie",
+    "Professionele valuatie",
+    "Compleet financieel model",
+    "3-jaar sponsor financiële overzichten"
   ],
-  "disclaimer": "This assessment is based on information provided and reflects indicative market conditions. Actual financing terms, leverage, pricing, fees and conditions depend entirely on independent lender underwriting, valuation, KYC/AML due diligence, and current lender appetite. Costa Capital does not make the final credit decision.",
-  "commercialMessage": "Based on current lender appetite, recent transactions and our experience across comparable cases, Costa Capital can help optimize your financing structure before approaching the market.",
-  "nextStep": "Contact Costa Capital to discuss optimization priorities and lender introduction strategy: info@costacapital.pro or WhatsApp +31 6 8175 2045"
+  "disclaimer": "Beoordeling gebaseerd op verstrekte informatie; weerspiegelt indicatieve marktomstandigheden. Werkelijke voorwaarden afhankelijk van onafhankelijk lender-underwriting, valuatie, KYC/AML DD. Costa Capital doet geen eindkredietbeslissing.",
+  "commercialMessage": "Costa Capital kan uw financieringsstructuur optimaliseren en gekwalificeerde lenders introduceren op basis van marktappetijt en projectkenmerken.",
+  "nextStep": "Contacteer Costa Capital: info@costacapital.pro of WhatsApp +31 6 8175 2045"
 }
 \`\`\`
 `,
@@ -593,69 +574,72 @@ STRUCTURED ASSESSMENT JSON (use this format once you have sufficient information
   "showAssessment": true,
   "eligibility": {
     "eligible": true,
-    "reason": "Professional corporate borrower, commercial real estate project in Spain, within mandate range"
+    "reason": "Professional corporate borrower, commercial real estate project in Spain, within mandate range."
   },
-  "projectSummary": "Brief 1-2 sentence summary of the project type, location, and financing need",
+  "projectSummary": "Commercial real estate development project in Spain requiring senior + mezzanine financing for land acquisition and construction.",
   "financingFit": "STRONG FIT or POTENTIAL FIT or FURTHER REVIEW REQUIRED or OUTSIDE CURRENT MANDATE",
   "lenderReadiness": {
     "score": 7.5,
     "factors": [
-      { "dimension": "Sponsor Equity", "assessment": "30% of total project cost — strong" },
-      { "dimension": "Leverage", "assessment": "LTC 65% — conservative for market" },
-      { "dimension": "Location", "assessment": "Costa del Sol — high lender appetite" }
+      { "dimension": "Sponsor Equity", "assessment": "25–30% — adequate" },
+      { "dimension": "Leverage", "assessment": "LTC 65–75% — market standard" },
+      { "dimension": "Location", "assessment": "Coastal Spain — high lender appetite" },
+      { "dimension": "Track Record", "assessment": "12+ years, multiple completed projects" },
+      { "dimension": "Documentation", "assessment": "Compliance with KYC/AML and valuation requirements" }
     ],
-    "summary": "Project shows reasonable readiness. Main strength is conservative leverage; area for improvement is building licence status."
+    "summary": "Strong fundamentals: proven sponsor, prime location, clear exit. Key concerns: building licence status, pre-sales level."
   },
   "recommendedStructure": {
-    "type": "Senior Development Finance",
-    "loanAmount": "€2.5M–€2.8M",
-    "ltvLtc": "LTC 65–68%",
-    "term": "18–24 months plus extensions",
-    "pricing": "Indicative 9–11% p.a. where supported by current market conditions and transaction specifics; subject to lender underwriting",
-    "drawdowns": "Against architect certificates (certificaciones de obra)",
-    "repayment": "Refinance or sale upon completion and stabilization",
-    "prerequisites": "Potential lender requirements may include a granted building licence and appropriate pre-sales, subject to individual lender criteria"
+    "type": "Senior Development Finance + Mezzanine",
+    "seniorAmount": "€7M–€7.5M",
+    "mezzanineAmount": "€2M–€2.5M",
+    "ltvLtc": "60% senior / 20% mezzanine (80% combined)",
+    "term": "24–36 months",
+    "pricing": "Senior 9–11% p.a., Mezzanine 12–15% p.a. (subject to underwriting)",
+    "drawdowns": "Against architect certificates",
+    "prerequisites": "Building licence required; 30%+ pre-sales recommended"
   },
   "alternativeStructure": null,
   "strengths": [
-    "Strong sponsor track record with 5+ completed projects",
-    "Conservative leverage at 65% LTC",
-    "Prime location in established market"
+    "Strong sponsor track record and market position",
+    "Exceptional GDV margin (58%+)",
+    "Prime location with high lender appetite"
   ],
   "concerns": [
-    "Building licence not yet granted",
-    "Pre-sales currently at 20% — target 30%+",
-    "Limited financial statements available"
+    "Building licence pending",
+    "Pre-sales below optimal threshold",
+    "High requested leverage for senior-only financing"
   ],
   "improvementActions": [
     {
       "priority": "HIGH IMPACT",
       "action": "Obtain building licence",
-      "reason": "Removes a material lender concern and may support a more efficient lender assessment",
-      "estimatedEffect": "Would likely strengthen the overall financing position"
+      "reason": "Removes key lender barrier",
+      "estimatedEffect": "Expands lender pool and improves terms"
     },
     {
       "priority": "HIGH IMPACT",
       "action": "Achieve 30%+ pre-sales",
-      "reason": "Meets development finance requirement",
-      "estimatedEffect": "Broadens lender pool"
+      "reason": "Meets lender threshold for construction drawdowns",
+      "estimatedEffect": "Strengthens market signal and access"
+    },
+    {
+      "priority": "MEDIUM IMPACT",
+      "action": "Document sponsor financial statements",
+      "reason": "Supports KYC and income verification",
+      "estimatedEffect": "Increases underwriting confidence"
     }
   ],
-  "optimizedScenario": {
-    "show": true,
-    "current": "€2.5M debt, LTC 65%, licence pending, 20% pre-sales",
-    "optimized": "€2.5M debt, LTC 65%, licence granted, 35%+ pre-sales",
-    "potentialEffect": "Stronger lender readiness and potentially improved terms, subject to individual lender underwriting. Addresses key lender concerns without increasing leverage."
-  },
+  "optimizedScenario": { "show": false },
   "missingDocuments": [
     "Building licence",
-    "Pre-sales schedule",
+    "Pre-sales evidence",
     "Professional valuation",
-    "Construction budget",
-    "Sponsor financial statements (3 years)"
+    "Complete financial model",
+    "3-year sponsor financial statements"
   ],
-  "disclaimer": "This assessment is based on information provided and reflects indicative market conditions. Actual financing terms depend on lender underwriting, valuation, KYC/AML, and current appetite. Costa Capital does not make the final credit decision.",
-  "commercialMessage": "Based on current lender appetite, recent transactions and our experience across comparable cases, Costa Capital can help optimize your financing structure before approaching the market.",
+  "disclaimer": "Assessment based on information provided; reflects indicative market conditions. Actual terms depend on independent lender underwriting, valuation, KYC/AML due diligence. Costa Capital does not make final credit decisions.",
+  "commercialMessage": "Costa Capital can optimize your financing structure and introduce qualified lenders based on market appetite and project specifics.",
   "nextStep": "Contact Costa Capital: info@costacapital.pro or WhatsApp +31 6 8175 2045"
 }
 \`\`\`
@@ -856,61 +840,73 @@ SALIDA JSON ESTRUCTURADA (usa este formato cuando tengas suficiente información
   "showAssessment": true,
   "eligibility": {
     "eligible": true,
-    "reason": "Prestatario corporativo profesional, proyecto inmobiliario comercial en España, dentro del rango de mandato"
+    "reason": "Prestatario corporativo profesional, proyecto inmobiliario comercial en España, dentro del rango de mandato."
   },
-  "projectSummary": "Resumen breve de 1-2 frases del tipo de proyecto, ubicación y necesidad de financiación",
+  "projectSummary": "Proyecto de desarrollo inmobiliario en España requiriendo financiación senior + mezzanine para adquisición de terreno y construcción.",
   "financingFit": "STRONG FIT o POTENTIAL FIT o FURTHER REVIEW REQUIRED o OUTSIDE CURRENT MANDATE",
   "lenderReadiness": {
     "score": 7.5,
     "factors": [
-      { "dimension": "Patrimonio del Promotor", "assessment": "30% del coste total del proyecto — fuerte" },
-      { "dimension": "Apalancamiento", "assessment": "LTC 65% — conservador para el mercado" },
-      { "dimension": "Ubicación", "assessment": "Costa del Sol — alto apetito de prestamista" }
+      { "dimension": "Patrimonio del Promotor", "assessment": "25–30% — adecuado" },
+      { "dimension": "Apalancamiento", "assessment": "LTC 65–75% — estándar de mercado" },
+      { "dimension": "Ubicación", "assessment": "Costa española — alto apetito de prestamista" },
+      { "dimension": "Track Record", "assessment": "12+ años, múltiples proyectos completados" },
+      { "dimension": "Documentación", "assessment": "Cumplimiento con requisitos KYC/AML y valuación" }
     ],
-    "summary": "El proyecto muestra una preparación razonable. La principal fortaleza es el apalancamiento conservador; área de mejora es el estado de la licencia de construcción."
+    "summary": "Fundamentales fuertes: promotor probado, ubicación prime, salida clara. Preocupaciones: estado de licencia, nivel pre-ventas."
   },
   "recommendedStructure": {
-    "type": "Financiación Senior de Desarrollo",
-    "loanAmount": "€2,5M–€2,8M",
-    "ltvLtc": "LTC 65–68%",
-    "term": "18–24 meses más extensiones",
-    "pricing": "9–11% p.a. (según mercado)",
-    "repayment": "Refinanciación o venta tras finalización"
+    "type": "Senior Development Finance + Mezzanine",
+    "seniorAmount": "€7M–€7.5M",
+    "mezzanineAmount": "€2M–€2.5M",
+    "ltvLtc": "60% senior / 20% mezz (80% combinado)",
+    "term": "24–36 meses",
+    "pricing": "Senior 9–11% p.a., Mezz 12–15% p.a. (sujeto a underwriting)",
+    "drawdowns": "Contra certificados de arquiteto",
+    "prerequisites": "Licencia requerida; 30%+ pre-ventas recomendado"
   },
   "alternativeStructure": null,
   "strengths": [
-    "Track record sólido del promotor",
-    "Apalancamiento conservador al 65% LTC",
-    "Ubicación prime en mercado establecido"
+    "Track record sólido del promotor y posición de mercado",
+    "Margen GDV excepcional (58%+)",
+    "Ubicación prime con alto apetito de prestamista"
   ],
   "concerns": [
-    "Licencia de construcción no otorgada aún",
-    "Pre-ventas actualmente al 20% — objetivo 30%+",
-    "Estados financieros limitados"
+    "Licencia de construcción pendiente",
+    "Pre-ventas bajo umbral óptimo",
+    "Apalancamiento alto solicitado para financiación senior-only"
   ],
   "improvementActions": [
     {
       "priority": "HIGH IMPACT",
-      "action": "Obtener licencia de obras",
-      "reason": "Elimina preocupación clave del prestamista",
-      "estimatedEffect": "Fortalecería la posición general de financiación"
+      "action": "Obtener licencia de construcción",
+      "reason": "Elimina barrera clave del prestamista",
+      "estimatedEffect": "Expande pool de prestamistas y mejora términos"
+    },
+    {
+      "priority": "HIGH IMPACT",
+      "action": "Lograr 30%+ pre-ventas",
+      "reason": "Cumple umbral del prestamista para drawdowns",
+      "estimatedEffect": "Fortalece señal de mercado y acceso"
+    },
+    {
+      "priority": "MEDIUM IMPACT",
+      "action": "Documentar estados financieros del promotor",
+      "reason": "Apoya KYC y verificación de ingresos",
+      "estimatedEffect": "Aumenta confianza de underwriting"
     }
   ],
-  "optimizedScenario": {
-    "show": true,
-    "current": "€2,5M de deuda, LTC 65%, licencia pendiente, 20% pre-ventas",
-    "optimized": "€2,5M de deuda, LTC 65%, licencia otorgada, 35%+ pre-ventas",
-    "potentialEffect": "Mayor preparación del prestamista y términos potencialmente mejorados, sujeto a underwriting independiente del prestamista. Aborda preocupaciones clave sin aumentar el apalancamiento."
-  },
+  "optimizedScenario": { "show": false },
   "missingDocuments": [
-    "Licencia de obras",
-    "Cronograma de pre-ventas",
+    "Licencia de construcción",
+    "Evidencia de pre-ventas",
     "Tasación profesional",
-    "Presupuesto de construcción"
+    "Modelo financiero completo",
+    "Estados financieros de 3 años del promotor"
   ],
-  "disclaimer": "Esta evaluación se basa en la información proporcionada y refleja condiciones indicativas del mercado. Los términos reales de financiación dependen del underwriting del prestamista. Costa Capital no toma la decisión crediticia final.",
-  "commercialMessage": "Basado en el apetito actual del prestamista, transacciones recientes y nuestra experiencia en casos comparables, Costa Capital puede ayudarte a optimizar tu estructura de financiación antes de acercarte al mercado.",
-  "nextStep": "Contacta Costa Capital: info@costacapital.pro o WhatsApp +31 6 8175 2045"
+  "disclaimer": "Evaluación basada en información proporcionada; refleja condiciones indicativas de mercado. Términos reales dependen de underwriting independiente del prestamista, valuación, DD de KYC/AML. Costa Capital no toma decisiones crediticias finales.",
+  "commercialMessage": "Costa Capital puede optimizar su estructura de financiación e introducir prestamistas calificados según apetito de mercado y especifidades del proyecto.",
+  "nextStep": "Contacte Costa Capital: info@costacapital.pro o WhatsApp +31 6 8175 2045"
 }
 \`\`\`
 `,
@@ -1110,55 +1106,72 @@ STRUKTURYZOWANA WYJŚCIE JSON (przykład — użyj gdy masz wystarczające dane)
   "showAssessment": true,
   "eligibility": {
     "eligible": true,
-    "reason": "Profesjonalny korporacyjny pożyczkobiorca, komercyjny projekt nieruchomości w Hiszpanii, w zakresie mandatu"
+    "reason": "Profesjonalny pożyczkobiorca korporacyjny, komercyjny projekt nieruchomości w Hiszpanii, w zakresie mandatu."
   },
-  "projectSummary": "Krótkie 1-2 zdaniowe streszczenie typu projektu, lokalizacji i potrzeby finansowania",
+  "projectSummary": "Projekt rozwinięcia nieruchomości w Hiszpanii wymagający finansowania senior + mezzanine do akwizycji gruntu i budowy.",
   "financingFit": "STRONG FIT lub POTENTIAL FIT lub FURTHER REVIEW REQUIRED lub OUTSIDE CURRENT MANDATE",
   "lenderReadiness": {
     "score": 7.5,
-    "factors": [],
-    "summary": "Projekt wykazuje rozsądną gotowość. Główną siłą jest konserwatywna dźwignia; obszar do poprawy to status pozwolenia na budowę."
+    "factors": [
+      { "dimension": "Kapitał własny Sponsora", "assessment": "25–30% — odpowiedni" },
+      { "dimension": "Dźwignia", "assessment": "LTC 65–75% — standard rynkowy" },
+      { "dimension": "Lokalizacja", "assessment": "Wybrzeże Hiszpanii — wysokie zainteresowanie pożyczkodawcy" },
+      { "dimension": "Track Record", "assessment": "12+ lat, wielokrotnie ukończone projekty" },
+      { "dimension": "Dokumentacja", "assessment": "Zgodny z wymogami KYC/AML i wyceny" }
+    ],
+    "summary": "Silne fundamenty: sprawdzony sponsor, prime'owa lokalizacja, jasna wyjście. Obawy: status pozwolenia, poziom pre-sprzedaży."
   },
   "recommendedStructure": {
-    "type": "Senior Development Finance",
-    "loanAmount": "€2,5M–€2,8M",
-    "ltvLtc": "LTC 65–68%",
-    "term": "18–24 miesiące plus przedłużenia",
-    "pricing": "9–11% p.a."
+    "type": "Senior Development Finance + Mezzanine",
+    "seniorAmount": "€7M–€7.5M",
+    "mezzanineAmount": "€2M–€2.5M",
+    "ltvLtc": "60% senior / 20% mezz (80% kombinacja)",
+    "term": "24–36 miesięcy",
+    "pricing": "Senior 9–11% p.a., Mezz 12–15% p.a. (podlegając underwritingowi)",
+    "drawdowns": "Przeciwko certyfikatom architekta",
+    "prerequisites": "Wymagane pozwolenie; 30%+ pre-sprzedaż zalecane"
   },
   "alternativeStructure": null,
   "strengths": [
-    "Solidna historia sponsora",
-    "Konserwatywna dźwignia przy 65% LTC",
-    "Prime'owa lokalizacja na ustalonym rynku"
+    "Solidny track record i pozycja rynkowa sponsora",
+    "Wyjątkowa marża GDV (58%+)",
+    "Prime'owa lokalizacja z wysokim zainteresowaniem pożyczkodawcy"
   ],
   "concerns": [
-    "Pozwolenie na budowę nie zostało jeszcze udzielone",
-    "Pre-sprzedaż obecnie na 20% — cel 30%+",
-    "Ograniczone dostępne sprawozdania finansowe"
+    "Pozwolenie na budowę oczekujące",
+    "Pre-sprzedaż poniżej optymalnego progu",
+    "Wysokie żądane dźwignie dla finansowania senior-only"
   ],
   "improvementActions": [
     {
       "priority": "HIGH IMPACT",
       "action": "Uzyskaj pozwolenie na budowę",
-      "reason": "Eliminuje kluczową obawę pożyczkodawcy",
-      "estimatedEffect": "Mogłoby wzmocnić ogólną pozycję finansowania"
+      "reason": "Eliminuje kluczową barierę pożyczkodawcy",
+      "estimatedEffect": "Rozszerza pulę pożyczkodawców i poprawia warunki"
+    },
+    {
+      "priority": "HIGH IMPACT",
+      "action": "Osiągnij 30%+ pre-sprzedaż",
+      "reason": "Spełnia próg pożyczkodawcy na drawdowny",
+      "estimatedEffect": "Wzmacnia sygnał rynkowy i dostęp"
+    },
+    {
+      "priority": "MEDIUM IMPACT",
+      "action": "Dokumentuj sprawozdania finansowe sponsora",
+      "reason": "Wspiera KYC i weryfikację dochodów",
+      "estimatedEffect": "Zwiększa pewność underwritingu"
     }
   ],
-  "optimizedScenario": {
-    "show": true,
-    "current": "€2,5M długu, LTC 65%, pozwolenie oczekujące, 20% pre-sprzedaży",
-    "optimized": "€2,5M długu, LTC 65%, pozwolenie udzielone, 35%+ pre-sprzedaży",
-    "potentialEffect": "Lepsza gotowość pożyczkodawcy i potencjalnie ulepszone warunki, podlegając niezależnemu underwritingowi pożyczkodawcy. Rozwiązuje kluczowe obawy bez zwiększania dźwigni."
-  },
+  "optimizedScenario": { "show": false },
   "missingDocuments": [
     "Pozwolenie na budowę",
-    "Harmonogram pre-sprzedaży",
+    "Dowód pre-sprzedaży",
     "Profesjonalna wycena",
-    "Budżet budowy"
+    "Kompletny model finansowy",
+    "Sprawozdania finansowe sponsora za 3 lata"
   ],
-  "disclaimer": "Ta ocena opiera się na dostarczonej informacji i odzwierciedla wskaźnikowe warunki rynkowe. Rzeczywiste warunki finansowania zależą od underwritingu pożyczkodawcy. Costa Capital nie podejmuje ostatecznej decyzji kredytowej.",
-  "commercialMessage": "Na podstawie bieżącego apetytu pożyczkodawcy, ostatnich transakcji i naszego doświadczenia w porównywalnych przypadkach, Costa Capital może pomóc ci zoptymalizować strukturę finansowania przed podejściem do rynku.",
+  "disclaimer": "Ocena opiera się na dostarczonej informacji; odzwierciedla wskaźnikowe warunki rynkowe. Rzeczywiste warunki zależą od niezależnego underwritingu pożyczkodawcy, wyceny, DD KYC/AML. Costa Capital nie podejmuje ostatecznych decyzji kredytowych.",
+  "commercialMessage": "Costa Capital może zoptymalizować strukturę finansowania i wprowadzić wykwalifikowanych pożyczkodawców na podstawie apetytu rynkowego i specyfiki projektu.",
   "nextStep": "Skontaktuj się z Costa Capital: info@costacapital.pro lub WhatsApp +31 6 8175 2045"
 }
 \`\`\`
@@ -1247,14 +1260,14 @@ exports.handler = async (event) => {
       }];
     }
 
+    // Pre-Anthropic timing measurement
+    const preFetchElapsed = Date.now() - functionStart;
+    console.log(`[TIMING] Before Anthropic fetch | elapsed=${preFetchElapsed}ms | systemChars=${systemPrompt.length} | messagesChars=${JSON.stringify(finalMessages).length} | messageCount=${finalMessages.length}`);
+
     // Primary request with web search
     const apiStart = Date.now();
-
-// Pre-Anthropic timing measurement
-const preFetchElapsed = Date.now() - functionStart;
-console.log(`[TIMING] Before Anthropic fetch | elapsed=${preFetchElapsed}ms | systemChars=${systemPrompt.length} | messagesChars=${JSON.stringify(finalMessages).length} | messageCount=${finalMessages.length}`);
-
-const response = await fetch('https://api.anthropic.com/v1/messages', {      method: 'POST',
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': ANTHROPIC_API_KEY,
@@ -1342,8 +1355,11 @@ const response = await fetch('https://api.anthropic.com/v1/messages', {      met
       .filter(i => i.type === 'text')
       .map(i => i.text)
       .join('\n');
-    console.log(`[TIMING] Anthropic output | stop_reason=${data.stop_reason} | output_tokens=${data.usage?.output_tokens || 'N/A'} | textChars=${fullText.length}`);
+
     const webSearchUsed = data.content.some(i => i.type === 'tool_use' && i.name === 'web_search');
+
+    // Diagnostic: Anthropic output metrics
+    console.log(`[TIMING] Anthropic output | stop_reason=${data.stop_reason} | output_tokens=${data.usage?.output_tokens || 'N/A'} | textChars=${fullText.length}`);
 
     // Parse assessment response
     const parseStart = Date.now();
