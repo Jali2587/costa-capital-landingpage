@@ -866,6 +866,20 @@ export default function CostaCapitalLanding() {
 
       if (!response.ok) throw new Error('Optimization failed');
       const data = await response.json();
+      
+      console.log('[FRONTEND] Optimization response received:', {
+        mode: data.mode,
+        hasData: !!data.data,
+        hasError: !!data.error,
+        dataKeys: data.data ? Object.keys(data.data).join(', ') : null,
+        stage: data.data?.stage
+      });
+
+      if (data.error) {
+        console.error('[FRONTEND] Backend returned error:', data.error);
+        console.error('[FRONTEND] Diagnostics:', data.diagnostics);
+        throw new Error(data.error);
+      }
 
       if (data.data?.stage === 'optimization_complete') {
         const optReport = data.data;
@@ -920,6 +934,13 @@ export default function CostaCapitalLanding() {
 
         setChatMessages(prev => [...prev, { role: 'assistant', content: optContent }]);
         setShowOptimizationButton(false);
+      } else {
+        console.error('[FRONTEND] Invalid optimization response structure:', {
+          hasStage: !!data.data?.stage,
+          expectedStage: 'optimization_complete',
+          actualStage: data.data?.stage
+        });
+        throw new Error('Invalid optimization response structure');
       }
     } catch (error) {
       console.error('Optimization error:', error);
