@@ -242,6 +242,29 @@ export default function CostaCapitalLanding() {
         total: 'Totale rente (indicatief)',
         note: '✓ Deze indicatie is gebaseerd op standaard voorwaarden voor Spaanse projecten. Voor een exacte offerte contacteren wij u graag.',
         discuss: 'Bespreek met AI Adviseur'
+      },
+      reports: {
+        assessmentTitle: 'Financieringsanalyse',
+        optimizationTitle: 'Financierbaarheid Optimalisatie',
+        projectSummary: 'Projectsamenvatting',
+        financingFit: 'Financieringsfit',
+        lenderReadiness: 'Kredietwaardigheid Beoordeling',
+        lenderReadinessDisclaimer: 'Indicatieve Costa Capital kredietwaardigheid-beoordeling — niet een kredietscore of goedkeuringskans.',
+        recommendedStructure: 'Aanbevolen Financieringsstructuur',
+        alternativeStructure: 'Alternatieve Structuur',
+        keyStrengths: 'Sterke Punten',
+        keyConcerns: 'Financieringszorgen',
+        missingDocuments: 'Ontbrekende Documenten',
+        disclaimer: 'Belangrijk Disclaimer',
+        nextStep: 'Volgende Stap',
+        optimizationSummary: 'Optimalisatiesamenvatting',
+        priorityActions: 'Prioritaire Acties',
+        optimizedScenario: 'Potentieel Geoptimaliseerd Scenario',
+        lenderPositioning: 'Kreditorenpositionering',
+        highImpact: 'HOGE IMPACT',
+        mediumImpact: 'MEDIUM IMPACT',
+        reason: 'Reden',
+        expectedEffect: 'Verwacht Effect'
       }
     },
     en: {
@@ -315,6 +338,29 @@ export default function CostaCapitalLanding() {
         total: 'Total Interest (indicative)',
         note: '✓ This indication is based on standard terms for Spanish projects. For an exact quote, we would be happy to contact you.',
         discuss: 'Discuss with AI Advisor'
+      },
+      reports: {
+        assessmentTitle: 'Financing Assessment',
+        optimizationTitle: 'Financeability Optimization',
+        projectSummary: 'Project Summary',
+        financingFit: 'Financing Fit',
+        lenderReadiness: 'Lender Readiness',
+        lenderReadinessDisclaimer: 'Indicative Costa Capital lender-readiness assessment — not a credit score or probability of approval.',
+        recommendedStructure: 'Recommended Financing Structure',
+        alternativeStructure: 'Alternative Structure',
+        keyStrengths: 'Key Strengths',
+        keyConcerns: 'Key Financing Concerns',
+        missingDocuments: 'Missing Documents / Information',
+        disclaimer: 'Important Information',
+        nextStep: 'Next Step',
+        optimizationSummary: 'Optimization Summary',
+        priorityActions: 'Priority Actions',
+        optimizedScenario: 'Potential Optimized Structure',
+        lenderPositioning: 'Lender Positioning',
+        highImpact: 'HIGH IMPACT',
+        mediumImpact: 'MEDIUM IMPACT',
+        reason: 'Reason',
+        expectedEffect: 'Expected Effect'
       }
     },
     es: {
@@ -388,6 +434,29 @@ export default function CostaCapitalLanding() {
         total: 'Intereses Totales (indicativo)',
         note: '✓ Esta indicación se basa en condiciones estándar para proyectos en España. Para una oferta exacta, nos pondremos en contacto con usted.',
         discuss: 'Consultar con Asesor IA'
+      },
+      reports: {
+        assessmentTitle: 'Análisis de Financiación',
+        optimizationTitle: 'Optimización de Financiabilidad',
+        projectSummary: 'Resumen del Proyecto',
+        financingFit: 'Ajuste de Financiación',
+        lenderReadiness: 'Evaluación de Acreedor',
+        lenderReadinessDisclaimer: 'Evaluación indicativa de Costa Capital — no es una puntuación de crédito ni probabilidad de aprobación.',
+        recommendedStructure: 'Estructura de Financiación Recomendada',
+        alternativeStructure: 'Estructura Alternativa',
+        keyStrengths: 'Puntos Fuertes',
+        keyConcerns: 'Preocupaciones de Financiación',
+        missingDocuments: 'Documentos Faltantes / Información',
+        disclaimer: 'Información Importante',
+        nextStep: 'Próximo Paso',
+        optimizationSummary: 'Resumen de Optimización',
+        priorityActions: 'Acciones Prioritarias',
+        optimizedScenario: 'Estructura Potencialmente Optimizada',
+        lenderPositioning: 'Posicionamiento de Acreedor',
+        highImpact: 'ALTO IMPACTO',
+        mediumImpact: 'IMPACTO MEDIO',
+        reason: 'Razón',
+        expectedEffect: 'Efecto Esperado'
       }
     },
     pl: {
@@ -461,6 +530,29 @@ export default function CostaCapitalLanding() {
         total: 'Całkowite Odsetki (wskazanie)',
         note: '✓ To wskazanie opiera się na warunkach standardowych dla projektów w Hiszpanii. Aby uzyskać dokładną ofertę, chętnie się z Tobą skontaktujemy.',
         discuss: 'Omów z Doradcą AI'
+      },
+      reports: {
+        assessmentTitle: 'Analiza Finansowania',
+        optimizationTitle: 'Optymalizacja Finansowalności',
+        projectSummary: 'Streszczenie Projektu',
+        financingFit: 'Dopasowanie Finansowania',
+        lenderReadiness: 'Ocena Zdolności Kredytowej',
+        lenderReadinessDisclaimer: 'Wskazywająca ocena Costa Capital — nie jest to wynik kredytowy ani prawdopodobieństwo zatwierdzenia.',
+        recommendedStructure: 'Zalecana Struktura Finansowania',
+        alternativeStructure: 'Strukturą Alternatywna',
+        keyStrengths: 'Kluczowe Mocne Punkty',
+        keyConcerns: 'Finansowe Obawy',
+        missingDocuments: 'Brakujące Dokumenty / Informacje',
+        disclaimer: 'Ważne Informacje',
+        nextStep: 'Następny Krok',
+        optimizationSummary: 'Streszczenie Optymalizacji',
+        priorityActions: 'Działania Priorytetowe',
+        optimizedScenario: 'Potencjalnie Zoptymalizowana Struktura',
+        lenderPositioning: 'Pozycjonowanie Kredytodawcy',
+        highImpact: 'WYSOKI WPŁYW',
+        mediumImpact: 'ŚREDNI WPŁYW',
+        reason: 'Powód',
+        expectedEffect: 'Oczekiwany Efekt'
       }
     }
   };
@@ -658,8 +750,89 @@ export default function CostaCapitalLanding() {
         setShowAssessmentButton(false);
         setShowOptimizationButton(true);
 
-        const assessmentSummary = `📊 FINANCING ASSESSMENT\n\nFit: ${data.data.financingFit || 'N/A'}\nLender Readiness: ${data.data.lenderReadiness?.score || 'N/A'}/10`;
-        setChatMessages(prev => [...prev, { role: 'assistant', content: assessmentSummary }]);
+        // Build professional assessment report message
+        const report = data.data;
+        let reportContent = `📊 ${text.reports.assessmentTitle}\n\n`;
+
+        if (report.projectSummary) reportContent += `**${text.reports.projectSummary}:**\n${report.projectSummary}\n\n`;
+        if (report.financingFit) reportContent += `**${text.reports.financingFit}:**\n${report.financingFit}\n\n`;
+        
+        if (report.lenderReadiness) {
+          reportContent += `**${text.reports.lenderReadiness}:**\n`;
+          reportContent += `Score: ${report.lenderReadiness.score || 'N/A'}/10\n`;
+          if (report.lenderReadiness.factors && report.lenderReadiness.factors.length > 0) {
+            report.lenderReadiness.factors.forEach(f => {
+              reportContent += `• ${f.dimension}: ${f.assessment}\n`;
+            });
+          }
+          reportContent += `\n_${text.reports.lenderReadinessDisclaimer}_\n\n`;
+        }
+
+        if (report.recommendedStructure) {
+          reportContent += `**${text.reports.recommendedStructure}:**\n`;
+          const rs = report.recommendedStructure;
+          if (rs.type) reportContent += `Type: ${rs.type}\n`;
+          if (rs.amount) reportContent += `Amount: ${rs.amount}\n`;
+          if (rs.leverage) reportContent += `Leverage: ${rs.leverage}\n`;
+          if (rs.term) reportContent += `Term: ${rs.term}\n`;
+          if (rs.pricing) reportContent += `Pricing: ${rs.pricing}\n`;
+          if (rs.prerequisites) reportContent += `Prerequisites: ${rs.prerequisites}\n`;
+          reportContent += '\n';
+        }
+
+        if (report.alternativeStructure) {
+          reportContent += `**${text.reports.alternativeStructure}:**\n`;
+          const alt = report.alternativeStructure;
+          if (typeof alt === 'string') {
+            reportContent += `${alt}\n\n`;
+          } else if (typeof alt === 'object' && alt !== null) {
+            Object.entries(alt).forEach(([key, value]) => {
+              if (value !== null && value !== undefined && value !== '') {
+                const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim();
+                reportContent += `• ${label}: ${value}\n`;
+              }
+            });
+            reportContent += '\n';
+          }
+        }
+
+        if (report.targetedLenderReview?.recommended === true) {
+          reportContent += `**🔍 Targeted Lender Review:**\n`;
+          reportContent += `${report.targetedLenderReview.reason || 'Transaction-specific factors may warrant specialist lender review.'}\n\n`;
+          reportContent += `_${report.targetedLenderReview.cta}_\n\n`;
+        }
+
+        if (report.strengths && report.strengths.length > 0) {
+          reportContent += `**${text.reports.keyStrengths}:**\n`;
+          report.strengths.forEach(s => reportContent += `• ${s}\n`);
+          reportContent += '\n';
+        }
+
+        if (report.concerns && report.concerns.length > 0) {
+          reportContent += `**${text.reports.keyConcerns}:**\n`;
+          report.concerns.forEach(c => reportContent += `• ${c}\n`);
+          reportContent += '\n';
+        }
+
+        if (report.missingDocuments && report.missingDocuments.length > 0) {
+          reportContent += `**${text.reports.missingDocuments}:**\n`;
+          report.missingDocuments.forEach(m => reportContent += `• ${m}\n`);
+          reportContent += '\n';
+        }
+
+        if (report.disclaimer) {
+          reportContent += `**${text.reports.disclaimer}:**\n_${report.disclaimer}_\n\n`;
+        }
+
+        if (report.commercialMessage) {
+          reportContent += `${report.commercialMessage}\n\n`;
+        }
+
+        if (report.nextStep) {
+          reportContent += `**${text.reports.nextStep}:**\n${report.nextStep}`;
+        }
+
+        setChatMessages(prev => [...prev, { role: 'assistant', content: reportContent }]);
       }
     } catch (error) {
       console.error('Assessment error:', error);
@@ -695,8 +868,50 @@ export default function CostaCapitalLanding() {
       const data = await response.json();
 
       if (data.data?.stage === 'optimization_complete') {
-        const optSummary = `🎯 OPTIMIZATION\n\n${data.data.optimizationSummary || 'N/A'}`;
-        setChatMessages(prev => [...prev, { role: 'assistant', content: optSummary }]);
+        const optReport = data.data;
+        let optContent = `🎯 ${text.reports.optimizationTitle}\n\n`;
+
+        if (optReport.optimizationSummary) {
+          optContent += `**${text.reports.optimizationSummary}:**\n${optReport.optimizationSummary}\n\n`;
+        }
+
+        if (optReport.priorityActions && optReport.priorityActions.length > 0) {
+          optContent += `**${text.reports.priorityActions}:**\n`;
+          optReport.priorityActions.forEach((action, i) => {
+            const impact = action.priority === 'HIGH IMPACT' ? text.reports.highImpact : text.reports.mediumImpact;
+            optContent += `${i + 1}. [${impact}] ${action.action}\n`;
+            if (action.reason) optContent += `   ${text.reports.reason}: ${action.reason}\n`;
+            if (action.expectedEffect) optContent += `   ${text.reports.expectedEffect}: ${action.expectedEffect}\n`;
+          });
+          optContent += '\n';
+        }
+
+        if (optReport.optimizedScenario) {
+          optContent += `**${text.reports.optimizedScenario}:**\n`;
+          const scenario = optReport.optimizedScenario;
+          if (typeof scenario === 'string') {
+            optContent += `${scenario}\n\n`;
+          } else if (typeof scenario === 'object' && scenario !== null) {
+            // Render object properties as readable label/value pairs
+            Object.entries(scenario).forEach(([key, value]) => {
+              if (value !== null && value !== undefined && value !== '') {
+                const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim();
+                optContent += `• ${label}: ${value}\n`;
+              }
+            });
+            optContent += '\n';
+          }
+        }
+
+        if (optReport.lenderPositioning) {
+          optContent += `**${text.reports.lenderPositioning}:**\n${optReport.lenderPositioning}\n\n`;
+        }
+
+        if (optReport.nextStep) {
+          optContent += `**${text.reports.nextStep}:**\n${optReport.nextStep}`;
+        }
+
+        setChatMessages(prev => [...prev, { role: 'assistant', content: optContent }]);
         setShowOptimizationButton(false);
       }
     } catch (error) {
