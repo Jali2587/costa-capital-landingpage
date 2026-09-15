@@ -641,6 +641,11 @@ export default function CostaCapitalLanding() {
         body: JSON.stringify({
           mode: 'assessment',
           language,
+          eligibility: {
+            legalEntity: true,
+            businessPurpose: true
+          },
+          financingType: financingType,
           projectInventory: projectInventory,
         }),
       });
@@ -676,6 +681,11 @@ export default function CostaCapitalLanding() {
         body: JSON.stringify({
           mode: 'optimization',
           language,
+          eligibility: {
+            legalEntity: true,
+            businessPurpose: true
+          },
+          financingType: financingType,
           projectInventory: projectInventory,
           financingAssessment: financingAssessment,
         }),
