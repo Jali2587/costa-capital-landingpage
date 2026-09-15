@@ -25,6 +25,14 @@ export default function CostaCapitalLanding() {
   const [projectValue, setProjectValue] = useState(1500000);
   const [term, setTerm] = useState(24);
 
+  // ═══ THREE-STAGE STATE ═══
+  const [projectInventory, setProjectInventory] = useState(null);
+  const [financingAssessment, setFinancingAssessment] = useState(null);
+  const [currentStage, setCurrentStage] = useState('intake');
+  const [showAssessmentButton, setShowAssessmentButton] = useState(false);
+  const [showOptimizationButton, setShowOptimizationButton] = useState(false);
+  const [financingType, setFinancingType] = useState(null);
+
   // Load memory from localStorage on mount
   useEffect(() => {
     try {
@@ -94,12 +102,22 @@ export default function CostaCapitalLanding() {
     setSessionMemory(null);
     setMemoryDate(null);
     setChatMessages([]);
+    // ═══ RESET THREE-STAGE STATE ═══
+    setProjectInventory(null);
+    setFinancingAssessment(null);
+    setCurrentStage('intake');
+    setShowAssessmentButton(false);
+    setShowOptimizationButton(false);
+    setFinancingType(null);
+    setEligibilityStep(1);
+    setEligibilityResponses({});
   };
 
   const openChatWithGate = () => {
     setShowEligibilityGate(true);
     setEligibilityStep(1);
     setEligibilityResponses({});
+    setFinancingType(null);
     setChatOpen(true);
   };
 
@@ -107,27 +125,49 @@ export default function CostaCapitalLanding() {
     const newResponses = { ...eligibilityResponses, [stepKey]: answer };
     setEligibilityResponses(newResponses);
 
-    // Check if disqualified
+    // Check if disqualified (Step 1)
     if (stepKey === 'isLegalEntity' && answer === 'No') {
       setEligibilityStep('rejected_consumer');
       return;
     }
-    if (stepKey === 'financingPurpose' && answer === 'Owner-occupied or private residence') {
-      setEligibilityStep('rejected_residential');
-      return;
-    }
-    if (stepKey === 'businessPurpose' && answer === 'No') {
-      setEligibilityStep('rejected_personal');
+
+    // Step 1: Legal Entity → Yes → Move to Financing Type
+    if (stepKey === 'isLegalEntity' && answer === 'Yes') {
+      setEligibilityStep(2);
       return;
     }
 
-    // Move to next step
-    if (stepKey === 'isLegalEntity' && answer === 'Yes') {
-      setEligibilityStep(2);
-    } else if (stepKey === 'financingPurpose' && answer !== 'Owner-occupied or private residence') {
-      setEligibilityStep(3);
-    } else if (stepKey === 'businessPurpose' && answer === 'Yes') {
-      setShowEligibilityGate(false);
+    // Step 2: Financing Type selection
+    // Map displayed options to internal financing types
+    if (stepKey === 'financingType') {
+      // Map to internal financing type
+      let internalType = 'unknown';
+      if (answer === 'Acquisition finance' || answer === 'Financiación de adquisición' || answer === 'Financiering aankoop' || answer === 'Finansowanie akwizycji') {
+        internalType = 'acquisition';
+      } else if (answer === 'Development finance' || answer === 'Financiación de desarrollo' || answer === 'Financiering ontwikkeling' || answer === 'Finansowanie rozwoju') {
+        internalType = 'development';
+      } else if (answer === 'Bridge finance' || answer === 'Financiación puente' || answer === 'Overbruggingsfinanciering' || answer === 'Finansowanie przejściowe') {
+        internalType = 'bridge';
+      } else if (answer === 'Refinancing / restructuring' || answer === 'Refinanciación / reestructuración' || answer === 'Herfinanciering / herstructurering' || answer === 'Refinansowanie / restrukturyzacja') {
+        internalType = 'refinancing';
+      } else if (answer === 'Not sure yet' || answer === 'No estoy seguro todavía' || answer === 'Weet nog niet zeker' || answer === 'Nie jestem jeszcze pewien') {
+        internalType = 'unknown';
+      }
+
+      setFinancingType(internalType);
+      setShowEligibilityGate(false); // Close gate, ready for chat
+
+      // Add system message for eligibility confirmation
+      const confirmMsg = {
+        role: 'assistant',
+        content: 
+          language === 'nl' ? `${text.eligibility.proceed}\n\n✓ Professionele entiteit bevestigd\n✓ Financieringstype: ${answer}`
+          : language === 'es' ? `${text.eligibility.proceed}\n\n✓ Entidad profesional confirmada\n✓ Tipo de financiamiento: ${answer}`
+          : language === 'pl' ? `${text.eligibility.proceed}\n\n✓ Potwierdzona jednostka prawna\n✓ Typ finansowania: ${answer}`
+          : `${text.eligibility.proceed}\n\n✓ Professional entity confirmed\n✓ Financing type: ${answer}`
+      };
+      setChatMessages([confirmMsg]);
+      return;
     }
   };
 
@@ -175,22 +215,17 @@ export default function CostaCapitalLanding() {
         q1no: 'Nee, een privéperson',
         q1reject: 'Costa Capital specialiseert zich in zakelijke vastgoedfinanciering voor professionele en corporate entiteiten. Wij arrangeren geen financiering voor privépersonen of eigenwoningen.',
         q2: 'Wat is het doel van de financiering?',
-        q2opt1: 'Beleggingsvastgoed',
-        q2opt2: 'Ontwikkelingsproject',
-        q2opt3: 'Acquisitie',
-        q2opt4: 'Herfinanciering',
-        q2opt5: 'Zakelijke overbruggingsfinanciering',
-        q2opt6: 'Eigen bewoning of privé woning',
+        q2opt1: 'Acquisitie financiering',
+        q2opt2: 'Ontwikkelings financiering',
+        q2opt3: 'Overbruggings financiering',
+        q2opt4: 'Herfinanciering / herstructurering',
+        q2opt5: 'Weet nog niet zeker',
         q2reject: 'Costa Capital arrangeert geen consumentenkrediet of eigenwoningfinancieringen.',
-        q3: 'Is de transactie voor zakelijke of beleggingsdoeleinden?',
-        q3yes: 'Ja',
-        q3no: 'Nee',
-        q3reject: 'Costa Capital arrangeert geen consumentenkrediet of eigenwoningfinancieringen.',
         proceed: 'Prima! Laat me je verbinden met onze financieringsadviseur.'
       },
       chat: {
-        title: 'AI Financierings Adviseur',
-        subtitle: 'Stel uw vragen over financiering in Spanje',
+        title: 'Vastgoedfinanciering Beoordeling',
+        subtitle: 'Beoordeel uw financieringsstructuur, kredietwaardigheid en verbetermogelijkheden',
         placeholder: 'Stel uw vraag...',
         empty: 'Start een gesprek over uw Spaanse vastgoedproject',
         suggestions: ['Wat zijn de voorwaarden voor financiering in Marbella?', 'Hoe werkt het NIE proces voor buitenlandse investeerders?', 'Welke LTV hanteert Costa Capital voor Costa del Sol projecten?'],
@@ -253,22 +288,17 @@ export default function CostaCapitalLanding() {
         q1no: 'No, a private individual',
         q1reject: 'Costa Capital specializes in business-purpose financing for corporate and professional legal entities. We do not arrange financing for private individuals or owner-occupied residential property.',
         q2: 'What is the purpose of the financing?',
-        q2opt1: 'Investment property',
-        q2opt2: 'Development project',
-        q2opt3: 'Acquisition',
-        q2opt4: 'Refinancing',
-        q2opt5: 'Business-purpose bridge finance',
-        q2opt6: 'Owner-occupied or private residence',
+        q2opt1: 'Acquisition finance',
+        q2opt2: 'Development finance',
+        q2opt3: 'Bridge finance',
+        q2opt4: 'Refinancing / restructuring',
+        q2opt5: 'Not sure yet',
         q2reject: 'Costa Capital does not arrange consumer or owner-occupied residential mortgage finance.',
-        q3: 'Is the transaction for business or investment purposes?',
-        q3yes: 'Yes',
-        q3no: 'No',
-        q3reject: 'Costa Capital does not arrange consumer or owner-occupied residential mortgage finance.',
         proceed: 'Great! Let me connect you with our financing advisor.'
       },
       chat: {
-        title: 'AI Financing Advisor',
-        subtitle: 'Ask your questions about financing in Spain',
+        title: 'Real Estate Financing Assessment',
+        subtitle: 'Assess your financing structure, lender readiness and potential improvements',
         placeholder: 'Ask your question...',
         empty: 'Start a conversation about your Spanish real estate project',
         suggestions: ['What are the terms for financing in Marbella?', 'How does the NIE process work for foreign investors?', 'What LTV does Costa Capital use for Costa del Sol projects?'],
@@ -331,22 +361,17 @@ export default function CostaCapitalLanding() {
         q1no: 'No, una persona física',
         q1reject: 'Costa Capital se especializa en financiación empresarial para entidades legales profesionales y corporativas. No financiamos a personas físicas ni propiedades de uso propio.',
         q2: '¿Cuál es el propósito de la financiación?',
-        q2opt1: 'Propiedad de inversión',
-        q2opt2: 'Proyecto de desarrollo',
-        q2opt3: 'Adquisición',
-        q2opt4: 'Refinanciación',
-        q2opt5: 'Financiación puente comercial',
-        q2opt6: 'Vivienda propia o de uso privado',
+        q2opt1: 'Financiación de adquisición',
+        q2opt2: 'Financiación de desarrollo',
+        q2opt3: 'Financiación puente',
+        q2opt4: 'Refinanciación / reestructuración',
+        q2opt5: 'No estoy seguro todavía',
         q2reject: 'Costa Capital no ofrece crédito al consumo ni financiación de viviendas de uso propio.',
-        q3: '¿Es la transacción con propósito comercial o de inversión?',
-        q3yes: 'Sí',
-        q3no: 'No',
-        q3reject: 'Costa Capital no ofrece crédito al consumo ni financiación de viviendas de uso propio.',
         proceed: '¡Excelente! Permíteme conectarte con nuestro asesor de financiación.'
       },
       chat: {
-        title: 'Asesor IA de Financiación',
-        subtitle: 'Haga sus preguntas sobre financiación en España',
+        title: 'Evaluación de Financiación Inmobiliaria',
+        subtitle: 'Evalúe su estructura de financiación, disposición crediticia y mejoras potenciales',
         placeholder: 'Haga su pregunta...',
         empty: 'Inicie una conversación sobre su proyecto inmobiliario en España',
         suggestions: ['¿Cuáles son las condiciones de financiación en Marbella?', '¿Cómo funciona el proceso NIE para inversores extranjeros?', '¿Qué LTV aplica Costa Capital para proyectos en Costa del Sol?'],
@@ -364,6 +389,79 @@ export default function CostaCapitalLanding() {
         total: 'Intereses Totales (indicativo)',
         note: '✓ Esta indicación se basa en condiciones estándar para proyectos en España. Para una oferta exacta, nos pondremos en contacto con usted.',
         discuss: 'Consultar con Asesor IA'
+      }
+    },
+    pl: {
+      nav: { contact: 'Kontakt', backLabel: 'Powrót na stronę główną' },
+      hero: {
+        badge: 'Specjalizacja na obszarach wybrzeża Hiszpańskiego',
+        title: 'Finansowanie Nieruchomości\nSpańskie Wybrzeża',
+        subtitle: 'Eksperci w Costa del Sol, Costa Blanca i regionie Walencji. Finansowanie dla inwestorów międzynarodowych i lokalnych deweloperów. Od €500K do €50M+.',
+        cta1: 'Rozpocznij Rozmowę AI',
+        cta2: 'Oblicz Finansowanie',
+        location: 'Siedziba w Walencji, Hiszpania'
+      },
+      stats: { financed: 'Sfinansowane w Hiszpanii', response: 'Pierwsza Odpowiedź', projects: 'Projekty w Hiszpanii', satisfaction: 'Zadowolenie Klientów' },
+      features: {
+        title: 'Dlaczego Costa Capital dla Wybrzeży Hiszpańskich?',
+        speed: { title: 'Lokalna Wiedza', desc: 'Biuro w Walencji z głęboką wiedzą o całym wybrzeżu Hiszpańskim: Costa del Sol (Marbella, Málaga), Costa Blanca (Alicante, Dénia) i Walencja. Mówimy tym językiem — dosłownie i w przenośni.' },
+        flex: { title: 'Struktury Międzynarodowe', desc: 'Doświadczenie w transakcjach transgranicznych, strukturach offshore i optymalizacji podatkowej dla inwestorów zagranicznych w Hiszpanii.' },
+        complex: { title: 'Specjaliści Wybrzeży Hiszpańskich', desc: 'Od Marbelli do Walencji: Málaga, Marbella, Estepona, Benidorm, Alicante, Dénia, Jávea, Walencja. Znamy wybrzeża Hiszpańskie na wylot i mamy sieci lokalni notariusze, prawnicy i deweloperzy.' }
+      },
+      markets: {
+        title: 'Nasze Specjalizacje w Hiszpanii',
+        subtitle: 'Od Costa del Sol do Costa Blanca',
+        coastal: { title: 'Luksusowe Nieruchomości Przybrzeżne', desc: 'Wille, apartamenty i kompleksy kurortowe wzdłuż Costa del Sol i Costa Blanca. Od Marbelli do Walencji. LTV do 70% dla mocnych lokalizacji.' },
+        commercial: { title: 'Nieruchomości Komercyjne', desc: 'Handel detaliczny, hotelarstwo i powierzchnie biurowe w Máladze, Marbelli, Walencji i innych obszarach przybrzeżnych. Idealne dla handlowców międzynarodowych.' },
+        tourism: { title: 'Projekty Turystyczne', desc: 'Hotele, domy wakacyjne i kompleksy krótkoterminowe. Zrozumienie licencji turystycznych i regulacji. Projekt ostateczny: hotel Marbella €10M.' }
+      },
+      reviews: { title: 'Udane Finansowania w Hiszpanii', subtitle: 'Co mówią nasi klienci o swoich projektach na wybrzeżu Hiszpańskim' },
+      spanish: {
+        title: 'Rynek Nieruchomości Hiszpańskich',
+        intro: 'Dlaczego inwestować w obszary przybrzeżne Hiszpanii?',
+        points: ['300+ dni słoneczne rocznie — idealny klimat na wszystkich wybrzeżach', 'Rosnący popyt międzynarodowy od Costa del Sol do Costa Blanca', 'Málaga, Marbella, Walencja: silny wzrost i infrastruktura', 'Stosunkowo niskie ceny nieruchomości vs inne wybrzeża UE', 'Stabilny rynek wynajmu dzięki turystyce i expatów', 'Nowa infrastruktura: sieć AVE, rozszerzenia portów lotniczych']
+      },
+      process: { title: 'Proces Finansowania', subtitle: 'Od wniosku do zamknięcia w Hiszpanii' },
+      social: {
+        title: 'Dlaczego inwestorzy międzynarodowi nas wybierają',
+        benefits: ['Pomoc w aplikacji NIE i koncie bankowym w Hiszpanii', 'Sieć zaufanych lokalnych prawników i notariuszy (Costa del Sol do Costa Blanca)', 'Doświadczenie z procesami residencia i golden visa', 'Znajomość Ley de Costas i innych przepisów hiszpańskich', 'Strukturowanie podatkowe przez partnerów holenderskich i hiszpańskich', 'Wsparcie w zarządzaniu projektami podczas budowy']
+      },
+      cta: { title: 'Gotowy na Swój Projekt Nieruchomości w Hiszpanii?', subtitle: 'Omów swoje plany z naszym doradcą AI siedzibą w Walencji lub zaplanuj osobistą rozmowę', btn1: 'Rozpocznij Rozmowę', btn2: 'Zaplanuj Spotkanie' },
+      footer: { desc: 'Specjaliści finansowania nieruchomości dla inwestorów międzynarodowych i lokalnych deweloperów w Hiszpanii.', contact: 'Kontakt', location: 'Lokalizacja', valencia: 'Walencja, Hiszpania (Główna Siedziba)', denia: 'Dénia, Costa Blanca', rights: '© 2024 Costa Capital. Wszystkie prawa zastrzeżone. Zarejestrowane w Hiszpanii' },
+      eligibility: {
+        q1: 'Czy pożyczający jest podmiotem prawnym? (korporacja, partnership, fundusz inwestycyjny, itp.)',
+        q1yes: 'Tak, podmiot prawny',
+        q1no: 'Nie, osoba fizyczna',
+        q1reject: 'Costa Capital specjalizuje się w finansowaniu biznesowym dla profesjonalnych i korporacyjnych podmiotów prawnych. Nie finansujemy osób fizycznych ani nieruchomości z przeznaczeniem na mieszkanie.',
+        q2: 'Jaki jest cel finansowania?',
+        q2opt1: 'Finansowanie akwizycji',
+        q2opt2: 'Finansowanie rozwoju',
+        q2opt3: 'Finansowanie przejściowe',
+        q2opt4: 'Refinansowanie / restrukturyzacja',
+        q2opt5: 'Nie jestem jeszcze pewien',
+        q2reject: 'Costa Capital nie oferuje kredytu konsumenckiego ani finansowania nieruchomości na użytek własny.',
+        proceed: 'Świetnie! Pozwól, że połączę Cię z naszym doradcą finansowym.'
+      },
+      chat: {
+        title: 'Ocena Finansowania Nieruchomości',
+        subtitle: 'Oceń swoją strukturę finansowania, zdolność kredytową i potencjalne ulepszenia',
+        placeholder: 'Zadaj swoje pytanie...',
+        empty: 'Rozpocznij rozmowę o swoim projekcie nieruchomości w Hiszpanii',
+        suggestions: ['Jakie są warunki finansowania w Marbelli?', 'Jak działa proces NIE dla inwestorów zagranicznych?', 'Jaki LTV stosuje Costa Capital dla projektów Costa del Sol?'],
+        systemPrompt: 'You are a financial advisor for Costa Capital, specialized in real estate financing for Spanish coastal areas: Costa del Sol (Marbella, Málaga, Estepona), Costa Blanca (Alicante, Benidorm, Dénia, Jávea) and Valencia. You help international investors and local developers with questions about financing, Spanish regulations (NIE, escritura, nota simple), and investing in Spain. Answer in Polish (język polski).'
+      },
+      calc: {
+        title: 'Kalkulator Finansowania',
+        subtitle: 'Uzyskaj wskazanie dla swojego projektu w Hiszpanii',
+        loanAmount: 'Żądana Kwota Pożyczki',
+        projectValue: 'Wartość Projektu',
+        term: 'Okres',
+        months: 'miesięcy',
+        ltv: 'Loan-to-Value (LTV)',
+        monthly: 'Wskazana Miesięczna Rata',
+        total: 'Całkowite Odsetki (wskazanie)',
+        note: '✓ To wskazanie opiera się na warunkach standardowych dla projektów w Hiszpanii. Aby uzyskać dokładną ofertę, chętnie się z Tobą skontaktujemy.',
+        discuss: 'Omów z Doradcą AI'
       }
     }
   };
@@ -392,6 +490,9 @@ export default function CostaCapitalLanding() {
   const text = t[language] || t['nl'];
   const clientReviews = reviews[language] || reviews['nl'];
 
+  // ═══ CHECK IF ELIGIBILITY CONFIRMED ═══
+  const isEligibilityConfirmed = financingType !== null && eligibilityResponses.isLegalEntity === 'Yes';
+
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
     const userMsg = inputMessage;
@@ -400,33 +501,110 @@ export default function CostaCapitalLanding() {
     setChatMessages(updatedMessages);
     setIsLoading(true);
     setWebSearchUsed(false);
+
     try {
       const requestStart = Date.now();
+
+      // ═══ DETERMINE REQUEST MODE & BODY ═══
+      let requestBody = {
+        language,
+      };
+
+      if (currentStage === 'intake') {
+        // Stage 1: Include eligibility + financing type
+        requestBody = {
+          mode: 'intake',
+          language,
+          eligibility: {
+            legalEntity: true,  // Already confirmed by gate
+            businessPurpose: true,  // Already confirmed by financing type selection
+          },
+          financingType: financingType,
+          userMessage: userMsg,
+          sessionHistory: updatedMessages.slice(0, -1).map(m => ({ role: m.role, content: m.content })),
+        };
+      } else if (currentStage === 'assessment') {
+        // Stage 2: Only inventory
+        requestBody = {
+          mode: 'assessment',
+          language,
+          projectInventory: projectInventory,
+        };
+      } else if (currentStage === 'optimization') {
+        // Stage 3: Inventory + assessment
+        requestBody = {
+          mode: 'optimization',
+          language,
+          projectInventory: projectInventory,
+          financingAssessment: financingAssessment,
+        };
+      }
+
       const response = await fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: updatedMessages.map(m => ({ role: m.role, content: m.content })),
-          language,
-          sessionMemory: chatMessages.length === 0 ? sessionMemory : null
-        }),
+        body: JSON.stringify(requestBody),
       });
+
       const requestEnd = Date.now();
       console.log(`[CLIENT] Roundtrip time: ${requestEnd - requestStart}ms`);
-      
+
       if (!response.ok) throw new Error('API call failed');
       const data = await response.json();
 
-      // Handle web search indicator
-      if (data.webSearchUsed) setWebSearchUsed(true);
+      // ═══ HANDLE RESPONSE BASED ON STAGE ═══
+      if (currentStage === 'intake') {
+        // Check for inventory complete
+        if (data.data?.stage === 'inventory_complete' && data.data?.inventoryComplete === true) {
+          setProjectInventory(data.data);
+          setCurrentStage('intake'); // Stay in intake, show button
+          setShowAssessmentButton(true);
 
-      // Handle structured financing options
-      const newMsg = {
-        role: 'assistant',
-        content: data.message,
-        structured: data.structured || null
-      };
-      setChatMessages(prev => [...prev, newMsg]);
+          // Display inventory summary (NOT raw JSON)
+          const inventorySummary = `✓ Project inventory collected\n\nBorrower: ${data.data.borrowerEntity || 'N/A'}\nLocation: ${data.data.location || 'N/A'}\nRequested debt: €${data.data.requestedDebt ? data.data.requestedDebt.toLocaleString() : 'N/A'}`;
+          
+          const newMsg = {
+            role: 'assistant',
+            content: inventorySummary
+          };
+          setChatMessages(prev => [...prev, newMsg]);
+        } else if (data.data?.conversational === true) {
+          // Conversational response
+          const newMsg = {
+            role: 'assistant',
+            content: data.data.response
+          };
+          setChatMessages(prev => [...prev, newMsg]);
+        }
+      } else if (currentStage === 'assessment') {
+        // Assessment complete
+        if (data.data?.stage === 'assessment_complete') {
+          setFinancingAssessment(data.data);
+          setShowAssessmentButton(false);
+          setShowOptimizationButton(true);
+
+          // Display readable assessment (NOT raw JSON)
+          const assessmentSummary = `📊 FINANCING ASSESSMENT\n\nFit: ${data.data.financingFit || 'N/A'}\nLender Readiness: ${data.data.lenderReadiness?.score || 'N/A'}/10\nRecommended: ${data.data.recommendedStructure?.type || 'N/A'}\nAmount: ${data.data.recommendedStructure?.amount || 'N/A'}`;
+
+          const newMsg = {
+            role: 'assistant',
+            content: assessmentSummary
+          };
+          setChatMessages(prev => [...prev, newMsg]);
+        }
+      } else if (currentStage === 'optimization') {
+        // Optimization complete
+        if (data.data?.stage === 'optimization_complete') {
+          const optSummary = `🎯 OPTIMIZATION\n\n${data.data.optimizationSummary || 'N/A'}\n\nNext: ${data.data.nextStep || 'Contact us'}`;
+
+          const newMsg = {
+            role: 'assistant',
+            content: optSummary
+          };
+          setChatMessages(prev => [...prev, newMsg]);
+          setShowOptimizationButton(false);
+        }
+      }
 
       // Auto-save memory if backend returned a summary
       if (data.autoSummary) {
@@ -439,6 +617,7 @@ export default function CostaCapitalLanding() {
         } catch (e) {}
       }
     } catch (error) {
+      console.error('Error:', error);
       setChatMessages(prev => [...prev, {
         role: 'assistant',
         content: language === 'nl'
@@ -447,6 +626,74 @@ export default function CostaCapitalLanding() {
           ? 'Lo sentimos, algo salió mal. Contáctenos directamente en info@costacapital.pro o llame/WhatsApp +31 6 8175 2045.'
           : 'Sorry, something went wrong. Please contact us directly at info@costacapital.pro or call/WhatsApp +31 6 8175 2045.'
       }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // ═══ TRIGGER ASSESSMENT ═══
+  const triggerAssessment = async () => {
+    setCurrentStage('assessment');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mode: 'assessment',
+          language,
+          projectInventory: projectInventory,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Assessment failed');
+      const data = await response.json();
+
+      if (data.data?.stage === 'assessment_complete') {
+        setFinancingAssessment(data.data);
+        setShowAssessmentButton(false);
+        setShowOptimizationButton(true);
+
+        const assessmentSummary = `📊 FINANCING ASSESSMENT\n\nFit: ${data.data.financingFit || 'N/A'}\nLender Readiness: ${data.data.lenderReadiness?.score || 'N/A'}/10`;
+        setChatMessages(prev => [...prev, { role: 'assistant', content: assessmentSummary }]);
+      }
+    } catch (error) {
+      console.error('Assessment error:', error);
+      setChatMessages(prev => [...prev, { role: 'assistant', content: 'Assessment failed. Please try again.' }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // ═══ TRIGGER OPTIMIZATION ═══
+  const triggerOptimization = async () => {
+    setCurrentStage('optimization');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mode: 'optimization',
+          language,
+          projectInventory: projectInventory,
+          financingAssessment: financingAssessment,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Optimization failed');
+      const data = await response.json();
+
+      if (data.data?.stage === 'optimization_complete') {
+        const optSummary = `🎯 OPTIMIZATION\n\n${data.data.optimizationSummary || 'N/A'}`;
+        setChatMessages(prev => [...prev, { role: 'assistant', content: optSummary }]);
+        setShowOptimizationButton(false);
+      }
+    } catch (error) {
+      console.error('Optimization error:', error);
+      setChatMessages(prev => [...prev, { role: 'assistant', content: 'Optimization failed. Please try again.' }]);
     } finally {
       setIsLoading(false);
     }
@@ -491,7 +738,7 @@ export default function CostaCapitalLanding() {
         </a>
         <div className="cc-nav-right">
           <div className="cc-lang-toggle">
-            {['nl', 'en', 'es'].map(lang => (
+            {['nl', 'en', 'es', 'pl'].map(lang => (
               <button
                 key={lang}
                 onClick={() => setLanguage(lang)}
@@ -722,12 +969,6 @@ export default function CostaCapitalLanding() {
                       <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
                     </>
                   )}
-                  {eligibilityStep === 'rejected_personal' && (
-                    <>
-                      <p style={{fontSize:'0.95rem',color:'var(--cc-white)',marginBottom:'1rem'}}>{text.eligibility.q3reject}</p>
-                      <p style={{fontSize:'0.8rem',color:'var(--cc-muted)'}}>📧 {language === 'nl' ? 'Meer info:' : language === 'es' ? 'Más información:' : 'More info:'} info@costacapital.pro</p>
-                    </>
-                  )}
                   {eligibilityStep === 1 && (
                     <>
                       <p style={{fontSize:'0.85rem',color:'var(--cc-muted)',marginBottom:'1.5rem'}}>{text.eligibility.q1}</p>
@@ -741,18 +982,9 @@ export default function CostaCapitalLanding() {
                     <>
                       <p style={{fontSize:'0.85rem',color:'var(--cc-muted)',marginBottom:'1.5rem'}}>{text.eligibility.q2}</p>
                       <div style={{display:'flex',gap:'0.6rem',flexDirection:'column'}}>
-                        {[text.eligibility.q2opt1, text.eligibility.q2opt2, text.eligibility.q2opt3, text.eligibility.q2opt4, text.eligibility.q2opt5, text.eligibility.q2opt6].map((opt, i) => (
-                          <button key={i} onClick={() => handleEligibilityAnswer('financingPurpose', opt)} style={{background:opt === text.eligibility.q2opt6 ? 'rgba(255,80,80,0.1)' : 'var(--cc-surface)',color:'var(--cc-white)',border: opt === text.eligibility.q2opt6 ? '1px solid rgba(255,80,80,0.3)' : '1px solid var(--cc-border)',padding:'0.65rem 1rem',fontSize:'0.78rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.05em',textAlign:'left'}}>{opt}</button>
+                        {[text.eligibility.q2opt1, text.eligibility.q2opt2, text.eligibility.q2opt3, text.eligibility.q2opt4, text.eligibility.q2opt5].map((opt, i) => (
+                          <button key={i} onClick={() => handleEligibilityAnswer('financingType', opt)} style={{background:'var(--cc-surface)',color:'var(--cc-white)',border:'1px solid var(--cc-border)',padding:'0.65rem 1rem',fontSize:'0.78rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.05em',textAlign:'left'}}>{opt}</button>
                         ))}
-                      </div>
-                    </>
-                  )}
-                  {eligibilityStep === 3 && (
-                    <>
-                      <p style={{fontSize:'0.85rem',color:'var(--cc-muted)',marginBottom:'1.5rem'}}>{text.eligibility.q3}</p>
-                      <div style={{display:'flex',gap:'0.8rem',flexDirection:'column'}}>
-                        <button onClick={() => handleEligibilityAnswer('businessPurpose', 'Yes')} style={{background:'var(--cc-gold)',color:'var(--cc-black)',border:'none',padding:'0.7rem 1.2rem',fontSize:'0.82rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.1em',textTransform:'uppercase'}}>{text.eligibility.q3yes}</button>
-                        <button onClick={() => handleEligibilityAnswer('businessPurpose', 'No')} style={{background:'var(--cc-surface)',color:'var(--cc-white)',border:'1px solid var(--cc-border)',padding:'0.7rem 1.2rem',fontSize:'0.82rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.1em',textTransform:'uppercase'}}>{text.eligibility.q3no}</button>
                       </div>
                     </>
                   )}
@@ -776,7 +1008,7 @@ export default function CostaCapitalLanding() {
                 </div>
               )}
 
-              {chatMessages.length === 0 && (
+              {chatMessages.length === 0 && !showEligibilityGate && (
                 <div className="cc-chat-empty">
                   <MessageSquare size={40} className="cc-chat-empty-icon" />
                   <p>{text.chat.empty}</p>
@@ -789,54 +1021,47 @@ export default function CostaCapitalLanding() {
               )}
 
               {chatMessages.map((msg, i) => (
-                <div key={i}>
-                  <div className={`cc-msg-row${msg.role === 'user' ? ' user' : ''}`}>
-                    <div className={`cc-msg${msg.role === 'user' ? ' cc-msg-user' : ' cc-msg-ai'}`}>
-                      {msg.content && <p style={{whiteSpace:'pre-wrap'}}>{msg.content}</p>}
-                    </div>
+                <div key={i} className={`cc-msg-row${msg.role === 'user' ? ' user' : ''}`}>
+                  <div className={`cc-msg${msg.role === 'user' ? ' cc-msg-user' : ' cc-msg-ai'}`}>
+                    {msg.content && <p style={{whiteSpace:'pre-wrap'}}>{msg.content}</p>}
                   </div>
-                  {/* Structured financing options */}
-                  {msg.structured?.showOptions && (
-                    <div style={{margin:'0.8rem 0',border:'1px solid var(--cc-gold-dim)',background:'rgba(200,169,110,0.04)',padding:'1.2rem'}}>
-                      {msg.structured.projectSummary && (
-                        <p style={{fontSize:'0.78rem',color:'var(--cc-muted)',marginBottom:'1rem',fontStyle:'italic'}}>{msg.structured.projectSummary}</p>
-                      )}
-                      <div style={{display:'flex',flexDirection:'column',gap:'0.8rem',marginBottom:'1rem'}}>
-                        {msg.structured.options?.map((opt, j) => (
-                          <div key={j} style={{background:'var(--cc-card)',border:'1px solid var(--cc-border)',padding:'1rem'}}>
-                            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.5rem'}}>
-                              <strong style={{fontFamily:'var(--cc-font-display,serif)',fontSize:'1rem',color:'var(--cc-gold-light)'}}>{opt.type}</strong>
-                              <span style={{fontSize:'0.9rem',fontWeight:500}}>{opt.loanAmount}</span>
-                            </div>
-                            <div style={{display:'flex',gap:'1rem',flexWrap:'wrap',fontSize:'0.78rem',color:'var(--cc-muted)',marginBottom:'0.4rem'}}>
-                              <span>LTV: <strong style={{color:'var(--cc-white)'}}>{opt.ltv}</strong></span>
-                              <span>Rate: <strong style={{color:'var(--cc-white)'}}>{opt.rate}</strong></span>
-                              <span>Term: <strong style={{color:'var(--cc-white)'}}>{opt.term}</strong></span>
-                            </div>
-                            {opt.notes && <p style={{fontSize:'0.75rem',color:'var(--cc-muted)',marginTop:'0.3rem'}}>{opt.notes}</p>}
-                          </div>
-                        ))}
-                      </div>
-                      {msg.structured.recommendation && (
-                        <p style={{fontSize:'0.82rem',color:'var(--cc-gold)',marginBottom:'0.8rem'}}>💡 {msg.structured.recommendation}</p>
-                      )}
-                      {msg.structured.nextStep && (
-                        <p style={{fontSize:'0.78rem',color:'var(--cc-muted)',borderTop:'1px solid var(--cc-border)',paddingTop:'0.8rem'}}>→ {msg.structured.nextStep}</p>
-                      )}
-                    </div>
-                  )}
                 </div>
               ))}
 
-              {/* Web search indicator */}
-              {webSearchUsed && (
-                <div style={{fontSize:'0.7rem',color:'var(--cc-gold)',display:'flex',alignItems:'center',gap:'0.4rem',padding:'0.4rem 0',opacity:0.7}}>
-                  <span>🌐</span>
-                  <span>{language === 'nl' ? 'Actuele marktinformatie opgezocht' : language === 'es' ? 'Información de mercado actualizada' : 'Live market data retrieved'}</span>
+              {/* Assessment Button */}
+              {showAssessmentButton && projectInventory && (
+                <div style={{padding:'1rem',textAlign:'center'}}>
+                  <button onClick={triggerAssessment} disabled={isLoading} style={{background:'var(--cc-gold)',color:'var(--cc-black)',border:'none',padding:'0.8rem 2rem',fontSize:'0.85rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.05em',textTransform:'uppercase'}}>
+                    {isLoading ? (language === 'nl' ? 'Analyseren...' : language === 'es' ? 'Analizando...' : 'Analyzing...') : (language === 'nl' ? 'Genereer Beoordeling' : language === 'es' ? 'Generar Evaluación' : 'Generate Assessment')}
+                  </button>
                 </div>
               )}
 
-              {isLoading && (
+              {/* Optimization Button */}
+              {showOptimizationButton && financingAssessment && (
+                <div style={{padding:'1rem',textAlign:'center'}}>
+                  <button onClick={triggerOptimization} disabled={isLoading} style={{background:'var(--cc-gold)',color:'var(--cc-black)',border:'none',padding:'0.8rem 2rem',fontSize:'0.85rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.05em',textTransform:'uppercase'}}>
+                    {isLoading ? (language === 'nl' ? 'Analyseren...' : language === 'es' ? 'Analizando...' : language === 'pl' ? 'Analizowanie...' : 'Analyzing...') : (language === 'nl' ? 'Verbeter Financierbaarheid' : language === 'es' ? 'Mejorar Financiabilidad' : language === 'pl' ? 'Polepszenie Finansowalności' : 'Improve Financeability')}
+                  </button>
+                </div>
+              )}
+
+              {/* Targeted Lender Review Section */}
+              {financingAssessment?.targetedLenderReview?.recommended === true && (
+                <div style={{margin:'1rem',padding:'1rem',border:'1px solid var(--cc-border)',borderRadius:'0.3rem',background:'var(--cc-light)'}}>
+                  <h4 style={{margin:'0 0 0.5rem 0',fontSize:'0.95rem',fontWeight:600,color:'var(--cc-text)'}}>
+                    {language === 'nl' ? 'Gerichte Lenderbeoordeling' : language === 'es' ? 'Revisión de Prestamista Dirigida' : language === 'pl' ? 'Kierunkowe Przeglądy Pożyczkodawcy' : 'Targeted Lender Review'}
+                  </h4>
+                  <p style={{margin:'0.5rem 0',fontSize:'0.85rem',lineHeight:'1.5',color:'var(--cc-text)'}}>
+                    {financingAssessment.targetedLenderReview.reason}
+                  </p>
+                  <p style={{margin:'0.5rem 0 0 0',fontSize:'0.8rem',color:'var(--cc-muted)'}}>
+                    {language === 'nl' ? 'Neem contact op met Costa Capital voor een gericht lenderonderzoek.' : language === 'es' ? 'Póngase en contacto con Costa Capital para una revisión de prestamista dirigida.' : language === 'pl' ? 'Skontaktuj się z Costa Capital w celu przeprowadzenia kierunkowego przeglądu pożyczkodawcy.' : 'Contact Costa Capital for a transaction-specific lender review.'}
+                  </p>
+                </div>
+              )}
+
+              {isLoading && !showAssessmentButton && !showOptimizationButton && (
                 <div className="cc-msg-row">
                   <div className="cc-msg cc-msg-ai">
                     <span className="cc-dot-1" /><span className="cc-dot-2" /><span className="cc-dot-3" />
@@ -846,18 +1071,26 @@ export default function CostaCapitalLanding() {
               <div ref={chatBottomRef} />
             </div>
             <div className="cc-modal-footer">
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={e => setInputMessage(e.target.value)}
-                onKeyPress={e => e.key === 'Enter' && handleSendMessage()}
-                placeholder={text.chat.placeholder}
-                className="cc-chat-input"
-                disabled={isLoading}
-              />
-              <button onClick={handleSendMessage} disabled={isLoading || !inputMessage.trim()} className="cc-chat-send">
-                <ChevronRight size={18} />
-              </button>
+              {isEligibilityConfirmed ? (
+                <>
+                  <input
+                    type="text"
+                    value={inputMessage}
+                    onChange={e => setInputMessage(e.target.value)}
+                    onKeyPress={e => e.key === 'Enter' && handleSendMessage()}
+                    placeholder={text.chat.placeholder}
+                    className="cc-chat-input"
+                    disabled={isLoading}
+                  />
+                  <button onClick={handleSendMessage} disabled={isLoading || !inputMessage.trim()} className="cc-chat-send">
+                    <ChevronRight size={18} />
+                  </button>
+                </>
+              ) : (
+                <div style={{fontSize:'0.8rem',color:'var(--cc-muted)',padding:'0.5rem',textAlign:'center',width:'100%'}}>
+                  {language === 'nl' ? 'Beantwoord alstublieft de geschiktheidsvragen om door te gaan.' : language === 'es' ? 'Por favor responda las preguntas de elegibilidad para continuar.' : 'Please answer the eligibility questions to proceed.'}
+                </div>
+              )}
             </div>
           </div>
         </div>
