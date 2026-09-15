@@ -944,20 +944,29 @@ async function callAnthropicSingleRequest(mode, language, systemPrompt, userMess
 // ────────────────────────────────────────────────────────────────────────────────────
 
 function extractJSON(text) {
+  // Try fenced JSON first
   const jsonMatch = text.match(/\`\`\`json\n([\s\S]*?)\`\`\`/);
   if (jsonMatch && jsonMatch[1]) {
     try {
-      return JSON.parse(jsonMatch[1]);
+      console.log('[PARSE] Fenced JSON found, attempting parse...');
+      const parsed = JSON.parse(jsonMatch[1]);
+      console.log('[PARSE] ✅ Fenced JSON parsed successfully, keys:', Object.keys(parsed).join(', '));
+      return parsed;
     } catch (e) {
-      console.error('[ERROR] Failed to parse JSON:', e.message);
+      console.error('[PARSE] ❌ Fenced JSON parse failed:', e.message);
       return null;
     }
   }
 
+  // Fall back to plain JSON
   try {
-    return JSON.parse(text);
+    console.log('[PARSE] No fenced JSON found, trying plain JSON...');
+    const parsed = JSON.parse(text);
+    console.log('[PARSE] ✅ Plain JSON parsed successfully, keys:', Object.keys(parsed).join(', '));
+    return parsed;
   } catch (e) {
-    console.error('[ERROR] No valid JSON found in response');
+    console.error('[PARSE] ❌ Plain JSON parse failed:', e.message);
+    console.error('[PARSE] ❌ Response preview (first 500 chars):', text.substring(0, 500));
     return null;
   }
 }
@@ -1153,16 +1162,31 @@ async function handleRequest(event) {
       const parsedJSON = extractJSON(apiResult.output);
 
       if (!parsedJSON) {
+        console.error(`[VALIDATION] ❌ ${mode} JSON parsing failed`);
         return {
           statusCode: 200,
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             mode: mode,
             error: 'Assessment/Optimization must return valid JSON',
-            rawOutput: apiResult.output
+            diagnostics: {
+              parsing: 'failed',
+              responsePreview: apiResult.output?.substring(0, 300),
+              stopReason: apiResult.stopReason,
+              outputTokens: apiResult.outputTokens
+            }
           })
         };
       }
 
+      // Log validation success and detected keys
+      console.log(`[VALIDATION] ✅ ${mode} JSON parsed, detected keys:`, Object.keys(parsedJSON).join(', '));
+      
+      // Validate required stage field
+      if (!parsedJSON.stage) {
+        console.error(`[VALIDATION] ❌ Missing required 'stage' field in ${mode} response`);
+      }
+      
       responseData = parsedJSON;
     }
 
