@@ -15,7 +15,6 @@ export default function CostaCapitalLanding() {
   const [isLoading, setIsLoading] = useState(false);
   const [sessionMemory, setSessionMemory] = useState(null);
   const [memoryDate, setMemoryDate] = useState(null);
-  const [webSearchUsed, setWebSearchUsed] = useState(false);
   const [showEligibilityGate, setShowEligibilityGate] = useState(false);
   const [eligibilityStep, setEligibilityStep] = useState(1);
   const [eligibilityResponses, setEligibilityResponses] = useState({});
@@ -500,7 +499,6 @@ export default function CostaCapitalLanding() {
     const updatedMessages = [...chatMessages, { role: 'user', content: userMsg }];
     setChatMessages(updatedMessages);
     setIsLoading(true);
-    setWebSearchUsed(false);
 
     try {
       const requestStart = Date.now();
