@@ -887,19 +887,26 @@ export default function CostaCapitalLanding() {
         }
 
         if (optReport.optimizedScenario) {
-          optContent += `**${text.reports.optimizedScenario}:**\n`;
           const scenario = optReport.optimizedScenario;
-          if (typeof scenario === 'string') {
-            optContent += `${scenario}\n\n`;
-          } else if (typeof scenario === 'object' && scenario !== null) {
-            // Render object properties as readable label/value pairs
-            Object.entries(scenario).forEach(([key, value]) => {
-              if (value !== null && value !== undefined && value !== '') {
-                const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim();
-                optContent += `• ${label}: ${value}\n`;
-              }
-            });
-            optContent += '\n';
+          // Hide entire section if show === false or if it's an object with only show property
+          const shouldShow = !(typeof scenario === 'object' && scenario !== null && scenario.show === false);
+          
+          if (shouldShow) {
+            optContent += `**${text.reports.optimizedScenario}:**\n`;
+            if (typeof scenario === 'string') {
+              optContent += `${scenario}\n\n`;
+            } else if (typeof scenario === 'object' && scenario !== null) {
+              // Render object properties as readable label/value pairs, excluding "show"
+              Object.entries(scenario).forEach(([key, value]) => {
+                // Skip the internal "show" property
+                if (key === 'show') return;
+                if (value !== null && value !== undefined && value !== '') {
+                  const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim();
+                  optContent += `• ${label}: ${value}\n`;
+                }
+              });
+              optContent += '\n';
+            }
           }
         }
 
@@ -1266,21 +1273,6 @@ export default function CostaCapitalLanding() {
                   <button onClick={triggerOptimization} disabled={isLoading} style={{background:'var(--cc-gold)',color:'var(--cc-black)',border:'none',padding:'0.8rem 2rem',fontSize:'0.85rem',fontWeight:500,cursor:'pointer',borderRadius:'0.3rem',letterSpacing:'0.05em',textTransform:'uppercase'}}>
                     {isLoading ? (language === 'nl' ? 'Analyseren...' : language === 'es' ? 'Analizando...' : language === 'pl' ? 'Analizowanie...' : 'Analyzing...') : (language === 'nl' ? 'Verbeter Financierbaarheid' : language === 'es' ? 'Mejorar Financiabilidad' : language === 'pl' ? 'Polepszenie Finansowalności' : 'Improve Financeability')}
                   </button>
-                </div>
-              )}
-
-              {/* Targeted Lender Review Section */}
-              {financingAssessment?.targetedLenderReview?.recommended === true && (
-                <div style={{margin:'1rem',padding:'1rem',border:'1px solid var(--cc-border)',borderRadius:'0.3rem',background:'var(--cc-light)'}}>
-                  <h4 style={{margin:'0 0 0.5rem 0',fontSize:'0.95rem',fontWeight:600,color:'var(--cc-text)'}}>
-                    {language === 'nl' ? 'Gerichte Lenderbeoordeling' : language === 'es' ? 'Revisión de Prestamista Dirigida' : language === 'pl' ? 'Kierunkowe Przeglądy Pożyczkodawcy' : 'Targeted Lender Review'}
-                  </h4>
-                  <p style={{margin:'0.5rem 0',fontSize:'0.85rem',lineHeight:'1.5',color:'var(--cc-text)'}}>
-                    {financingAssessment.targetedLenderReview.reason}
-                  </p>
-                  <p style={{margin:'0.5rem 0 0 0',fontSize:'0.8rem',color:'var(--cc-muted)'}}>
-                    {language === 'nl' ? 'Neem contact op met Costa Capital voor een gericht lenderonderzoek.' : language === 'es' ? 'Póngase en contacto con Costa Capital para una revisión de prestamista dirigida.' : language === 'pl' ? 'Skontaktuj się z Costa Capital w celu przeprowadzenia kierunkowego przeglądu pożyczkodawcy.' : 'Contact Costa Capital for a transaction-specific lender review.'}
-                  </p>
                 </div>
               )}
 
